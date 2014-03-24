@@ -719,6 +719,31 @@ window.shower = window.shower || (function(window, document, undefined) {
 			} else {
 				slide.classList.remove('visited');
 				slide.classList.add('active');
+
+                /**
+                 * Add the text from the first H2 as the TITLE element
+                 */
+                var text = $('#' + r.slideList[i].id + ' h2:first').text();
+                $('title').text(text);
+
+                /**
+                 * Swap out content of the live region as different slides are shown
+                 */
+                var tehSlidesContent = $('#' + r.slideList[i].id).html();
+                $('#live-region').empty().html(tehSlidesContent);
+
+                /**
+                 * Add ARIA on the progressbar
+                 */
+                var progPct = (100 / (r.slideList.length - 1) * r._normalizeSlideNumber(e)).toFixed(0);
+                $('.progress').attr({
+                    'role': "progressbar",
+                    'aria-valuenow' : progPct,
+                    'aria-valuemin': '0',
+                    'aria-valuemax': '100',
+                    'aria-valuetext': 'Slideshow Progress: ' + progPct + '%'
+                });
+
 			}
 		}
 
