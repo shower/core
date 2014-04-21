@@ -6,7 +6,14 @@
  */
 (function (s) {
 
+	if (!s) {
+		throw new Error('Shower not passed.');
+	}
+
+	// 
 	var storage = {};
+	
+	var slice = [].slice;
 
 	/**
 	 * Subscribe to an event.
@@ -58,9 +65,9 @@
 	 * @returns {Object} execution context
 	 */
 	s.trigger = function (name) {
-		var args = slice.call(arguments, 1);
-		var events = storage[name];
-		var allEvents = storage.all;
+		var args = slice.call(arguments, 1),
+			events = storage[name],
+			allEvents = storage.all;
 		if (events) {
 			triggerEvents(events, args);
 		}
@@ -70,8 +77,6 @@
 		return this;
 	};
 
-	var slice = [].slice;
-
 	var triggerEvents = function(events, args) {
 		var ev, i = -1, l = events.length;
 		while (++i < l) {
@@ -80,9 +85,9 @@
 		}
 	};
 
-
 	/**
-	 * Aspect weaver. It wraps any shower method with `before` and `after` aspects, which fires appropriate events.
+	 * Aspect weaver. It wraps any shower method and add `before` and `after` aspects,
+	 * which fires appropriate events.
 	 * Example:
 	 * shower.weaver('go');
 	 * shower.on('go:before', function () { alert('before'); });
@@ -95,12 +100,16 @@
 	 */
 	s.weaver = function (method) {
 		var original = s[method];
+		if (!original) {
+			throw new Error('Method "' + method + '" is not found.');
+		}
 		s[method] = function () {
-			s.trigger(method + ':before');
-			original.apply(this, arguments);
-			s.trigger(method + ':after');
+			var args = slice.call(arguments);
+			s.trigger.apply(s, [method + ':before'].concat(args));
+			original.apply(this, args);
+			s.trigger.apply(s, [method + ':after'].concat(args));
 		};
 		return this;
-	}
+	};
 
 }(window.shower));
