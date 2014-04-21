@@ -24,7 +24,11 @@
 	 */
 	s.on = function (name, callback, context) {
 		var events = storage[name] || (storage[name] = []);
-		events.push({callback: callback, context: context, ctx: context || this});
+		events.push({
+			callback: callback,
+			context: context,
+			scope: context || this
+		});
 		return this;
 	};
 
@@ -37,13 +41,13 @@
 	 * @returns {Object} shower
 	 */
 	s.off = function (name, callback, context) {
-		var retain, ev, events, i, j;
+		var retain, ev, events, l, i;
 
 		if (events = storage[name]) {
 			storage[name] = retain = [];
 			if (callback || context) {
-				for (j = 0, i = events.length; j < i; j++) {
-					ev = events[j];
+				for (i = 0, l = events.length; i < l; i++) {
+					ev = events[i];
 					if ((callback && callback !== ev.callback) || (context && context !== ev.context)) {
 						retain.push(ev);
 					}
@@ -85,7 +89,7 @@
 		var ev, i = -1, l = events.length;
 		while (++i < l) {
 			ev = events[i];
-			ev.callback.apply(ev.ctx, args);
+			ev.callback.apply(ev.scope, args);
 		}
 	};
 
