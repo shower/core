@@ -11,7 +11,7 @@
 	}
 
 	var storage = {};
-	
+
 	var slice = [].slice;
 
 	/**
@@ -20,9 +20,9 @@
 	 * @param {String} name of the event. Passing "all" will bind the callback to all events fired.
 	 * @param {Function} callback to run when specified event will trigger
 	 * @param {Object} [context] for callback
-	 * @returns {Object} execution context
+	 * @returns {Object} shower
 	 */
-	s.on = function(name, callback, context) {
+	s.on = function (name, callback, context) {
 		var events = storage[name] || (storage[name] = []);
 		events.push({callback: callback, context: context, ctx: context || this});
 		return this;
@@ -32,11 +32,11 @@
 	 * Unsubscribe from event.
 	 *
 	 * @param {String} name of the event
-	 * @param {Function} [callback]
+	 * @param {Function} [callback] function previously attached for the event.
 	 * @param {Object} [context]
-	 * @returns {Object} execution context
+	 * @returns {Object} shower
 	 */
-	s.off = function(name, callback, context) {
+	s.off = function (name, callback, context) {
 		var retain, ev, events, i, j;
 
 		if (events = storage[name]) {
@@ -61,7 +61,7 @@
 	 * Trigger event. Callbacks are passed the same arguments as trigger is, apart from the event name.
 	 *
 	 * @param {String} name of event to fire
-	 * @returns {Object} execution context
+	 * @returns {Object} shower
 	 */
 	s.trigger = function (name) {
 		var args = slice.call(arguments, 1),
@@ -76,7 +76,13 @@
 		return this;
 	};
 
-	var triggerEvents = function(events, args) {
+	/**
+	 * Run through events and invoke callback with passed arguments
+	 *
+	 * @param {Array} events to fire
+	 * @param {*} args
+	 */
+	var triggerEvents = function (events, args) {
 		var ev, i = -1, l = events.length;
 		while (++i < l) {
 			ev = events[i];
@@ -95,7 +101,7 @@
 	 * shower.go(2);
 	 *
 	 * @param {String} method to be wrapped
-	 * @returns {Object} execution context
+	 * @returns {Object} shower
 	 */
 	s.weaver = function (method) {
 		var original = s[method];
