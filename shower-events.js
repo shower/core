@@ -64,11 +64,10 @@
 	 * @returns {Object} shower
 	 */
 	s.trigger = function (name) {
-		var args = slice.call(arguments, 1),
-			events = storage[name],
+		var events = storage[name],
 			allEvents = storage.all;
 		if (events) {
-			triggerEvents(events, args);
+			triggerEvents(events, slice.call(arguments, 1));
 		}
 		if (allEvents) {
 			triggerEvents(allEvents, arguments);
