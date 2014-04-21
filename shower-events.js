@@ -10,7 +10,6 @@
 		throw new Error('Shower not passed.');
 	}
 
-	// 
 	var storage = {};
 	
 	var slice = [].slice;
