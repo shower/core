@@ -85,7 +85,7 @@
 	 * @param {Array} events to fire
 	 * @param {*} args
 	 */
-	var triggerEvents = function (events, args) {
+	function triggerEvents(events, args) {
 		var ev, i = -1, l = events.length;
 		while (++i < l) {
 			ev = events[i];
