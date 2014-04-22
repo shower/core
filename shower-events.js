@@ -91,7 +91,7 @@
 			ev = events[i];
 			ev.callback.apply(ev.scope, args);
 		}
-	};
+	}
 
 	/**
 	 * Aspect weaver. It wraps any shower method and add `before` and `after` aspects,
