@@ -48,7 +48,7 @@
 			if (callback || context) {
 				for (i = 0, l = events.length; i < l; i++) {
 					ev = events[i];
-					if ((callback && callback !== ev.callback) || (context && context !== ev.context)) {
+					if (callback && callback !== ev.callback || context && context !== ev.context) {
 						retain.push(ev);
 					}
 				}
