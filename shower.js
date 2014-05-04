@@ -13,7 +13,8 @@ window.shower = (function(window, document, undefined) {
 		slides = [],
 		progress = [],
 		timer,
-		isHistoryApiSupported = !!(window.history && window.history.pushState);
+		isHistoryApiSupported = !!(window.history && window.history.pushState),
+		debugMode = window.debugMode || false;
 
 	/**
 	 * Slide constructor
@@ -730,7 +731,7 @@ window.shower = (function(window, document, undefined) {
 	* Clear presenter notes in console (only for Slide Mode).
 	*/
 	shower.clearPresenterNotes = function() {
-		if (shower.isSlideMode() && window.console && window.console.clear) {
+		if (shower.isSlideMode() && window.console && window.console.clear && !debugMode) {
 			console.clear();
 		}
 	};
