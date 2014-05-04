@@ -600,8 +600,7 @@ window.shower = (function(window, document, undefined) {
 	/**
 	* Get current slide number. Starts from zero. Warning: when you have
 	* slide number 1 in URL this method will return 0.
-	* If there is no slide number in url, return -1.
-	* If there is a slide number in url, but the slide does not exist, return 0.
+	* If there is no slide number in url, AND slide does not exist, return -1.
 	* @returns {Number}
 	*/
 	shower.getCurrentSlideNumber = function() {
@@ -620,7 +619,7 @@ window.shower = (function(window, document, undefined) {
 			}
 		}
 
-		return 0;
+		return -1;
 	};
 
 	/**
@@ -823,6 +822,7 @@ window.shower = (function(window, document, undefined) {
 		var currentSlideNumber = shower.getCurrentSlideNumber(),
 			isSlideMode = body.classList.contains('full') || shower.isSlideMode();
 
+		//Go to first slide, if hash id is invalid.
 		if (currentSlideNumber === -1 && isSlideMode) {
 			shower.go(0);
 		} else if (currentSlideNumber === 0 || isSlideMode) {
@@ -835,10 +835,13 @@ window.shower = (function(window, document, undefined) {
 	}, false);
 
 	window.addEventListener('popstate', function() {
-		var currentSlideNumber = shower.getCurrentSlideNumber();
+		var currentSlideNumber = shower.getCurrentSlideNumber(),
+			isSlideMode = body.classList.contains('full') || shower.isSlideMode();
 
-		if (currentSlideNumber !== -1) {
-			shower.go(currentSlideNumber);
+		//Go to first slide, if hash id is invalid.
+		//Same check is located in DOMContentLoaded event, but it not fires on hash change.
+		if (currentSlideNumber === -1 && isSlideMode) {
+			shower.go(0);
 		}
 
 		if (shower.isListMode()) {
