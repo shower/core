@@ -224,14 +224,8 @@ window.shower = (function(window, document, undefined) {
 	 * @returns {Object} shower
 	 */
 	shower.trigger = function(name) {
-		var events = eventStorage[name],
-			allEvents = eventStorage.all;
-		if (events) {
-			triggerEvents(events, slice.call(arguments, 1));
-		}
-		if (allEvents) {
-			triggerEvents(allEvents, arguments);
-		}
+		eventStorage[name] && triggerEvents(eventStorage[name], slice.call(arguments, 1));
+		eventStorage.all && triggerEvents(eventStorage.all, arguments);
 		return this;
 	};
 
