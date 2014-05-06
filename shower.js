@@ -180,7 +180,7 @@ window.shower = (function(window, document, undefined) {
 	 * @param {Object} [context] for callback
 	 * @returns {Object} shower
 	 */
-	shower.on = function (name, callback, context) {
+	shower.on = function(name, callback, context) {
 		var events = eventStorage[name] || (eventStorage[name] = []);
 		events.push({
 			callback: callback,
@@ -197,7 +197,7 @@ window.shower = (function(window, document, undefined) {
 	 * @param {Object} [context]
 	 * @returns {Object} shower
 	 */
-	shower.off = function (name, callback, context) {
+	shower.off = function(name, callback, context) {
 		var retain, ev, events, l, i;
 
 		if (events = eventStorage[name]) {
@@ -223,7 +223,7 @@ window.shower = (function(window, document, undefined) {
 	 * @param {String} name of event to fire
 	 * @returns {Object} shower
 	 */
-	shower.trigger = function (name) {
+	shower.trigger = function(name) {
 		var events = eventStorage[name],
 			allEvents = eventStorage.all;
 		if (events) {
