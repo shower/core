@@ -832,7 +832,7 @@ window.shower = (function(window, document, undefined) {
 			isSlideMode = body.classList.contains('full') || shower.isSlideMode();
 
 		// Go to first slide, if hash id is invalid
-		if (currentSlideNumber === -1 && isSlideMode) {
+		if (currentSlideNumber === -1) {
 			shower.go(0);
 		} else if (currentSlideNumber === 0 || isSlideMode) {
 			shower.go(currentSlideNumber);
@@ -850,7 +850,7 @@ window.shower = (function(window, document, undefined) {
 		// Go to first slide, if hash id is invalid.
 		// Same check is located in DOMContentLoaded event,
 		// but it not fires on hash change
-		if (currentSlideNumber === -1 && isSlideMode) {
+		if (currentSlideNumber === -1) {
 			shower.go(0);
 		}
 
