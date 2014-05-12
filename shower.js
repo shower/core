@@ -14,6 +14,8 @@ window.shower = (function(window, document, undefined) {
 		slides = [],
 		progress = [],
 		timer,
+		eventStorage = {},
+		slice = [].slice,
 		isHistoryApiSupported = !!(window.history && window.history.pushState);
 
 	// Shower debug mode env, could be overridden before shower.init
@@ -174,6 +176,75 @@ window.shower = (function(window, document, undefined) {
 			return this;
 		}
 	};
+
+	/**
+	 * Subscribe to an event.
+	 * @param {String} name of the event. Passing "all" will bind the callback to all events fired.
+	 * @param {Function} callback to run when specified event will trigger
+	 * @param {Object} [context] for callback
+	 * @returns {Object} shower
+	 */
+	shower.on = function(name, callback, context) {
+		var events = eventStorage[name] || (eventStorage[name] = []);
+		events.push({
+			callback: callback,
+			context: context,
+			scope: context || this
+		});
+		return this;
+	};
+
+	/**
+	 * Unsubscribe from event.
+	 * @param {String} name of the event
+	 * @param {Function} [callback] function previously attached for the event.
+	 * @param {Object} [context]
+	 * @returns {Object} shower
+	 */
+	shower.off = function(name, callback, context) {
+		var retain, ev, events, l, i;
+
+		if (events = eventStorage[name]) {
+			eventStorage[name] = retain = [];
+			if (callback || context) {
+				for (i = 0, l = events.length; i < l; i++) {
+					ev = events[i];
+					if (callback && callback !== ev.callback || context && context !== ev.context) {
+						retain.push(ev);
+					}
+				}
+			}
+			if (!retain.length) {
+				delete eventStorage[name];
+			}
+		}
+
+		return this;
+	};
+
+	/**
+	 * Trigger event. Callbacks are passed the same arguments as trigger is, apart from the event name.
+	 * @param {String} name of event to fire
+	 * @returns {Object} shower
+	 */
+	shower.trigger = function(name) {
+		eventStorage[name] && triggerEvents(eventStorage[name], slice.call(arguments, 1));
+		eventStorage.all && triggerEvents(eventStorage.all, arguments);
+		return this;
+	};
+
+	/**
+	 * Run through events and invoke callback with passed arguments
+	 * @param {Array} events to fire
+	 * @param {*} args
+	 */
+	function triggerEvents(events, args) {
+		var ev, i = -1, l = events.length;
+		while (++i < l) {
+			ev = events[i];
+			ev.callback.apply(ev.scope, args);
+		}
+	}
 
 	/**
 	* Get value at named data store for the DOM element.
