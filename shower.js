@@ -250,7 +250,7 @@ window.shower = (function(window, document, undefined) {
 	 */
 	shower.run = function() {
 		var currentSlideNumber = shower.getCurrentSlideNumber(),
-			isSlideMode = body.classList.contains('full') || shower.isSlideMode();
+			isSlideMode = document.body.classList.contains('full') || shower.isSlideMode();
 
 		// Go to first slide, if hash id is invalid or isn't set.
 		if (isSlideMode && currentSlideNumber === -1) {
@@ -694,7 +694,7 @@ window.shower = (function(window, document, undefined) {
 	*/
 	shower.isListMode = function() {
 		if (isHistoryApiSupported) {
-			return  ! /^full.*/.test(url.search.substr(1));
+			return ! /^full.*/.test(url.search.substr(1));
 		} else {
 			return document.body.classList.contains('list');
 		}
@@ -706,7 +706,7 @@ window.shower = (function(window, document, undefined) {
 	*/
 	shower.isSlideMode = function() {
 		if (isHistoryApiSupported) {
-			return  /^full.*/.test(url.search.substr(1));
+			return /^full.*/.test(url.search.substr(1));
 		} else {
 			return document.body.classList.contains('full');
 		}
@@ -990,7 +990,6 @@ window.shower = (function(window, document, undefined) {
 				// Behave as usual
 		}
 	}, false);
-
 
 	document.addEventListener('click', function(e) {
 		var slideId = shower._getSlideIdByEl(e.target),
