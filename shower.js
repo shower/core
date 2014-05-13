@@ -871,7 +871,7 @@ window.shower = (function(window, document, undefined) {
 
 	window.addEventListener('popstate', function() {
 		var currentSlideNumber = shower.getCurrentSlideNumber(),
-			isSlideMode = body.classList.contains('full') || shower.isSlideMode();
+			isSlideMode = document.body.classList.contains('full') || shower.isSlideMode();
 
 		// Go to first slide, if hash id is invalid or isn't set.
 		// Same check is located in DOMContentLoaded event,
