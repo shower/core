@@ -814,7 +814,9 @@ window.shower = (function(window, document, undefined) {
 			slideTitle = document.getElementById(slideId).querySelector('h2');
 
 		if (slideTitle) {
-			return slideTitle.textContent;
+			return slideTitle.textContent.
+				replace(/\s+/g, ' ').
+				replace(/^\s+|\s+$/g, '');
 		}
 	};
 
