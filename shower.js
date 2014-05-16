@@ -836,39 +836,58 @@ window.shower = (function(window, document, undefined) {
 	};
 
 	/**
+	 * Throttles execution of a given function.
+	 *
+	 * @param {Function} func The function to throttle
+	 * @param {Number} period The number of milliseconds to throttle executions
+	 * to.
+	 * @returns {Function}
+	 */
+	shower._throttle = function(func, period) {
+		var context, args,
+			timeout = null,
+			previous = 0;
+
+		return function() {
+			var now = new Date().getTime(),
+				remaining = period - (now - previous);
+
+			context = this;
+			args = arguments;
+
+			if (remaining <= 0) {
+				clearTimeout(timeout);
+				timeout = null;
+				previous = now;
+				func.apply(context, args);
+				context = args = null;
+			}
+		};
+	};
+
+	/**
 	 * Wheel event listener
 	 * @param e event
 	 */
 	shower.wheel = function(e) {
-		var body = document.querySelector('body'),
-			delta,
-			lockedWheel = body.getAttribute('data-scroll') === 'locked';
-
-		if ( ! lockedWheel && ! shower.isListMode()) {
-			body.setAttribute('data-scroll', 'locked');
-
-			// Normalize delta across browsers
-			if (e.deltaY === undefined) {
-				// Chrome, Opera, Safari
-				if (e.detail) {
-					delta = (e.wheelDeltaY / e.detail / 120 * e.detail > 0) ? 1 : -1;
-				} else {
-					delta = e.wheelDeltaY / 10;
-				}
+		var deltaY;
+		// Normalize delta across browsers
+		if (e.deltaY === undefined) {
+			// Chrome, Opera, Safari
+			if (e.detail) {
+				deltaY = (e.wheelDeltaY / e.detail / 120 * e.detail > 0) ? 1 : -1;
 			} else {
-				// Firefox
-				delta = -e.deltaY;
+				deltaY = e.wheelDeltaY / 10;
 			}
+		} else {
+			// Firefox
+			deltaY = -e.deltaY;
+		}
 
-			if (delta < 0) {
-				shower._turnNextSlide();
-			} else {
-				shower._turnPreviousSlide();
-			}
-
-			setTimeout(function() {
-				body.setAttribute('data-scroll', 'unlocked');
-			}, Math.abs(delta) > 3 ? 200 : 800);
+		if (deltaY < 0) {
+			shower._turnNextSlide();
+		} else if (deltaY > 0) {
+			shower._turnPreviousSlide();
 		}
 	};
 
@@ -1073,9 +1092,9 @@ window.shower = (function(window, document, undefined) {
 		}
 	}, false);
 
-	document.addEventListener('wheel', shower.wheel, false);
+	document.addEventListener('wheel', shower._throttle(shower.wheel, 250), false);
 
-	document.addEventListener('mousewheel', shower.wheel, false);
+	document.addEventListener('mousewheel', shower._throttle(shower.wheel, 250), false);
 
 	return shower;
 
