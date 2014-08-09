@@ -62,7 +62,7 @@ window.shower = (function(window, document, undefined) {
 
 		/**
 		 * Start inner navigation by timer or just switch slide after timer.
-		 * time sets in HTML: .slide[data-timing=MM:SS]
+		 * time sets in HTML: section[data-timing=MM:SS]
 		 * @returns {Object} Current slide
 		 */
 		process : function(shower) {
@@ -202,8 +202,8 @@ window.shower = (function(window, document, undefined) {
 			console.log('Debug mode on')
 		}
 
-		slideSelector = slideSelector || '.slide';
-		progressSelector = progressSelector || 'div.progress div';
+		slideSelector = slideSelector || '.shower > section';
+		progressSelector = progressSelector || '.shower__progress';
 
 		slides = document.querySelectorAll(slideSelector);
 		progress = document.querySelector(progressSelector);
@@ -251,9 +251,9 @@ window.shower = (function(window, document, undefined) {
 	 */
 	shower.run = function() {
 		var currentSlideNumber = shower.getCurrentSlideNumber(),
-			isSlideMode = document.body.classList.contains('full') || shower.isSlideMode();
+			isSlideMode = document.body.classList.contains('shower--full') || shower.isSlideMode();
 
-		// Go to first slide, if hash id is invalid or isn't set.
+		// Go to first slide, if hash id is invalid or isn’t set.
 		if (isSlideMode && currentSlideNumber === -1) {
 			shower.go(0);
 
@@ -299,7 +299,7 @@ window.shower = (function(window, document, undefined) {
 			'OTransform',
 			'transform'
 		].forEach(function(prop) {
-				document.body.style[prop] = transform;
+			document.body.style[prop] = transform;
 		});
 
 		return true;
@@ -345,7 +345,7 @@ window.shower = (function(window, document, undefined) {
 	*/
 	shower._getSlideIdByEl = function(el) {
 		while ('BODY' !== el.nodeName && 'HTML' !== el.nodeName) {
-			if (el.classList.contains('slide')) {
+			if (el.nodeName == 'SECTION' && el.parentNode.classList.contains('shower')) {
 				return el.id;
 			} else {
 				el = el.parentNode;
@@ -441,7 +441,7 @@ window.shower = (function(window, document, undefined) {
 		var currentSlideNumber = shower.getCurrentSlideNumber(),
 			nextSlide = shower.slideList[currentSlideNumber + 1];
 
-		// If don't exist next slide
+		// If don’t exist next slide
 		if (! nextSlide) {
 			return false;
 		}
@@ -560,8 +560,8 @@ window.shower = (function(window, document, undefined) {
 		var currentSlideNumber = shower.getCurrentSlideNumber();
 
 		// Anyway: change body class (@TODO: refactoring)
-		document.body.classList.remove('list');
-		document.body.classList.add('full');
+		document.body.classList.remove('shower--list');
+		document.body.classList.add('shower--full');
 
 		// Preparing URL for shower.go()
 		if (shower.isListMode() && isHistoryApiSupported) {
@@ -586,8 +586,8 @@ window.shower = (function(window, document, undefined) {
 		var currentSlideNumber;
 
 		// Anyway: change body class (@TODO: refactoring)
-		document.body.classList.remove('full');
-		document.body.classList.add('list');
+		document.body.classList.remove('shower--full');
+		document.body.classList.add('shower--list');
 
 		shower.clearPresenterNotes();
 		shower._applyTransform('none');
@@ -670,7 +670,7 @@ window.shower = (function(window, document, undefined) {
 		}
 
 		if (shower.isSlideMode()) {
-			throw new Error('You can\'t scroll to because you in slide mode. Please, switch to list mode.');
+			throw new Error('You can’t scroll to because you in slide mode. Please, switch to list mode.');
 		}
 
 		// @TODO: WTF?
@@ -690,26 +690,26 @@ window.shower = (function(window, document, undefined) {
 	};
 
 	/**
-	* Check if it's List mode.
+	* Check if it’s List mode.
 	* @returns {Boolean}
 	*/
 	shower.isListMode = function() {
 		if (isHistoryApiSupported) {
 			return ! /^full.*/.test(url.search.substr(1));
 		} else {
-			return document.body.classList.contains('list');
+			return document.body.classList.contains('shower--list');
 		}
 	};
 
 	/**
-	* Check if it's Slide mode.
+	* Check if it’s Slide mode.
 	* @returns {Boolean}
 	*/
 	shower.isSlideMode = function() {
 		if (isHistoryApiSupported) {
 			return /^full.*/.test(url.search.substr(1));
 		} else {
-			return document.body.classList.contains('full');
+			return document.body.classList.contains('shower--full');
 		}
 	};
 
@@ -719,7 +719,7 @@ window.shower = (function(window, document, undefined) {
 	* @returns {Boolean}
 	*/
 	shower.updateProgress = function(slideNumber) {
-		// If progress bar doesn't exist
+		// If progress bar doesn’t exist
 		if (null === progress) {
 			return false;
 		}
@@ -894,7 +894,7 @@ window.shower = (function(window, document, undefined) {
 			document.title = presentationTitle;
 		}
 
-		// Go to first slide, if hash id is invalid or isn't set.
+		// Go to first slide, if hash id is invalid or isn’t set.
 		// Same check is located in DOMContentLoaded event,
 		// but it not fires on hash change
 		if (isSlideMode && currentSlideNumber === -1) {
