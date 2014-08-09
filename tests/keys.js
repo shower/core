@@ -278,7 +278,7 @@ casper.test.begin('Entering Full by F5', 3, function suite(test) {
 
 	}).then(function() {
 
-		test.assertExists('body.full', 'Body in Full mode');
+		test.assertExists('.shower--full', 'Body in Full mode');
 		test.assertExists('[id="1"].active', 'First slide #1 is active');
 		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
 
@@ -294,7 +294,7 @@ casper.test.begin('Entering Full by Shift F5', 3, function suite(test) {
 
 	}).then(function() {
 
-		test.assertExists('body.full', 'Body in Full mode');
+		test.assertExists('.shower--full', 'Body in Full mode');
 		test.assertExists('[id="MyID"].active', 'Current slide #MyID is active');
 		test.assertUrlMatch(/\/\?full#MyID/, 'Slide #MyID in Full mode URL');
 
@@ -310,7 +310,7 @@ casper.test.begin('Exiting Full by F5', 3, function suite(test) {
 
 	}).then(function() {
 
-		test.assertExists('body.list', 'Body in List mode');
+		test.assertExists('.shower--list', 'Body in List mode');
 		test.assertExists('[id="1"].active', 'Slide #1 is active');
 		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
 
@@ -326,7 +326,7 @@ casper.test.begin('Exiting Full by Esc', 3, function suite(test) {
 
 	}).then(function() {
 
-		test.assertExists('body.list', 'Body in List mode');
+		test.assertExists('.shower--list', 'Body in List mode');
 		test.assertExists('[id="1"].active', 'Slide #1 is active');
 		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
 

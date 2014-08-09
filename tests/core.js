@@ -4,7 +4,7 @@
 casper.test.begin('Slides state on loading', 1, function suite(test) {
 	casper.start('http://0.0.0.0:7497/tests/').then(function() {
 
-		test.assertDoesntExist('.slide.active', 'No active slides');
+		test.assertDoesntExist('section.active', 'No active slides');
 
 	}).run(function() { test.done() }).clear();
 });
@@ -33,22 +33,22 @@ casper.test.begin('Progress resizing', 6, function suite(test) {
 	casper.start('http://0.0.0.0:7497/tests/').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.progress div', 'style').indexOf('width: 0%'), '1st step, width is 0%');
+		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 0%'), '1st step, width is 0%');
 
 		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.progress div', 'style').indexOf('width: 20%'), '2nd step, width is 20%');
+		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 20%'), '2nd step, width is 20%');
 
 		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.progress div', 'style').indexOf('width: 40%'), '3rd step, width is 40%');
+		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 40%'), '3rd step, width is 40%');
 
 		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.progress div', 'style').indexOf('width: 60%'), '4th step, width is 60%');
+		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 60%'), '4th step, width is 60%');
 
 		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.progress div', 'style').indexOf('width: 80%'), '5th step, width is 80%');
+		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 80%'), '5th step, width is 80%');
 
 		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.progress div', 'style').indexOf('width: 100%'), '6th step, width is 100%');
+		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 100%'), '6th step, width is 100%');
 
 	}).run(function() { test.done() }).clear();
 });
@@ -62,7 +62,7 @@ casper.test.begin('Full mode by click', 2, function suite(test) {
 
 	}).then(function() {
 
-		test.assertExists('body.full', 'Body in Full mode');
+		test.assertExists('.shower--full', 'Body in Full mode');
 		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
 
 	}).run(function() { test.done() }).clear();
@@ -92,7 +92,7 @@ casper.test.begin('Full mode from active slide by Enter', 3, function suite(test
 
 	}).then(function() {
 
-		test.assertExists('body.full', 'Body in Full mode');
+		test.assertExists('.shower--full', 'Body in Full mode');
 		test.assertExists('[id="1"].active', 'Slide #1 is active');
 		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
 
@@ -210,7 +210,7 @@ casper.test.begin('Entering Full and pressing Back', 3, function suite(test) {
 
 	}).then(function() {
 
-		test.assertExists('body.list', 'Body in List mode');
+		test.assertExists('.shower--list', 'Body in List mode');
 		test.assertExists('[id="1"].active', 'Slide #1 is active');
 		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
 
