@@ -88,16 +88,16 @@ modules.define('plugin.InnerNavigation', [
 
         _setupListeners: function () {
             this._showerListeners = this._shower.events.group()
-                .add('destroy', this.destroy, this);
+                .on('destroy', this.destroy, this);
 
             this._playerListeners = this._shower.player.events.group()
-                .add('activate', this._onActivate, this)
-                .add('next', this._onNext, this);
+                .on('activate', this._onActivate, this)
+                .on('next', this._onNext, this);
         },
 
         _clearListeners: function () {
-            this._showerListeners.removeAll();
-            this._playerListeners.removeAll();
+            this._showerListeners.offAll();
+            this._playerListeners.offAll();
         },
 
         _onNext: function (e) {

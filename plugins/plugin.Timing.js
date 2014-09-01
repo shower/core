@@ -45,15 +45,15 @@ modules.define('plugin.Timing', [
 
         _setupListeners: function () {
             this._showerListeners = this._shower.events.group()
-                .add('destroy', this.destroy, this);
+                .on('destroy', this.destroy, this);
 
             this._playerListeners = this._shower.player.events.group()
-                .add('activate', this._onSlideActivate, this);
+                .on('activate', this._onSlideActivate, this);
         },
 
         _clearListeners: function () {
-            this._showerListeners.removeAll();
-            this._playerListeners.removeAll();
+            this._showerListeners.offAll();
+            this._playerListeners.offAll();
         },
 
         _onSlideActivate: function () {

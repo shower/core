@@ -58,15 +58,15 @@ modules.define('plugin.Progress', [
             var shower = this._shower;
 
             this._showerListeners = shower.events.group()
-                .add('destroy', this.destroy, this);
+                .on('destroy', this.destroy, this);
 
             this._playerListeners = shower.player.events.group()
-                .add('slidechange', this._onSlideChange, this);
+                .on('slidechange', this._onSlideChange, this);
         },
 
         _clearListeners: function () {
-            this._showerListeners.removeAll();
-            this._playerListeners.removeAll();
+            this._showerListeners.offAll();
+            this._playerListeners.offAll();
         },
 
         _onSlideChange: function () {
