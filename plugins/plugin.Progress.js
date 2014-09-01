@@ -31,7 +31,8 @@ modules.define('plugin.Progress', [
         this.init();
     }
 
-    extend(Progress.prototype, {
+    extend(Progress.prototype, /** @lends plugin.Progress.prototype */{
+
         init: function () {
             var showerContainerElement = this._shower.container.getElement();
             this._element = showerContainerElement.querySelector(this._elementSelector);

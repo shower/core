@@ -26,9 +26,12 @@ modules.define('plugin.Timing', [
 
         this._showerListeners = null;
         this._playerListeners = null;
+
+        this.init();
     }
 
-    extend(Timing.prototype, {
+    extend(Timing.prototype, /** @lends plugin.Timing.prototype */{
+
         init: function () {
             this._setupListeners();
         },

@@ -33,6 +33,7 @@ modules.define('plugin.InnerNavigation', [
     }
 
     extend(InnerNavigation.prototype, /** @lends plugin.InnerNavigation.prototype */{
+
         init: function () {
             this._setupListeners();
         },
