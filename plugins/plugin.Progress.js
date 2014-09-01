@@ -3,19 +3,20 @@
  * Progress plugin for shower.
  *
  * @example
- * modules.require(['shower', 'shower-plugin.Progress'], function (shower, Progress) {
+ * modules.require(['shower', 'plugin.Progress'], function (shower, Progress) {
  *     shower.ready(function () {
  *          var progress = new Progress(shower);
  *     });
  * });
  */
-modules.define('shower-plugin.Progress', [
+modules.define('plugin.Progress', [
     'util.extend'
 ], function (provide, extend) {
 
     /**
      * @class
-     * @name shower-plugin.Progress
+     * Progress plugin for shower.
+     * @name plugin.Progress
      * @param {Shower} shower
      * @param {String} [selector = 'div.progress div']
      * @constructor
@@ -41,7 +42,7 @@ modules.define('shower-plugin.Progress', [
         },
 
         destroy: function () {
-            this._playerListeners.removeAll();
+            this._clearListeners();
             this._shower = null;
         },
 

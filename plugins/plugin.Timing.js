@@ -3,20 +3,20 @@
  * Timing plugin for shower.
  *
  * @example
- * modules.require(['shower', 'shower-plugin.Timing'], function (shower, Timing) {
+ * modules.require(['shower', 'plugin.Timing'], function (shower, Timing) {
  *     shower.ready(function () {
  *          var timingPlugin = new Timing(shower);
  *     });
  * });
  */
-modules.define('shower-plugin.Timing', [
+modules.define('plugin.Timing', [
     'util.extend'
 ], function (provide, extend) {
 
     /**
      * @class
      * Timing plugin for shower.
-     * @name shower-plugin.Timing
+     * @name plugin.Timing
      * @param {Shower} shower
      * @constructor
      */
@@ -34,7 +34,10 @@ modules.define('shower-plugin.Timing', [
         },
 
         destroy: function () {
+            this._clearTimer();
             this._clearListeners();
+
+            this._shower = null;
         },
 
         _setupListeners: function () {
