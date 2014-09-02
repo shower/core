@@ -61,7 +61,7 @@ modules.define('plugin.Progress', [
                 .on('destroy', this.destroy, this);
 
             this._playerListeners = shower.player.events.group()
-                .on('slidechange', this._onSlideChange, this);
+                .on('activate', this._onSlideChange, this);
         },
 
         _clearListeners: function () {
