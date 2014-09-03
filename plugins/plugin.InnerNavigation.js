@@ -60,9 +60,9 @@ modules.define('plugin.InnerNavigation', [
                 var element = this._elements[i];
 
                 if (i < this._innerComplete) {
-                    this._elements[i].classList.add('active');
+                    element.classList.add('active');
                 } else {
-                    this._elements[i].classList.remove('active');
+                    element.classList.remove('active');
                 }
             }
 
