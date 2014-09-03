@@ -56,14 +56,15 @@ modules.define('plugin.InnerNavigation', [
                 throw new Error('Inner nav elements not found.');
             }
 
-            if (this._innerComplete) {
-                var prevElementClassList = this._elements[this._innerComplete - 1].classList;
-                prevElementClassList.remove('active');
-                prevElementClassList.add('visited');
-            }
+            for (var i = 0, k = this._elements.length; i < k; i++) {
+                var element = this._elements[i];
 
-            var elementClassList = this._elements[this._innerComplete].classList;
-            elementClassList.add('active');
+                if (i < this._innerComplete) {
+                    this._elements[i].classList.add('active');
+                } else {
+                    this._elements[i].classList.remove('active');
+                }
+            }
 
             this._innerComplete++;
             return this;
@@ -98,7 +99,7 @@ modules.define('plugin.InnerNavigation', [
         },
 
         _onNext: function (e) {
-            if (this._elements && this._innerComplete != this._elements.length) {
+            if (this._elements && this._innerComplete < this._elements.length) {
                 e.preventDefault();
                 this.next();
             }
@@ -109,6 +110,8 @@ modules.define('plugin.InnerNavigation', [
                 slideElement = slideLayout.getElement();
 
             this._elements = slideElement.querySelectorAll(this._elementsSelector);
+            this._elements = Array.prototype.slice.call(this._elements);
+
             this._innerComplete = 0;
 
             if (this._elements) {
@@ -118,7 +121,7 @@ modules.define('plugin.InnerNavigation', [
 
         _getInnerComplete: function () {
             return this._elements.filter(function (element) {
-                return element.classList.contains('visited');
+                return element.classList.contains('active');
             }).length;
         }
     });
