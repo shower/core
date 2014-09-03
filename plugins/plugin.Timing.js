@@ -34,6 +34,10 @@ modules.define('plugin.Timing', [
 
         init: function () {
             this._setupListeners();
+
+            if (this._shower.player.getCurrentSlideIndex() != -1) {
+                this._onSlideActivate();
+            }
         },
 
         destroy: function () {

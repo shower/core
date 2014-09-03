@@ -18,15 +18,17 @@ modules.define('plugin.Progress', [
      * Progress plugin for shower.
      * @name plugin.Progress
      * @param {Shower} shower
-     * @param {String} [selector = '.shower__progress']
+     * @param {Object} [options] Plugin options.
+     * @param {String} [options.selector = '.shower__progress']
      * @constructor
      */
-    function Progress (shower, selector) {
+    function Progress (shower, options) {
+        options = options || {};
         this._shower = shower;
         this._playerListeners = null;
 
         this._element = null;
-        this._elementSelector = selector || '.shower__progress';
+        this._elementSelector = options.selector || '.shower__progress';
 
         this.init();
     }
@@ -40,6 +42,8 @@ modules.define('plugin.Progress', [
             if (this._element) {
                 this._setupListeners();
             }
+
+            this.updateProgress();
         },
 
         destroy: function () {

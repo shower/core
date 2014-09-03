@@ -18,13 +18,15 @@ modules.define('plugin.InnerNavigation', [
      * @class
      * @name plugin.InnerNavigation
      * @param {Shower} shower
-     * @param {String} [selector = '.next']
+     * @param {Object} [options] Plugin options.
+     * @param {String} [options.selector = '.next']
      * @constructor
      */
-    function InnerNavigation (shower, selector) {
-        this._shower = shower;
+    function InnerNavigation (shower, options) {
+        options = options || {};
 
-        this._elementsSelector = selector || '.next';
+        this._shower = shower;
+        this._elementsSelector = options.selector || '.next';
         this._elements = null;
 
         this._innerComplete = 0;
