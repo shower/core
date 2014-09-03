@@ -59,10 +59,7 @@ modules.define('plugin.InnerNavigation', [
             if (this._innerComplete) {
                 var prevElementClassList = this._elements[this._innerComplete - 1].classList;
                 prevElementClassList.remove('active');
-
-                if (!prevElementClassList.contains('visited')) {
-                    prevElementClassList.add('visited');
-                }
+                prevElementClassList.add('visited');
             }
 
             var elementClassList = this._elements[this._innerComplete].classList;
