@@ -27,10 +27,9 @@ modules.define('plugin.InnerNavigation', [
 
         this._shower = shower;
         this._elementsSelector = options.selector || '.next';
-        this._elements = null;
+        this._elements = [];
 
         this._innerComplete = 0;
-
         this.init();
     }
 
@@ -38,6 +37,9 @@ modules.define('plugin.InnerNavigation', [
 
         init: function () {
             this._setupListeners();
+            if (this._shower.player.getCurrentSlideIndex() != -1) {
+                this._onSlideActivate();
+            }
         },
 
         destroy: function () {
@@ -58,6 +60,8 @@ modules.define('plugin.InnerNavigation', [
                 throw new Error('Inner nav elements not found.');
             }
 
+            this._innerComplete++;
+            
             for (var i = 0, k = this._elements.length; i < k; i++) {
                 var element = this._elements[i];
 
@@ -67,8 +71,6 @@ modules.define('plugin.InnerNavigation', [
                     element.classList.remove('active');
                 }
             }
-
-            this._innerComplete++;
             return this;
         },
 
@@ -91,7 +93,7 @@ modules.define('plugin.InnerNavigation', [
                 .on('destroy', this.destroy, this);
 
             this._playerListeners = this._shower.player.events.group()
-                .on('activate', this._onActivate, this)
+                .on('activate', this._onSlideActivate, this)
                 .on('next', this._onNext, this);
         },
 
@@ -101,24 +103,21 @@ modules.define('plugin.InnerNavigation', [
         },
 
         _onNext: function (e) {
-            if (this._elements && this._innerComplete < this._elements.length) {
+            var elementsLength = this._elements.length;
+            if (elementsLength && this._innerComplete < elementsLength) {
                 e.preventDefault();
                 this.next();
             }
         },
 
-        _onActivate: function () {
+        _onSlideActivate: function () {
             var slideLayout = this._shower.player.getCurrentSlide().getLayout(),
                 slideElement = slideLayout.getElement();
 
             this._elements = slideElement.querySelectorAll(this._elementsSelector);
             this._elements = Array.prototype.slice.call(this._elements);
 
-            this._innerComplete = 0;
-
-            if (this._elements) {
-                this._innerComplete = this._getInnerComplete();
-            }
+            this._innerComplete = this._getInnerComplete();
         },
 
         _getInnerComplete: function () {
