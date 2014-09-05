@@ -50,11 +50,13 @@ modules.define('plugin.TouchEvents', [
                 .on('destroy', this.destroy, this);
 
             document.addEventListener('touchstart', this._onTouchStart.bind(this), false);
+            document.addEventListener('touchmove', this._onTouchMove.bind(this), false);
         },
 
         _clearListeners: function () {
             this._showerListeners.offAll();
             document.removeEventListener('touchstart', this._onTouchStart.bind(this), false);
+            document.removeEventListener('touchmove', this._onTouchMove.bind(this), false);
         },
 
         _onTouchStart: function (e) {
@@ -78,6 +80,12 @@ modules.define('plugin.TouchEvents', [
                     // Go && turn on slide mode.
                     slide.activate();
                 }
+            }
+        },
+
+        _onTouchMove: function (e) {
+            if (this._shower.container.isSlideMode()) {
+                e.preventDefault();
             }
         },
 
