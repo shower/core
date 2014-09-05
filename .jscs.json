@@ -1,0 +1,96 @@
+{
+    "disallowKeywords": [
+        "with"
+    ],
+    "disallowKeywordsOnNewLine": [
+        "else"
+    ],
+    "requireSpaceBeforeBinaryOperators": [
+        "?",
+        "+",
+        "-",
+        "/",
+        "*",
+        "=",
+        "==",
+        "===",
+        "!=",
+        "!==",
+        ">",
+        ">=",
+        "<",
+        "<="
+    ],
+    "disallowMultipleLineBreaks": true,
+    "requireSpaceAfterBinaryOperators": [
+        "!",
+        "?",
+        "/",
+        "+",
+        "-",
+        "*",
+        ":",
+        "=",
+        "==",
+        "===",
+        "!=",
+        "!==",
+        ">",
+        ">=",
+        "<",
+        "<="
+    ],
+    "disallowSpaceAfterPrefixUnaryOperators": [
+        "++",
+        "--",
+        "+",
+        "-",
+        "*",
+        "/",
+        "!!"
+    ],
+    "disallowSpaceBeforePostfixUnaryOperators": [
+        "++",
+        "--"
+    ],
+    "disallowSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+    "disallowSpacesInNamedFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+    "requireBlocksOnNewline": 1,
+    "requireCurlyBraces": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do"
+    ],
+    "disallowSpaceBeforeBinaryOperators": [
+        ","
+    ],
+    "requireLineFeedAtFileEnd": true,
+    "requireMultipleVarDecl": true,
+    "requireParenthesesAroundIIFE": true,
+    "requireSpaceAfterKeywords": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "switch",
+        "return",
+        "function"
+    ],
+    "requireSpaceAfterObjectKeys": true,
+    "requireSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+    "requireSpacesInFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+    "requireSpacesInsideArrayBrackets": "all",
+    "requireSpacesInsideObjectBrackets": "all",
+    "validateLineBreaks": "LF"
+}
