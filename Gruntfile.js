@@ -8,8 +8,14 @@ module.exports = function(grunt) {
                 banner: '/**\n * <%= pkg.description %>\n * <%= pkg.name %> v<%= pkg.version %>, <%= pkg.homepage %>\n * @copyright 2010–<%= grunt.template.today("yyyy") %> Vadim Makeev, http://pepelsbey.net\n * @license MIT license: github.com/shower/shower/wiki/MIT-License\n */\n'
             },
             build: {
-                src: 'lib/*/*.js',
+                src: ['lib/*/*.js','plugins/*.js'],
                 dest: 'shower.min.js'
+            }
+        },
+        concat: {
+            dist: {
+                src: ['lib/*/*.js','plugins/*.js'],
+                dest: 'shower.js'
             }
         },
         connect: {
@@ -28,12 +34,13 @@ module.exports = function(grunt) {
             }
         },
         jscs: {
-            src: "shower.js",
+            src: "lib/*/*.js",
             options: {
                 config: ".jscs.json"
             }
         }
     });
     grunt.registerTask('default', ['jscs', 'uglify']);
+    grunt.registerTask('dev', ['jscs', 'concat']);
     grunt.registerTask('test', ['connect', 'casperjs']);
 };
