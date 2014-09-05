@@ -63,20 +63,21 @@ modules.define('plugin.Timing', [
         _onSlideActivate: function () {
             this._clearTimer();
 
-            var currentSlide = this._shower.player.getCurrentSlide(),
-                slideData = currentSlide.getLayout().getData(),
-                timing = slideData.timing;
+            if (this._shower.container.isSlideMode()) {
+                var currentSlide = this._shower.player.getCurrentSlide(),
+                    timing = currentSlide.getLayout().getData('timing');
 
-            if (timing && /^(\d{1,2}:)?\d{1,3}$/.test(timing)) {
-                if (timing.indexOf(':') !== -1) {
-                    timing = timing.split(':');
-                    timing = (parseInt(timing[0], 10) * 60 + parseInt(timing[1], 10)) * 1000;
-                } else {
-                    timing = parseInt(timing, 10) * 1000;
-                }
+                if (timing && /^(\d{1,2}:)?\d{1,3}$/.test(timing)) {
+                    if (timing.indexOf(':') !== -1) {
+                        timing = timing.split(':');
+                        timing = (parseInt(timing[0], 10) * 60 + parseInt(timing[1], 10)) * 1000;
+                    } else {
+                        timing = parseInt(timing, 10) * 1000;
+                    }
 
-                if (timing !== 0) {
-                    this._initTimer(timing);
+                    if (timing !== 0) {
+                        this._initTimer(timing);
+                    }
                 }
             }
         },
