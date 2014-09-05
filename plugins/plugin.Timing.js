@@ -52,7 +52,8 @@ modules.define('plugin.Timing', [
                 .on('destroy', this.destroy, this);
 
             this._playerListeners = this._shower.player.events.group()
-                .on('activate', this._onSlideActivate, this);
+                .on('activate', this._onSlideActivate, this)
+                .on('plugintimingnext', this._onTimingNext, this);
         },
 
         _clearListeners: function () {
@@ -82,16 +83,20 @@ modules.define('plugin.Timing', [
             }
         },
 
+        _onTimingNext: function () {
+            this._shower.next();
+            this._clearTimer();
+        },
+
         _initTimer: function (timing) {
-            this._timer = setTimeout(function () {
-                this._shower.next();
-                this._timer = null;
+            this._timer = setInterval(function () {
+                this._shower.player.emmit('plugintimingnext');
             }.bind(this), timing);
         },
 
         _clearTimer: function () {
             if (this._timer) {
-                clearTimeout(this._timer);
+                clearInterval(this._timer);
                 this._timer = null;
             }
         }

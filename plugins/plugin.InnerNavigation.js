@@ -94,7 +94,9 @@ modules.define('plugin.InnerNavigation', [
 
             this._playerListeners = this._shower.player.events.group()
                 .on('activate', this._onSlideActivate, this)
-                .on('next', this._onNext, this);
+                .on('next', this._onNext, this)
+                // Support timing plugin.
+                .on('plugintimingnext', this._onPluginTimingNext, this);
         },
 
         _clearListeners: function () {
@@ -107,6 +109,13 @@ modules.define('plugin.InnerNavigation', [
             if (elementsLength && this._innerComplete < elementsLength) {
                 e.preventDefault();
                 this.next();
+            }
+        },
+
+        _onPluginTimingNext: function (e) {
+            if (this._elements.length) {
+                e.preventDefault();
+                this._shower.next();
             }
         },
 
