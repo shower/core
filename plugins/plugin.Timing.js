@@ -90,7 +90,7 @@ modules.define('plugin.Timing', [
 
         _initTimer: function (timing) {
             this._timer = setInterval(function () {
-                this._shower.player.emmit('plugintimingnext');
+                this._shower.player.events.emmit('plugintimingnext');
             }.bind(this), timing);
         },
 
