@@ -14,6 +14,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'node_modules/ym/modules.js',
+                    'lib/init.js',
                     'lib/*/*.js',
                     'plugins/*.js'
                 ],
