@@ -3,26 +3,26 @@
  * Inner navigation shower plugin.
  *
  * @example
- * modules.require(['shower', 'plugin.InnerNavigation'], function (shower, InnerNavigation) {
+ * modules.require(['shower', 'plugin.Navigation'], function (shower, Navigation) {
  *     shower.ready(function () {
- *          var innerNavigation = new InnerNavigation(shower, '.next');
- *          console.log(innerNavigation.getInnerLength() + " inner items");
+ *          var Navigation = new Navigation(shower, '.next');
+ *          console.log(Navigation.getInnerLength() + " inner items");
  *     });
  * });
  */
-modules.define('plugin.InnerNavigation', [
+modules.define('plugin.Navigation', [
     'util.extend'
 ], function (provide, extend) {
 
     /**
      * @class
-     * @name plugin.InnerNavigation
+     * @name plugin.Navigation
      * @param {Shower} shower
      * @param {Object} [options] Plugin options.
      * @param {String} [options.selector = '.next']
      * @constructor
      */
-    function InnerNavigation (shower, options) {
+    function Navigation (shower, options) {
         options = options || {};
 
         this._shower = shower;
@@ -33,7 +33,7 @@ modules.define('plugin.InnerNavigation', [
         this.init();
     }
 
-    extend(InnerNavigation.prototype, /** @lends plugin.InnerNavigation.prototype */{
+    extend(Navigation.prototype, /** @lends plugin.Navigation.prototype */{
 
         init: function () {
             this._setupListeners();
@@ -53,7 +53,7 @@ modules.define('plugin.InnerNavigation', [
 
         /**
          * Activate next inner item.
-         * @return {plugin.InnerNavigation}
+         * @return {plugin.Navigation}
          */
         next: function () {
             if (!this._elements) {
@@ -95,8 +95,8 @@ modules.define('plugin.InnerNavigation', [
             this._playerListeners = this._shower.player.events.group()
                 .on('activate', this._onSlideActivate, this)
                 .on('next', this._onNext, this)
-                // Support timing plugin.
-                .on('plugintimingnext', this._onPluginTimingNext, this);
+                // Support timer plugin.
+                .on('plugintimernext', this._onPluginTimerNext, this);
         },
 
         _clearListeners: function () {
@@ -112,7 +112,7 @@ modules.define('plugin.InnerNavigation', [
             }
         },
 
-        _onPluginTimingNext: function (e) {
+        _onPluginTimerNext: function (e) {
             if (this._elements.length) {
                 e.preventDefault();
                 this._shower.next();
@@ -136,5 +136,5 @@ modules.define('plugin.InnerNavigation', [
         }
     });
 
-    provide(InnerNavigation)
+    provide(Navigation)
 });

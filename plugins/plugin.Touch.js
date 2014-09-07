@@ -3,25 +3,25 @@
  * Touch events plugin for shower.
  *
  * @example
- * modules.require(['shower', 'plugin.TouchEvents'], function (shower, TouchEvents) {
+ * modules.require(['shower', 'plugin.Touch'], function (shower, Touch) {
  *     shower.ready(function () {
- *          var touchEvents = new TouchEvents(shower);
+ *          var Touch = new Touch(shower);
  *     });
  * });
  */
-modules.define('plugin.TouchEvents', [
+modules.define('plugin.Touch', [
     'util.extend'
 ], function (provide, extend) {
 
     /**
      * @class
      * Touch events plugin for shower.
-     * @name plugin.TouchEvents
+     * @name plugin.Touch
      * @param {Shower} shower
      * @param {Object} [options] Plugin options.
      * @constructor
      */
-    function TouchEvents (shower, options) {
+    function Touch (shower, options) {
         options = options || {};
         this._shower = shower;
 
@@ -32,7 +32,7 @@ modules.define('plugin.TouchEvents', [
         this.init();
     }
 
-    extend(TouchEvents.prototype, /** @lends plugin.TouchEvents.prototype */{
+    extend(Touch.prototype, /** @lends plugin.Touch.prototype */{
 
         init: function () {
             this._setupListeners();
@@ -108,5 +108,5 @@ modules.define('plugin.TouchEvents', [
         }
     });
 
-    provide(TouchEvents);
+    provide(Touch);
 });
