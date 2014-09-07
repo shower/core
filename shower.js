@@ -205,6 +205,14 @@ window.shower = (function(window, document, undefined) {
 		slideSelector = slideSelector || '.slide';
 		progressSelector = progressSelector || 'div.progress div';
 
+		liveRegion = document.createElement('section');
+		liveRegion.id = 'live-region';
+		liveRegion.setAttribute('role', 'region');
+		liveRegion.setAttribute('aria-live', 'assertive');
+		liveRegion.setAttribute('aria-relevant', 'additions');
+		liveRegion.setAttribute('aria-label', 'Slide Content: Auto-updating');
+		liveRegion.className = 'offScreen';
+
 		slides = document.querySelectorAll(slideSelector);
 		progress = document.querySelector(progressSelector);
 
@@ -728,7 +736,15 @@ window.shower = (function(window, document, undefined) {
 			throw new Error('Gimme slide number as Number, baby!');
 		}
 
-		progress.style.width = (100 / (shower.slideList.length - 1) * shower._normalizeSlideNumber(slideNumber)).toFixed(2) + '%';
+		progressVal = (100 / (shower.slideList.length - 1) * shower._normalizeSlideNumber(slideNumber)).toFixed(2) + '%';
+
+		progress.style.width = progressVal;
+
+		progress.setAttribute('role', 'progressbar');
+		progress.setAttribute('aria-valuenow', progressVal);
+		progress.setAttribute('aria-valuemin', '0');
+		progress.setAttribute('aria-valuemax', '100');
+		progress.setAttribute('aria-valuetext', 'Slideshow Progress: ' + progressVal);
 
 		return true;
 	};
@@ -761,6 +777,15 @@ window.shower = (function(window, document, undefined) {
 			} else {
 				slide.classList.remove('visited');
 				slide.classList.add('active');
+
+				//Add the text from the first H2 as the TITLE element text
+				text = document.querySelectorAll(slide + ' h2:first').textContent;
+				title = document.getElementsByTagName('title')[0];
+				title.textContent = text;
+
+				slideContent = slide.innerHTML;
+				document.getElementById('live-region').innerHTML = slideContent;
+
 			}
 		}
 
