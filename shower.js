@@ -213,7 +213,7 @@ window.shower = (function(window, document, undefined) {
 		liveRegion.setAttribute('aria-label', 'Slide Content: Auto-updating');
 		liveRegion.className = 'offScreen';
 
-		body.appendChild(liveRegion);
+		document.getElementsByTagName('body')[0].appendChild(liveRegion);
 
 		slides = document.querySelectorAll(slideSelector);
 		progress = document.querySelector(progressSelector);
