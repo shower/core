@@ -66,18 +66,18 @@ modules.define('plugin.Timer', [
 
             if (this._shower.container.isSlideMode()) {
                 var currentSlide = this._shower.player.getCurrentSlide(),
-                    Timer = currentSlide.getLayout().getData('timing');
+                    timing = currentSlide.getLayout().getData('timing');
 
-                if (Timer && /^(\d{1,2}:)?\d{1,3}$/.test(Timer)) {
-                    if (Timer.indexOf(':') !== -1) {
-                        Timer = Timer.split(':');
-                        Timer = (parseInt(Timer[0], 10) * 60 + parseInt(Timer[1], 10)) * 1000;
+                if (timing && /^(\d{1,2}:)?\d{1,3}$/.test(timing)) {
+                    if (timing.indexOf(':') !== -1) {
+                        timing = timing.split(':');
+                        timing = (parseInt(timing[0], 10) * 60 + parseInt(timing[1], 10)) * 1000;
                     } else {
-                        Timer = parseInt(Timer, 10) * 1000;
+                        timing = parseInt(timing, 10) * 1000;
                     }
 
-                    if (Timer !== 0) {
-                        this._initTimer(Timer);
+                    if (timing !== 0) {
+                        this._initTimer(timing);
                     }
                 }
             }
