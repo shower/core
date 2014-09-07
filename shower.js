@@ -213,6 +213,8 @@ window.shower = (function(window, document, undefined) {
 		liveRegion.setAttribute('aria-label', 'Slide Content: Auto-updating');
 		liveRegion.className = 'offScreen';
 
+		body.appendChild(liveRegion);
+
 		slides = document.querySelectorAll(slideSelector);
 		progress = document.querySelector(progressSelector);
 
@@ -783,6 +785,7 @@ window.shower = (function(window, document, undefined) {
 				title = document.getElementsByTagName('title')[0];
 				title.textContent = text;
 
+				// update live region with content from current slide
 				slideContent = slide.innerHTML;
 				document.getElementById('live-region').innerHTML = slideContent;
 
