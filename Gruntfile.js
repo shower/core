@@ -13,10 +13,19 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
+                    // Module system.
                     'node_modules/ym/modules.js',
+
+                    // Plugins.
+                    'node_modules/shower-timer/plugin.Timer.js',
+                    'node_modules/shower-navigation/plugin.Navigation.js',
+                    'node_modules/shower-progress/plugin.Progress.js',
+                    'node_modules/shower-touch/plugin.Touch.js',
+                    'node_modules/shower-notes/plugin.Notes.js',
+
+                    // Core.
                     'lib/init.js',
-                    'lib/*/*.js',
-                    'plugins/*.js'
+                    'lib/*/*.js'
                 ],
                 dest: 'shower.js'
             }
