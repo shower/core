@@ -26,6 +26,11 @@
     "core"
   ],
   "dependencies": {
+    "shower-navigation": "0.0.1",
+    "shower-notes": "0.0.1",
+    "shower-progress": "0.0.1",
+    "shower-timer": "0.0.1",
+    "shower-touch": "0.0.1",
     "ym": "^0.1.0"
   },
   "devDependencies": {
