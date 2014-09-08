@@ -43,7 +43,8 @@ module.exports = function(grunt) {
         connect: {
             task: {
                 options: {
-                    port: 0
+                    base: ['.', 'tests'],
+                    port: 7497
                 }
             }
         },

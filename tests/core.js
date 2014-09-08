@@ -2,7 +2,7 @@
 // Slides state on loading
 // -------------------------------
 casper.test.begin('Slides state on loading', 1, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/').then(function() {
+	casper.start('http://0.0.0.0:7497/').then(function() {
 
 		test.assertDoesntExist('section.active', 'No active slides');
 
@@ -12,7 +12,7 @@ casper.test.begin('Slides state on loading', 1, function suite(test) {
 // ID initialization check
 // -------------------------------
 casper.test.begin('ID initialization check', 7, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/').then(function() {
+	casper.start('http://0.0.0.0:7497/').then(function() {
 
 		test.assertExists('[id="1"]', 'There’s #1');
 		test.assertExists('[id="2"]', 'There’s #2');
@@ -30,7 +30,7 @@ casper.test.begin('ID initialization check', 7, function suite(test) {
 // Progress bar resizing
 // -------------------------------
 casper.test.begin('Progress resizing', 6, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/').then(function() {
+	casper.start('http://0.0.0.0:7497/').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Right);
 		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 0%'), '1st step, width is 0%');
@@ -56,7 +56,7 @@ casper.test.begin('Progress resizing', 6, function suite(test) {
 // Full mode by click
 // -------------------------------
 casper.test.begin('Full mode by click', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/').then(function() {
+	casper.start('http://0.0.0.0:7497/').then(function() {
 
 		this.click('[id="1"]');
 
@@ -71,7 +71,7 @@ casper.test.begin('Full mode by click', 2, function suite(test) {
 // First slide activation
 // -------------------------------
 casper.test.begin('First slide activation', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/').then(function() {
+	casper.start('http://0.0.0.0:7497/').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Right);
 
@@ -86,7 +86,7 @@ casper.test.begin('First slide activation', 2, function suite(test) {
 // Full mode from active slide by Enter
 // -------------------------------
 casper.test.begin('Full mode from active slide by Enter', 3, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/#1').then(function() {
+	casper.start('http://0.0.0.0:7497/#1').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Enter);
 
@@ -102,7 +102,7 @@ casper.test.begin('Full mode from active slide by Enter', 3, function suite(test
 // Moving forward in List mode
 // -------------------------------
 casper.test.begin('Moving forward in List mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/#1').then(function() {
+	casper.start('http://0.0.0.0:7497/#1').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Right); // 2
 		this.sendKeys('body', casper.page.event.key.Right); // 3
@@ -121,7 +121,7 @@ casper.test.begin('Moving forward in List mode', 2, function suite(test) {
 // Moving backward in List mode
 // -------------------------------
 casper.test.begin('Moving backward in List mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/#6').then(function() {
+	casper.start('http://0.0.0.0:7497/#6').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Left); // 5
 		this.sendKeys('body', casper.page.event.key.Left); // 4
@@ -140,7 +140,7 @@ casper.test.begin('Moving backward in List mode', 2, function suite(test) {
 // Moving forward in Full mode
 // -------------------------------
 casper.test.begin('Moving forward in Full mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/?full#1').then(function() {
+	casper.start('http://0.0.0.0:7497/?full#1').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Right); // 2
 		this.sendKeys('body', casper.page.event.key.Right); // 3
@@ -162,7 +162,7 @@ casper.test.begin('Moving forward in Full mode', 2, function suite(test) {
 // Moving backward in Full mode
 // -------------------------------
 casper.test.begin('Moving backward in Full mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/?full#6').then(function() {
+	casper.start('http://0.0.0.0:7497/?full#6').then(function() {
 
 		this.sendKeys('body', casper.page.event.key.Left); // 5
 		this.sendKeys('body', casper.page.event.key.Left); // 4
@@ -181,7 +181,7 @@ casper.test.begin('Moving backward in Full mode', 2, function suite(test) {
 // Non-existing ID in List mode
 // -------------------------------
 casper.test.begin('Non-existing ID in List mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/#404').then(function() {
+	casper.start('http://0.0.0.0:7497/#404').then(function() {
 
 		test.assertExists('[id="1"].active', 'Slide #1 is active');
 		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
@@ -192,7 +192,7 @@ casper.test.begin('Non-existing ID in List mode', 2, function suite(test) {
 // Non-existing ID in Full mode
 // -------------------------------
 casper.test.begin('Non-existing ID in Full mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/?full#404').then(function() {
+	casper.start('http://0.0.0.0:7497/?full#404').then(function() {
 
 		test.assertExists('[id="1"].active', 'Slide #1 is active');
 		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
@@ -203,7 +203,7 @@ casper.test.begin('Non-existing ID in Full mode', 2, function suite(test) {
 // Entering Full and pressing Back
 // -------------------------------
 casper.test.begin('Entering Full and pressing Back', 3, function suite(test) {
-	casper.start('http://0.0.0.0:7497/tests/').then(function() {
+	casper.start('http://0.0.0.0:7497/').then(function() {
 
 		this.click('[id="1"]');
 		this.back();
