@@ -17,11 +17,11 @@ module.exports = function(grunt) {
                     'node_modules/ym/modules.js',
 
                     // Plugins.
-                    'node_modules/shower-timer/plugin.Timer.js',
-                    'node_modules/shower-navigation/plugin.Navigation.js',
-                    'node_modules/shower-progress/plugin.Progress.js',
-                    'node_modules/shower-touch/plugin.Touch.js',
-                    'node_modules/shower-notes/plugin.Notes.js',
+                    'node_modules/shower-timer/shower-timer.js',
+                    'node_modules/shower-navigation/shower-navigation.js',
+                    'node_modules/shower-progress/shower-progress.js',
+                    'node_modules/shower-touch/shower-touch.js',
+                    'node_modules/shower-notes/shower-notes.js',
 
                     // Core.
                     'lib/init.js',
