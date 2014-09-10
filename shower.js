@@ -780,11 +780,6 @@ window.shower = (function(window, document, undefined) {
 				slide.classList.remove('visited');
 				slide.classList.add('active');
 
-				//Add the text from the first H2 as the TITLE element text
-				text = document.querySelectorAll(slide + ' h2:first').textContent;
-				title = document.getElementsByTagName('title')[0];
-				title.textContent = text;
-
 				// update live region with content from current slide
 				slideContent = slide.innerHTML;
 				document.getElementById('live-region').innerHTML = slideContent;
