@@ -1,218 +1,64 @@
-// -------------------------------
-// Slides state on loading
-// -------------------------------
-casper.test.begin('Slides state on loading', 1, function suite(test) {
-	casper.start('http://0.0.0.0:7497/').then(function() {
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Automatically initialized slide IDs', 4,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/core.html').then(function() {
 
-		test.assertDoesntExist('section.active', 'No active slides');
+        test.assertExists('[id="1"]', 'There’s #1');
+        test.assertDoesntExist('[id="2"]', 'There’s no #2');
+        test.assertExists('[id="MyID"]', 'There’s MyID');
+        test.assertExists('[id="3"]', 'There’s #3');
 
-	}).run(function() { test.done() }).clear();
+    }).run(function() { test.done() }).clear();
 });
-// -------------------------------
-// ID initialization check
-// -------------------------------
-casper.test.begin('ID initialization check', 7, function suite(test) {
-	casper.start('http://0.0.0.0:7497/').then(function() {
 
-		test.assertExists('[id="1"]', 'There’s #1');
-		test.assertExists('[id="2"]', 'There’s #2');
-		test.assertExists('[id="3"]', 'There’s #3');
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Entering Full mode by URL query', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/core.html?full').then(function() {
 
-		test.assertDoesntExist('[id="4"]', 'There’s no #4');
-		test.assertExists('[id="MyID"]', 'There’s MyID');
+        test.assertExists('.shower.shower--full', 'Shower in Full mode');
 
-		test.assertExists('[id="5"]', 'There’s #5');
-		test.assertExists('[id="6"]', 'There’s #6');
-
-	}).run(function() { test.done() }).clear();
+    }).run(function() { test.done() }).clear();
 });
-// -------------------------------
-// Progress bar resizing
-// -------------------------------
-casper.test.begin('Progress resizing', 6, function suite(test) {
-	casper.start('http://0.0.0.0:7497/').then(function() {
 
-		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 0%'), '1st step, width is 0%');
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Slide activated by URL hash', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/core.html#1').then(function() {
 
-		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 20%'), '2nd step, width is 20%');
+        test.assertExists('[id="1"].active', 'Slide #1 is active');
 
-		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 40%'), '3rd step, width is 40%');
-
-		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 60%'), '4th step, width is 60%');
-
-		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 80%'), '5th step, width is 80%');
-
-		this.sendKeys('body', casper.page.event.key.Right);
-		test.assertNot(this.getElementAttribute('.shower__progress', 'style').indexOf('width: 100%'), '6th step, width is 100%');
-
-	}).run(function() { test.done() }).clear();
+    }).run(function() { test.done() }).clear();
 });
-// -------------------------------
-// Full mode by click
-// -------------------------------
-casper.test.begin('Full mode by click', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/').then(function() {
 
-		this.click('[id="1"]');
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Entering Full mode by click on slide', 2,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/core.html').then(function() {
 
-	}).then(function() {
+        this.click('[id="1"]');
 
-		test.assertExists('.shower--full', 'Body in Full mode');
-		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
+    }).then(function() {
 
-	}).run(function() { test.done() }).clear();
+        test.assertExists('.shower.shower--full', 'Shower in Full mode');
+        test.assertUrlMatch(/html\?full#1/, 'Slide #1 in Full mode URL');
+
+    }).run(function() { test.done() }).clear();
 });
-// -------------------------------
-// First slide activation
-// -------------------------------
-casper.test.begin('First slide activation', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/').then(function() {
 
-		this.sendKeys('body', casper.page.event.key.Right);
-
-	}).then(function() {
-
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Full mode from active slide by Enter
-// -------------------------------
-casper.test.begin('Full mode from active slide by Enter', 3, function suite(test) {
-	casper.start('http://0.0.0.0:7497/#1').then(function() {
-
-		this.sendKeys('body', casper.page.event.key.Enter);
-
-	}).then(function() {
-
-		test.assertExists('.shower--full', 'Body in Full mode');
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Moving forward in List mode
-// -------------------------------
-casper.test.begin('Moving forward in List mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/#1').then(function() {
-
-		this.sendKeys('body', casper.page.event.key.Right); // 2
-		this.sendKeys('body', casper.page.event.key.Right); // 3
-		this.sendKeys('body', casper.page.event.key.Right); // 4
-		this.sendKeys('body', casper.page.event.key.Right); // 5
-		this.sendKeys('body', casper.page.event.key.Right); // 6
-
-	}).then(function() {
-
-		test.assertExists('[id="6"].active', 'Slide #6 is active');
-		test.assertUrlMatch(/\/#6/, 'Slide #6 in List mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Moving backward in List mode
-// -------------------------------
-casper.test.begin('Moving backward in List mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/#6').then(function() {
-
-		this.sendKeys('body', casper.page.event.key.Left); // 5
-		this.sendKeys('body', casper.page.event.key.Left); // 4
-		this.sendKeys('body', casper.page.event.key.Left); // 3
-		this.sendKeys('body', casper.page.event.key.Left); // 2
-		this.sendKeys('body', casper.page.event.key.Left); // 1
-
-	}).then(function() {
-
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Moving forward in Full mode
-// -------------------------------
-casper.test.begin('Moving forward in Full mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/?full#1').then(function() {
-
-		this.sendKeys('body', casper.page.event.key.Right); // 2
-		this.sendKeys('body', casper.page.event.key.Right); // 3
-		this.sendKeys('body', casper.page.event.key.Right); // 4
-		this.sendKeys('body', casper.page.event.key.Right); // 5
-		this.sendKeys('body', casper.page.event.key.Right); // 5.1
-		this.sendKeys('body', casper.page.event.key.Right); // 5.2
-		this.sendKeys('body', casper.page.event.key.Right); // 5.3
-		this.sendKeys('body', casper.page.event.key.Right); // 6
-
-	}).then(function() {
-
-		test.assertExists('[id="6"].active', 'Slide #6 is active');
-		test.assertUrlMatch(/\/\?full#6/, 'Slide #6 in Full mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Moving backward in Full mode
-// -------------------------------
-casper.test.begin('Moving backward in Full mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/?full#6').then(function() {
-
-		this.sendKeys('body', casper.page.event.key.Left); // 5
-		this.sendKeys('body', casper.page.event.key.Left); // 4
-		this.sendKeys('body', casper.page.event.key.Left); // 3
-		this.sendKeys('body', casper.page.event.key.Left); // 2
-		this.sendKeys('body', casper.page.event.key.Left); // 1
-
-	}).then(function() {
-
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Non-existing ID in List mode
-// -------------------------------
-casper.test.begin('Non-existing ID in List mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/#404').then(function() {
-
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Non-existing ID in Full mode
-// -------------------------------
-casper.test.begin('Non-existing ID in Full mode', 2, function suite(test) {
-	casper.start('http://0.0.0.0:7497/?full#404').then(function() {
-
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/\?full#1/, 'Slide #1 in Full mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
-// -------------------------------
-// Entering Full and pressing Back
-// -------------------------------
-casper.test.begin('Entering Full and pressing Back', 3, function suite(test) {
-	casper.start('http://0.0.0.0:7497/').then(function() {
-
-		this.click('[id="1"]');
-		this.back();
-
-	}).then(function() {
-
-		test.assertExists('.shower--list', 'Body in List mode');
-		test.assertExists('[id="1"].active', 'Slide #1 is active');
-		test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
-
-	}).run(function() { test.done() }).clear();
-});
+//  4. Activating first slide from List mode by Right
+//  5. Entering Full mode from active slide by Enter
+//  6. Moving forward in List mode
+//  7. Moving backward in List mode
+//  8. Moving forward in Full mode
+//  9. Moving backward in Full mode
+// 10. Non-existing ID in List mode
+// 11. Non-existing ID in Full mode
