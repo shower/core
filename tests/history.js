@@ -1,17 +1,53 @@
-// -------------------------------
-// Entering Full and pressing Back
-// -------------------------------
-casper.test.begin('Entering Full and pressing Back', 3, function suite(test) {
-    casper.start('http://0.0.0.0:7497/').then(function() {
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Switching slides by history back', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/history.html#1').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.back();
+
+    }).then(function() {
+
+        test.assertExists('[id="1"].active', 'Slide #1 is active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Switching slides by history back and forward', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/history.html#1').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.back();
+        this.back();
+        this.forward();
+
+    }).then(function() {
+
+        test.assertExists('[id="2"].active', 'Slide #2 is active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Switching back to Full mode by Back', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/history.html').then(function() {
 
         this.click('[id="1"]');
         this.back();
 
     }).then(function() {
 
-        test.assertExists('.shower--list', 'Body in List mode');
-        test.assertExists('[id="1"].active', 'Slide #1 is active');
-        test.assertUrlMatch(/\/#1/, 'Slide #1 in List mode URL');
+        test.assertExists('.shower.shower--list', 'Shower in List mode');
 
     }).run(function() { test.done() }).clear();
 });

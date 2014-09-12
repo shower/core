@@ -1,43 +1,174 @@
-// -------------------------------
-// Through Nexts to the next slide
-// -------------------------------
-casper.test.begin('Through Nav to next slide', 4, function suite(test) {
-    casper.start('http://0.0.0.0:7497/?full#5').then(function() {
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Using navigation in List mode', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html#1').then(function() {
 
-        this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
 
     }).then(function() {
 
-        test.assertExists('[id="5"].active', 'Slide #5 is active');
-        test.assertUrlMatch(/\/\?full#5/, 'Slide #5 in Full mode URL');
-
-    }).then(function() {
-
-        this.sendKeys('body', casper.page.event.key.Right);
-
-    }).then(function() {
-
-        test.assertExists('[id="6"].active', 'Slide #6 is active');
-        test.assertUrlMatch(/\/\?full#6/, 'Slide #6 in Full mode URL');
+        test.assertExists('[id="3"].active', 'Slide #3 is .active');
 
     }).run(function() { test.done() }).clear();
 });
-// -------------------------------
-// UNDER CONSTRUCTION
-// -------------------------------
-// casper.test.begin('Resetting Nexts by reload', 0, function suite(test) {
-//  casper.start('http://0.0.0.0:7497/?full#5', function() {
 
-//      this.sendKeys('body', casper.page.event.key.Right);
-//      this.sendKeys('body', casper.page.event.key.Right);
-//      this.reload();
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Using navigation in Full mode', 2,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#1').then(function() {
 
-//      test.assertDoesntExist('.next.active', 'No active Next items on slide #5');
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
 
-//  }).run(function() {
-//      this.clear();
-//      test.done();
-//  });
-// });
+    }).then(function() {
+
+        test.assertExists('[id="2"].active', 'Slide #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(1).active', 'Item #1 is .active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Next class name is completed by active', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+
+    }).then(function() {
+
+        test.assertExists('[id="2"] li:nth-child(1).next.active', 'Item #1 is .next and .active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Completing navigation', 4,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+
+    }).then(function() {
+
+        test.assertExists('[id="2"].active', 'Slide #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(1).active', 'Item #1 is .active');
+        test.assertExists('[id="2"] li:nth-child(2).active', 'Item #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(3).active', 'Item #3 is .active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Going back through slide with navigation', 2,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#3').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Left);
+        this.sendKeys('body', casper.page.event.key.Left);
+
+    }).then(function() {
+
+        test.assertExists('[id="1"].active', 'Slide #1 is .active');
+        test.assertDoesntExist('[id="2"] li.active', 'There’s no .active items on slide #2');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Returning in navigation while it’s not finished', 2,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Left);
+        this.sendKeys('body', casper.page.event.key.Left);
+
+    }).then(function() {
+
+        test.assertExists('[id="2"].active', 'Slide #2 is .active');
+        test.assertDoesntExist('[id="2"] li.active', 'There’s no .active items on slide #2');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Returning in navigation when it’s finished', 4,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Left);
+
+    }).then(function() {
+
+        test.assertExists('[id="1"].active', 'Slide #1 is .active');
+        test.assertExists('[id="2"] li:nth-child(1).active', 'Item #1 on Slide #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(2).active', 'Item #2 on Slide #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(3).active', 'Item #3 on Slide #2 is .active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Going back and forward through finished navigation', 4,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Left);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+
+    }).then(function() {
+
+        test.assertExists('[id="3"].active', 'Slide #3 is .active');
+        test.assertExists('[id="2"] li:nth-child(1).active', 'Item #1 on Slide #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(2).active', 'Item #2 on Slide #2 is .active');
+        test.assertExists('[id="2"] li:nth-child(3).active', 'Item #3 on Slide #2 is .active');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
+    'Resetting navigation with reload', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.sendKeys('body', casper.page.event.key.Right);
+        this.reload();
+
+    }).then(function() {
+
+        test.assertDoesntExist('[id="2"] li.active', 'There’s no .active items on slide #2');
+
+    }).run(function() { test.done() }).clear();
+});
