@@ -27,6 +27,22 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
+    'Keeping Full mode after reload', 1,
+// ------------------------------------------------------------------
+    function suite(test) {
+    casper.start('http://0.0.0.0:7497/core.html?full').then(function() {
+
+        this.reload();
+
+    }).then(function() {
+
+        test.assertExists('.shower.shower--full', 'Shower in Full mode');
+
+    }).run(function() { test.done() }).clear();
+});
+
+casper.test.begin(
+// ------------------------------------------------------------------
     'Slide activated by URL hash', 1,
 // ------------------------------------------------------------------
     function suite(test) {
