@@ -3,7 +3,7 @@ casper.test.begin(
     'No page title initialization in List mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/title.html#1').then(function() {
+    casper.start('http://0.0.0.0:7497/title.html').then(function() {
 
         test.assertTitle('Title', 'Page title is not changed');
 
@@ -63,18 +63,18 @@ casper.test.begin(
     }).run(function() { test.done() }).clear();
 });
 
-casper.test.begin(
-// ------------------------------------------------------------------
-    'Switching from Full to List mode', 1,
-// ------------------------------------------------------------------
-    function suite(test) {
-    casper.start('http://0.0.0.0:7497/title.html?full#1').then(function() {
-
-        this.sendKeys('body', casper.page.event.key.Esc); // List
-
-    }).then(function() {
-
-        test.assertTitle('Title', 'Default page title in List mode');
-
-    }).run(function() { test.done() }).clear();
-});
+//casper.test.begin(
+//// ------------------------------------------------------------------
+//    'Switching from Full to List mode', 1,
+//// ------------------------------------------------------------------
+//    function suite(test) {
+//    casper.start('http://0.0.0.0:7497/title.html?full#1').then(function() {
+//
+//        this.sendKeys('body', casper.page.event.key.Esc); // List
+//
+//    }).then(function() {
+//
+//        test.assertTitle('Title', 'Default page title in List mode');
+//
+//    }).run(function() { test.done() }).clear();
+//});
