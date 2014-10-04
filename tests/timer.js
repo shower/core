@@ -92,10 +92,10 @@ casper.test.begin(
     function suite(test) {
     casper.start('http://0.0.0.0:7497/timer.html?full#4').then(function() {
 
-        this.wait(2000);
-        this.sendKeys('body', casper.page.event.key.Right);
-        this.sendKeys('body', casper.page.event.key.Right);
-        this.wait(4000);
+        this.wait(2000, function () {
+            this.sendKeys('body', casper.page.event.key.Right);
+            this.sendKeys('body', casper.page.event.key.Right);
+        });
 
     }).then(function() {
 
