@@ -2,3 +2,4 @@
 .DS_Store
 node_modules
 shower.js
+unit-tests/tests.js

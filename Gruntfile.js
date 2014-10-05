@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             }
         },
         concat: {
-            dist: {
+            basic: {
                 src: [
                     // Module system.
                     'node_modules/ym/modules.js',
@@ -28,7 +28,14 @@ module.exports = function(grunt) {
                     'lib/*/*.js'
                 ],
                 dest: 'shower.js'
+            },
+            tests: {
+                src: ['unit-tests/test.*.js'],
+                dest: 'unit-tests/tests.js'
             }
+        },
+        mocha: {
+            all: ['unit-tests/*.html']
         },
         uglify: {
             options: {
@@ -62,21 +69,27 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'jscs',
-        'concat',
+        'concat:basic',
         'uglify'
     ]);
 
     grunt.registerTask('dev', [
         'jscs',
-        'concat'
+        'concat:basic'
     ]);
 
     grunt.registerTask('test', [
         'jscs',
-        'concat',
+        'concat:basic',
         'uglify',
         'connect',
         'casperjs'
     ]);
 
+    grunt.registerTask('unit', [
+        'jscs',
+        'concat',
+        'uglify',
+        'mocha'
+    ]);
 };
