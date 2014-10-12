@@ -26,11 +26,11 @@
     "core"
   ],
   "dependencies": {
-    "shower-navigation": "0.0.2",
-    "shower-notes": "0.0.2",
-    "shower-progress": "0.0.2",
-    "shower-timer": "0.0.2",
-    "shower-touch": "0.0.2",
+    "shower-navigation": "0.0.3",
+    "shower-notes": "0.0.3",
+    "shower-progress": "0.0.3",
+    "shower-timer": "0.0.3",
+    "shower-touch": "0.0.3",
     "ym": "^0.1.0"
   },
   "devDependencies": {
@@ -45,7 +45,7 @@
     "grunt-mocha": "^0.4.11",
     "load-grunt-tasks": "^0.6.0",
     "chai": "1.9.2",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.5"
   },
   "scripts": {
     "test": "node -e \"require('grunt').tasks(['test'])\""
