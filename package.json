@@ -41,11 +41,11 @@
     "grunt-contrib-connect": "^0.8.0",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-jscs": "^0.8.0",
+    "grunt-jscs": "^0.8.1",
     "grunt-mocha": "^0.4.11",
-    "load-grunt-tasks": "^0.6.0",
+    "load-grunt-tasks": "^1.0.0",
     "chai": "1.9.2",
-    "mocha": "^1.21.5"
+    "mocha": "^2.0.1"
   },
   "scripts": {
     "test": "node -e \"require('grunt').tasks(['test'])\""
