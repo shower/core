@@ -35,7 +35,7 @@ Init function.
 
 |Parameters         |Type                   |Default         |Description
 |-------------------|-----------------------|----------------|---------------------------------
-|containerElement   |HTMLElement|string     |.shower         |Container HTML element or CSS selector.
+|containerElement   |HTMLElement or string  |.shower         |Container HTML element or CSS selector.
 |options            |object                 |                |Shower options.
 |options.debug      |boolean                |false           |Debug mode.
 |options.hotkeys    |boolean                |true            |If true — hotkeys will work.
