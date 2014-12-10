@@ -1,62 +1,68 @@
-**Overview:** Container class for shower slides.
-* * *
-
-
-
 ## shower.Container
 
 Container class for shower slides. Contains DOM,
-enter &amp; exit slide mode.
+enter & exit slide mode.
 
 
+### Methods
+|Name                            |Returns       | Description |
+|--------------------------------|--------------|-------------|
+|constructor(shower, containerElement)|this     |Constructor method
+|init()                          |              |Init container.
+|destroy()                       |              |Destroy container.
+|getElement()                    |HTMLElement   |Returns container element.
+|enterSlideMode()                |this          |Enter to slide mode. In this mode a slide fills the maximum area.
+|exitSlideMode()                 |this          |Return to list mode view
+|isSlideMode()                   |boolean       |Return state of slide mode.
+|scrollToSlide(slideIndex)       |this          |Scroll container to slide by index.
 
+
+### Events
+|Name           |Description
+|---------------|--------------
+|slidemodeenter |Enter slide mode.
+|slidemodeexit  |Exit from slide mode.
 
 ====
-#### .getElement () 
-
+#### getElement
+`{HTMLElement} getElement()` 
 
 **Returns**: `HTMLElement`, Container element.
 
 ====
-#### .enterSlideMode () 
+#### enterSlideMode 
+`{shower.Container} enterSlideMode()`
 
 Enter slide mode.
 Slide fills the maximum area.
 
-
 **Returns**: `shower.Container`
 
 ====
-#### .exitSlideMode () 
+#### exitSlideMode
+`{shower.Container} exitSlideMode()`
 
 Exit slide mode.
 Shower returns into list mode.
 
-
 **Returns**: `shower.Container`
 
 ====
-#### .isSlideMode () 
+#### isSlideMode
+`{boolean} isSlideMode()`
 
 Return state of slide mode.
 
-
-**Returns**: `Boolean`, Slide mode state.
+**Returns**: `boolean`, Slide mode state.
 
 ====
-#### .scrollToSlide (slideIndex) 
+#### scrollToSlide
+`{shower.Container} scrollToSlide(slideIndex)`
 
 Scroll to slide by index.
 
-Parameters:<br>
-— ***slideIndex***: `Number`, Scroll to slide by index.<br>
+|Parameters         |Type                   |Description
+|-------------------|-----------------------|------------------------------------
+|slideIndex         |number                 |Scroll to slide by index.
 
 **Returns**: `shower.Container`
-
-
-
-* * *
-
-
-
-
