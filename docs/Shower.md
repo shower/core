@@ -27,6 +27,15 @@ Shower core.
 |updateLiveRegion(content)       |this          |Update live region content.
 
 ====
+### Events
+|Name           |Description
+|---------------|--------------
+|ready          |Fire when the Shower API is ready for use. 
+|destroy        |The Shower was destroyed.
+|slideremove    |The slide was removed. You can get index from event obj.
+|slideadd       |The slide was added. You can get index from event obj.
+
+====
 
 #### init 
 `{Shower} init([containerElement, [options]])`
