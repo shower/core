@@ -1,87 +1,76 @@
-**Overview:** Event emitter.
-* * *
-
-
-
 ## event.Emitter
+`new EventEmitter()`
 
 Event emitter. Handle events, emit custom events and other.
 
+=====
+### Methods
+|Name                            |Returns       | Description |
+|--------------------------------|--------------|-------------|
+|on(types, callback[, context])  |this          |Add event(s) handler(s).
+|off(types, callback[, context]) |this          |Remove event(s) handler(s)
+|once(types, callback[, context])|this          |Add event listener. Callback will run once and after remove auto.
+|emit(eventType[, eventObject])  |              |Fire all handlers who listen event type.
+|group()                         |event.EventGroup|Return helper.
 
+### Events
+|Name           |Description
+|---------------|--------------
+|slidemodeenter |Enter slide mode.
+|slidemodeexit  |Exit from slide mode.
 
 
 ====
-#### .on (types, callback, context) 
+#### on
+`{event.Emitter} on(types, callback[, context])` 
 
 Add event (events) listener.
 
-Parameters:<br>
-— ***types***: `string | Array.&lt;string&gt;`, Event name or array of event names.<br>
-— ***callback***: `function`, Add event (events) listener.<br>
-— ***context***: `object`, Callback context.<br>
+|Parameters         |Type                   |Description
+|-------------------|-----------------------|------------------------------------
+|types              |string or string[]     |Event name or array of event names.
+|callback           |function               |Event listener
+|[context]          |object                 |Callback context
 
 **Returns**: `event.Emitter`
 
 ====
-#### .off (types, callback, context) 
+#### off
+`{event.Emitter} off(types, callback[, context])`
 
 Remove event (events) listener.
 
-Parameters:<br>
-— ***types***: `string | Array.&lt;string&gt;`, Event name or array of event names.<br>
-— ***callback***: `function`, Remove event (events) listener.<br>
-— ***context***: `object`, Callback context.<br>
+|Parameters         |Type                   |Description
+|-------------------|-----------------------|------------------------------------
+|types              |string or string[]     |Event name or array of event names.
+|callback           |function               |Remove event listener
+|[context]          |object                 |Callback context
 
 **Returns**: `event.Emitter`
 
 ====
-#### .once (eventType, callback, context) 
+#### once
+`{event.Emitter} once(eventType, callback[, context])`
 
 Add event listener. Callback will run once and after remove auto.
 
-Parameters:<br>
-— ***eventType***: `string | Array.&lt;string&gt;`, Event name or array of event names.<br>
-— ***callback***: `function`, Add event listener. Callback will run once and after remove auto.<br>
-— ***context***: `object`, Callback context.<br>
+|Parameters         |Type                   |Description
+|-------------------|-----------------------|------------------------------------
+|types              |string or string[]     |Event name or array of event names.
+|callback           |function               |Remove event listener
+|[context]          |object                 |Callback context
 
 **Returns**: `event.Emitter`
 
 ====
-#### .emit (eventType, eventObject) 
+#### emit
+`emit(eventType[, eventObject])`
 
 Fire all handlers who listen that event type.
 
-Parameters:<br>
-— ***eventType***: `string`, Fire all handlers who listen that event type.<br>
-— ***eventObject***: `event.Event | object`, Fire all handlers who listen that event type.<br>
-
-
-====
-#### .createEventObject (type, eventData, target) 
-
-Parameters:<br>
-— ***type***: `string`<br>
-— ***eventData***: `object`<br>
-— ***target***: `object`<br>
-
+|Parameters         |Type                   |Description
+|-------------------|-----------------------|------------------------------------
+|eventTyper         |string                 |Event type.
+|eventObject        |object or event.Event  |Event object with custom content
 
 ====
-#### .setParent (parent) 
-
-Parameters:<br>
-— ***parent***: `event.Emitter`<br>
-
-
-====
-#### .getParent () 
-
-
-**Returns**: `event.Emitter | null`
-
-
-
-* * *
-
-
-
-
