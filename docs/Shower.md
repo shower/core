@@ -3,6 +3,16 @@
 
 Shower core.
 
+### Fields
+|Name                            |Type              | Description |
+|--------------------------------|------------------|-------------|
+|events                          |event.Emitter     |Shower event emitter
+|container                       |shower.Container  |Container instance
+|player                          |shower.Player     |Player
+|plugins                         |shower.Plugins    |Plugins manager
+|location                        |shower.Location   |Location manager for work with history API and etc
+|options                         |object            |Options
+|state                           |object            |State
 
 ### Methods
 |Name                            |Returns       | Description |
@@ -26,7 +36,6 @@ Shower core.
 |getLiveRegion()                 |HTMLElement   |Get live region element.
 |updateLiveRegion(content)       |this          |Update live region content.
 
-====
 ### Events
 |Name           |Description
 |---------------|--------------
@@ -36,7 +45,6 @@ Shower core.
 |slideadd       |The slide was added. You can get index from event obj.
 
 ====
-
 #### init 
 `{Shower} init([containerElement, [options]])`
 

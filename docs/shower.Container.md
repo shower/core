@@ -1,8 +1,13 @@
 ## shower.Container
+`new Container(shower, containerElement)`
 
 Container class for shower slides. Contains DOM,
 enter & exit slide mode.
 
+### Fields
+|Name                            |Type          | Description |
+|--------------------------------|--------------|-------------|
+|events                          |event.Emitter |Container event emitter.
 
 ### Methods
 |Name                            |Returns       | Description |
@@ -15,7 +20,6 @@ enter & exit slide mode.
 |exitSlideMode()                 |this          |Return to list mode view
 |isSlideMode()                   |boolean       |Return state of slide mode.
 |scrollToSlide(slideIndex)       |this          |Scroll container to slide by index.
-
 
 ### Events
 |Name           |Description
