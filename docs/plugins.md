@@ -18,7 +18,7 @@
 ```javascript
 // У каждого плагина есть один идентификатор — его имя. 
 // Поэтому имя плагина всегда должно совпадать с именем модуля.
-modules.define('shower-logger’, [
+modules.define('shower-logger', [
     
 ], function (provide) {
    
@@ -87,7 +87,7 @@ shower.init('.shower', {
 Или напрямую из html
 
 ```html
-<body class="shower" data-plugins="{'shower-logger': {clearInterval: 10}}”>
+<body class="shower" data-plugins="{'shower-logger': {clearInterval: 10}}">
 …
 </body>
 ```
