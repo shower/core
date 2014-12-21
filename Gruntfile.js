@@ -30,12 +30,12 @@ module.exports = function(grunt) {
                 dest: 'shower.js'
             },
             tests: {
-                src: ['unit-tests/test.*.js'],
-                dest: 'unit-tests/tests.js'
+                src: ['tests/unit/test.*.js'],
+                dest: 'tests/unit/tests.js'
             }
         },
         mocha: {
-            all: ['unit-tests/*.html']
+            all: ['tests/unit/*.html']
         },
         uglify: {
             options: {
@@ -50,13 +50,13 @@ module.exports = function(grunt) {
         connect: {
             task: {
                 options: {
-                    base: ['.', 'tests'],
+                    base: ['.', 'tests/functional'],
                     port: 7497
                 }
             }
         },
         casperjs: {
-            files: ['tests/*.js']
+            files: ['tests/functional/*.js']
         },
         bump: {
             options: {
@@ -79,6 +79,11 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('test', [
+        'test:unit',
+        'test:func'
+    ]);
+
+    grunt.registerTask('test:func', [
         'jscs',
         'concat:basic',
         'uglify',
@@ -86,7 +91,7 @@ module.exports = function(grunt) {
         'casperjs'
     ]);
 
-    grunt.registerTask('unit', [
+    grunt.registerTask('test:unit', [
         'jscs',
         'concat',
         'uglify',
