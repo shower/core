@@ -1,7 +1,8 @@
 // Tests list.
 modules.define('tests', [
 
-    'test.Shower'
+    'test.Shower',
+    'test.Slide'
 
 ], function (provide) {
     provide();
