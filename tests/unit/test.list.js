@@ -1,9 +1,9 @@
 // Tests list.
 modules.define('tests', [
-
     'test.Shower',
-    'test.Slide'
+    'test.shower.Player',
 
+    'test.Slide'
 ], function (provide) {
     provide();
 });

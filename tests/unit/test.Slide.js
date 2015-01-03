@@ -66,6 +66,11 @@ modules.define('test.Slide', [
             slide.activate();
             slide.isVisited().should.eq(true);
         });
+
+        it('Should auto init layout after create', function () {
+            var layout = slide.getLayout();
+            (typeof layout).should.not.eq('undefined');
+        });
     });
 
     provide();
