@@ -5,7 +5,7 @@ modules.define('tests', [
     'test.shower.Container',
     'test.shower.Plugins',
 
-    'test.event.Emitter',
+    'test.Emitter',
 
     'test.Slide'
 ], function (provide) {
