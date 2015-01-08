@@ -1,6 +1,6 @@
-modules.define('test.event.Emitter', [
+modules.define('test.Emitter', [
     'shower',
-    'event.Emitter'
+    'Emitter'
 ], function (provide, shower, EventEmitter) {
 
     describe('event.Emitter', function () {
