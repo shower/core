@@ -3,7 +3,7 @@ modules.define('test.Emitter', [
     'Emitter'
 ], function (provide, shower, EventEmitter) {
 
-    describe('event.Emitter', function () {
+    describe('Emitter', function () {
         var events;
 
         beforeEach(function () {

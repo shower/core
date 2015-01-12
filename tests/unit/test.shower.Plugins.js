@@ -94,7 +94,7 @@ modules.define('test.shower.Plugins', [
 
 // Тестовый плагин.
 modules.define('shower-test-plugin', [
-    'event.Emitter'
+    'Emitter'
 ], function (provide, EventEmitter) {
 
     function TestPlugin (shower, options) {
