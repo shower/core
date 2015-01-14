@@ -27,6 +27,7 @@ casper.test.begin(
 
     }).then(function() {
 
+        // test.info(this.page.content)
         test.assertExists('[id="2"].active', 'Slide #2 is .active');
         test.assertExists('[id="2"] li:nth-child(1).active', 'Item #1 is .active');
 
