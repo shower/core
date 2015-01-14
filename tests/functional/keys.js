@@ -3,7 +3,7 @@ casper.test.begin(
     'Moving forward by Right', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
 
@@ -19,7 +19,7 @@ casper.test.begin(
     'Moving forward by Down', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Down);
 
@@ -35,7 +35,7 @@ casper.test.begin(
     'Moving forward by Tab', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Tab);
 
@@ -51,7 +51,7 @@ casper.test.begin(
     'Not moving forward by Ctrl Tab', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Tab , { modifiers: 'ctrl' });
 
@@ -67,7 +67,7 @@ casper.test.begin(
     'Moving forward by J', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.J);
 
@@ -83,7 +83,7 @@ casper.test.begin(
     'Moving forward by L', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.L);
 
@@ -99,7 +99,7 @@ casper.test.begin(
     'Moving forward by Space', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Space);
 
@@ -115,7 +115,7 @@ casper.test.begin(
     'Moving forward by PageDown', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#1').then(function() {
+    casper.start('tests/functional/keys.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.PageDown);
 
@@ -131,7 +131,7 @@ casper.test.begin(
     'Moving backward by Left', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Left);
 
@@ -147,7 +147,7 @@ casper.test.begin(
     'Moving backward by Up', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Up);
 
@@ -163,7 +163,7 @@ casper.test.begin(
     'Moving backward by Shift Tab', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Tab, { modifiers: 'shift' });
 
@@ -179,7 +179,7 @@ casper.test.begin(
     'Not moving backward by Ctrl Shift Tab', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Tab, { modifiers: 'ctrl+shift' });
 
@@ -195,7 +195,7 @@ casper.test.begin(
     'Moving backward by K', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.K);
 
@@ -211,7 +211,7 @@ casper.test.begin(
     'Moving backward by H', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.H);
 
@@ -227,7 +227,7 @@ casper.test.begin(
     'Moving backward by Shift Space', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Space, { modifiers: 'shift' });
 
@@ -243,7 +243,7 @@ casper.test.begin(
     'Moving backward by PageUp', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.PageUp);
 
@@ -259,7 +259,7 @@ casper.test.begin(
     'Moving backward by Home', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Home);
 
@@ -275,7 +275,7 @@ casper.test.begin(
     'Moving backward by End', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.End);
 
@@ -291,7 +291,7 @@ casper.test.begin(
     'Entering Full from the first slide by F5', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.F5);
 
@@ -308,7 +308,7 @@ casper.test.begin(
     'Entering Full from the current slide by Shift F5', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html#2').then(function() {
+    casper.start('tests/functional/keys.html#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.F5, { modifiers: 'shift' });
 
@@ -325,7 +325,7 @@ casper.test.begin(
     'Exiting Full by F5', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html?full#1').then(function() {
+    casper.start('tests/functional/keys.html?full#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.F5);
 
@@ -341,7 +341,7 @@ casper.test.begin(
     'Exiting Full by Escape', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/keys.html?full#1').then(function() {
+    casper.start('tests/functional/keys.html?full#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Escape);
 

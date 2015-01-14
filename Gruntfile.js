@@ -47,14 +47,6 @@ module.exports = function(grunt) {
                 dest: 'shower.min.js'
             }
         },
-        connect: {
-            task: {
-                options: {
-                    base: ['.', 'tests/functional'],
-                    port: 7497
-                }
-            }
-        },
         casperjs: {
             files: ['tests/functional/*.js']
         },
@@ -87,7 +79,6 @@ module.exports = function(grunt) {
         'jscs',
         'concat:basic',
         'uglify',
-        'connect',
         'casperjs'
     ]);
 

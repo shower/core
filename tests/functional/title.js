@@ -3,7 +3,7 @@ casper.test.begin(
     'No page title initialization in List mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/title.html').then(function() {
+    casper.start('tests/functional/title.html').then(function() {
 
         test.assertTitle('Title', 'Page title is not changed');
 
@@ -15,7 +15,7 @@ casper.test.begin(
     'Page title initialization in Full mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/title.html?full#1').then(function() {
+    casper.start('tests/functional/title.html?full#1').then(function() {
 
         test.assertTitle('1 — Title', 'Page title is prepended with slide title');
 
@@ -27,7 +27,7 @@ casper.test.begin(
     'No slide title, no page title', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/title.html?full#2').then(function() {
+    casper.start('tests/functional/title.html?full#2').then(function() {
 
         test.assertTitle('Title', 'Original page title in lack of slide title');
 
@@ -39,7 +39,7 @@ casper.test.begin(
     'Stripping tags from slide title', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/title.html?full#4').then(function() {
+    casper.start('tests/functional/title.html?full#4').then(function() {
 
         test.assertTitle('4 — Title', 'Page title is free from tags left from slide title');
 
@@ -51,7 +51,7 @@ casper.test.begin(
 //    'Changing page title', 1,
 //// ------------------------------------------------------------------
 //    function suite(test) {
-//    casper.start('http://0.0.0.0:7497/title.html?full#1').then(function() {
+//    casper.start('tests/functional/title.html?full#1').then(function() {
 //
 //        this.sendKeys('body', casper.page.event.key.Right); // 2
 //        this.sendKeys('body', casper.page.event.key.Right); // 3
@@ -68,7 +68,7 @@ casper.test.begin(
 //    'Switching from Full to List mode', 1,
 //// ------------------------------------------------------------------
 //    function suite(test) {
-//    casper.start('http://0.0.0.0:7497/title.html?full#1').then(function() {
+//    casper.start('tests/functional/title.html?full#1').then(function() {
 //
 //        this.sendKeys('body', casper.page.event.key.Esc); // List
 //

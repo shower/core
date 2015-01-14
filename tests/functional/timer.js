@@ -3,7 +3,7 @@ casper.test.begin(
     'Using timer in List mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html#2').then(function() {
+    casper.start('tests/functional/timer.html#2').then(function() {
 
         this.wait(4000);
 
@@ -19,7 +19,7 @@ casper.test.begin(
     'Using timer in Full mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html?full#2').then(function() {
+    casper.start('tests/functional/timer.html?full#2').then(function() {
 
         this.wait(4000);
 
@@ -35,7 +35,7 @@ casper.test.begin(
     'Skipping timer by Left', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html?full#2').then(function() {
+    casper.start('tests/functional/timer.html?full#2').then(function() {
 
         this.wait(2000);
         this.sendKeys('body', casper.page.event.key.Left);
@@ -53,7 +53,7 @@ casper.test.begin(
     'Skipping timer by Right', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html?full#2').then(function() {
+    casper.start('tests/functional/timer.html?full#2').then(function() {
 
         this.wait(2000);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -71,7 +71,7 @@ casper.test.begin(
     'Going through navigation using timer', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html?full#4').then(function() {
+    casper.start('tests/functional/timer.html?full#4').then(function() {
 
         this.wait(4000);
 
@@ -90,7 +90,7 @@ casper.test.begin(
     'Finishing timed navigation by Right', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html?full#4').then(function() {
+    casper.start('tests/functional/timer.html?full#4').then(function() {
 
         this.wait(2000, function () {
             this.sendKeys('body', casper.page.event.key.Right);
@@ -112,7 +112,7 @@ casper.test.begin(
     'Stopping timer by Right', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/timer.html?full#4').then(function() {
+    casper.start('tests/functional/timer.html?full#4').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.wait(4000);

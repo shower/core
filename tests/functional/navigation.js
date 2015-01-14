@@ -3,7 +3,7 @@ casper.test.begin(
     'Using navigation in List mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html#1').then(function() {
+    casper.start('tests/functional/navigation.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -20,7 +20,7 @@ casper.test.begin(
     'Using navigation in Full mode', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#1').then(function() {
+    casper.start('tests/functional/navigation.html?full#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -38,7 +38,7 @@ casper.test.begin(
     'Next class name is completed by active', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/navigation.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
 
@@ -54,7 +54,7 @@ casper.test.begin(
     'Completing navigation', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/navigation.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -75,7 +75,7 @@ casper.test.begin(
     'Going back through slide with navigation', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#3').then(function() {
+    casper.start('tests/functional/navigation.html?full#3').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Left);
         this.sendKeys('body', casper.page.event.key.Left);
@@ -93,7 +93,7 @@ casper.test.begin(
     'Returning in navigation while it’s not finished', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/navigation.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -113,7 +113,7 @@ casper.test.begin(
     'Returning in navigation when it’s finished', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/navigation.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -135,7 +135,7 @@ casper.test.begin(
     'Going back and forward through finished navigation', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/navigation.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -159,7 +159,7 @@ casper.test.begin(
     'Resetting navigation with reload', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/navigation.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);

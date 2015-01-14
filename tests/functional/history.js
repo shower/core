@@ -3,7 +3,7 @@ casper.test.begin(
     'Switching slides by history back', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/history.html#1').then(function() {
+    casper.start('tests/functional/history.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.back();
@@ -20,7 +20,7 @@ casper.test.begin(
     'Switching slides by history back and forward', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/history.html#1').then(function() {
+    casper.start('tests/functional/history.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -40,7 +40,7 @@ casper.test.begin(
     'Switching back to Full mode by Back', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('http://0.0.0.0:7497/history.html').then(function() {
+    casper.start('tests/functional/history.html').then(function() {
 
         this.click('[id="1"]');
         this.back();
