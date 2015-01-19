@@ -1,7 +1,7 @@
 {
   "name": "shower-core",
   "description": "Core for Shower HTML presentation engine",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "Vadim Makeev",
     "url": "http://pepelsbey.com/"
@@ -27,10 +27,10 @@
   ],
   "dependencies": {
     "shower-navigation": "0.0.4",
-    "shower-notes": "0.0.3",
-    "shower-progress": "0.0.3",
-    "shower-timer": "0.0.4",
-    "shower-touch": "0.0.3",
+    "shower-notes": "0.0.4",
+    "shower-progress": "0.0.5",
+    "shower-timer": "0.0.5",
+    "shower-touch": "0.0.4",
     "ym": "^0.1.0"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-jscs": "^1.1.0",
+    "grunt-jscs": "^1.2.0",
     "grunt-mocha": "^0.4.11",
     "load-grunt-tasks": "^2.0.0",
     "chai": "1.10.0",
