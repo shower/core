@@ -1,9 +1,9 @@
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Using navigation in List mode', 1,
+    'Using next in List mode', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html#1').then(function() {
+    casper.start('tests/functional/next.html#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -17,10 +17,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Using navigation in Full mode', 2,
+    'Using next in Full mode', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#1').then(function() {
+    casper.start('tests/functional/next.html?full#1').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -39,7 +39,7 @@ casper.test.begin(
     'Next class name is completed by active', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/next.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
 
@@ -52,10 +52,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Completing navigation', 4,
+    'Completing next', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/next.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -73,10 +73,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Going back through slide with navigation', 2,
+    'Going back through slide with next', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#3').then(function() {
+    casper.start('tests/functional/next.html?full#3').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Left);
         this.sendKeys('body', casper.page.event.key.Left);
@@ -91,10 +91,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Returning in navigation while it’s not finished', 2,
+    'Returning in next while it’s not finished', 2,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/next.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -111,10 +111,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Returning in navigation when it’s finished', 4,
+    'Returning in next when it’s finished', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/next.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -133,10 +133,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Going back and forward through finished navigation', 4,
+    'Going back and forward through finished next', 4,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/next.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);
@@ -157,10 +157,10 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Resetting navigation with reload', 1,
+    'Resetting next with reload', 1,
 // ------------------------------------------------------------------
     function suite(test) {
-    casper.start('tests/functional/navigation.html?full#2').then(function() {
+    casper.start('tests/functional/next.html?full#2').then(function() {
 
         this.sendKeys('body', casper.page.event.key.Right);
         this.sendKeys('body', casper.page.event.key.Right);

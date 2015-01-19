@@ -68,7 +68,7 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Going through navigation using timer', 4,
+    'Going through nexts using timer', 4,
 // ------------------------------------------------------------------
     function suite(test) {
     casper.start('tests/functional/timer.html?full#4').then(function() {
@@ -87,7 +87,7 @@ casper.test.begin(
 
 casper.test.begin(
 // ------------------------------------------------------------------
-    'Finishing timed navigation by Right', 4,
+    'Finishing timed nexts by Right', 4,
 // ------------------------------------------------------------------
     function suite(test) {
     casper.start('tests/functional/timer.html?full#4').then(function() {
