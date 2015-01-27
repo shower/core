@@ -43,7 +43,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jscs": "^1.2.0",
     "grunt-mocha": "^0.4.11",
-    "load-grunt-tasks": "^2.0.0",
+    "load-grunt-tasks": "^3.0.0",
     "chai": "1.10.0",
     "mocha": "^2.1.0"
   },
