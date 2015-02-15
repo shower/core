@@ -21,7 +21,6 @@ module.exports = function(grunt) {
                     'node_modules/shower-next/shower-next.js',
                     'node_modules/shower-progress/shower-progress.js',
                     'node_modules/shower-touch/shower-touch.js',
-                    'node_modules/shower-notes/shower-notes.js',
 
                     // Core.
                     'lib/init.js',
