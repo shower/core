@@ -247,19 +247,19 @@ casper.test.begin(
     }).run(function() { test.done() }).clear();
 });
 
-//casper.test.begin(
-//// ------------------------------------------------------------------
-//    'State classes with current slide in Full mode', 3,
-//// ------------------------------------------------------------------
-//    function suite(test) {
-//    casper.start('tests/functional/core--list.html?full#MyID').then(function() {
-//
-//        test.assertDoesntExist('[id="1"][class]', 'No class name on slide #1');
-//        test.assertExists('#MyID.active', 'Slide #MyID is active');
-//        test.assertDoesntExist('[id="3"][class]', 'No class name on slide #3');
-//
-//    }).run(function() { test.done() }).clear();
-//});
+casper.test.begin(
+// ------------------------------------------------------------------
+   'State classes with current slide in Full mode', 3,
+// ------------------------------------------------------------------
+   function suite(test) {
+   casper.start('tests/functional/core--list.html?full#MyID').then(function() {
+
+       test.assertDoesntExist('[id="1"][class]', 'No class name on slide #1');
+       test.assertExists('#MyID.active', 'Slide #MyID is active');
+       test.assertDoesntExist('[id="3"][class]', 'No class name on slide #3');
+
+   }).run(function() { test.done() }).clear();
+});
 
 casper.test.begin(
 // ------------------------------------------------------------------
@@ -318,24 +318,24 @@ casper.test.begin(
     }).run(function() { test.done() }).clear();
 });
 
-//casper.test.begin(
-//// ------------------------------------------------------------------
-//    'State classes while moving backward in Full mode', 3,
-//// ------------------------------------------------------------------
-//    function suite(test) {
-//    casper.start('tests/functional/core--list.html?full#3').then(function() {
-//
-//        this.sendKeys('body', casper.page.event.key.Left);
-//        this.sendKeys('body', casper.page.event.key.Left);
-//
-//    }).then(function() {
-//
-//        test.assertExists('[id="1"].active:not(.visited)', 'Slide #1 is active but not visited');
-//        test.assertExists('#MyID.visited:not(.active)', 'Slide #MyID is visited but not active');
-//        test.assertExists('[id="3"].visited:not(.active)', 'Slide #MyID is visited but not active');
-//
-//    }).run(function() { test.done() }).clear();
-//});
+casper.test.begin(
+// ------------------------------------------------------------------
+   'State classes while moving backward in Full mode', 3,
+// ------------------------------------------------------------------
+   function suite(test) {
+   casper.start('tests/functional/core--list.html?full#3').then(function() {
+
+       this.sendKeys('body', casper.page.event.key.Left);
+       this.sendKeys('body', casper.page.event.key.Left);
+
+   }).then(function() {
+
+       test.assertExists('[id="1"].active:not(.visited)', 'Slide #1 is active but not visited');
+       test.assertExists('#MyID.visited:not(.active)', 'Slide #MyID is visited but not active');
+       test.assertExists('[id="3"].visited:not(.active)', 'Slide #MyID is visited but not active');
+
+   }).run(function() { test.done() }).clear();
+});
 
 casper.test.begin(
 // ------------------------------------------------------------------

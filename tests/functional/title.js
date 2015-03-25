@@ -46,22 +46,22 @@ casper.test.begin(
     }).run(function() { test.done() }).clear();
 });
 
-//casper.test.begin(
-//// ------------------------------------------------------------------
-//    'Changing page title', 1,
-//// ------------------------------------------------------------------
-//    function suite(test) {
-//    casper.start('tests/functional/title.html?full#1').then(function() {
-//
-//        this.sendKeys('body', casper.page.event.key.Right); // 2
-//        this.sendKeys('body', casper.page.event.key.Right); // 3
-//
-//    }).then(function() {
-//
-//        test.assertTitle('3 — Title', 'Page title is prepended with slide #3 title');
-//
-//    }).run(function() { test.done() }).clear();
-//});
+casper.test.begin(
+// ------------------------------------------------------------------
+   'Changing page title', 1,
+// ------------------------------------------------------------------
+   function suite(test) {
+   casper.start('tests/functional/title.html?full#1').then(function() {
+
+       this.sendKeys('body', casper.page.event.key.Right); // 2
+       this.sendKeys('body', casper.page.event.key.Right); // 3
+
+   }).then(function() {
+
+       test.assertTitle('3 — Title', 'Page title is prepended with slide #3 title');
+
+   }).run(function() { test.done() }).clear();
+});
 
 //casper.test.begin(
 //// ------------------------------------------------------------------
