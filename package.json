@@ -29,22 +29,22 @@
     "shower-next": "0.0.2",
     "shower-progress": "0.0.6",
     "shower-timer": "0.0.7",
-    "shower-touch": "0.0.4",
-    "ym": "^0.1.0"
+    "shower-touch": "0.0.5",
+    "ym": "^0.1.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-bump": "^0.3.0",
+    "grunt-bump": "^0.3.1",
     "grunt-casperjs": "^2.1.0",
     "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-connect": "^0.9.0",
-    "grunt-contrib-uglify": "^0.8.0",
+    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-jscs": "^1.5.0",
+    "grunt-jscs": "^1.8.0",
     "grunt-mocha": "^0.4.12",
     "load-grunt-tasks": "^3.1.0",
-    "chai": "2.1.2",
-    "mocha": "^2.2.1"
+    "chai": "2.3.0",
+    "mocha": "^2.2.4"
   },
   "scripts": {
     "test": "node -e \"require('grunt').tasks(['test'])\""
