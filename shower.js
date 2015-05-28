@@ -20,6 +20,11 @@ window.shower = (function(window, document, undefined) {
 	shower.debugMode = false;
 
 	/**
+	* Automatic resizing disabled.
+	*/
+	shower.isNonResizable = false;
+
+	/**
 	 * Slide constructor
 	 *
 	 * @param {Object} opts
@@ -302,15 +307,17 @@ window.shower = (function(window, document, undefined) {
 	* @returns {Boolean}
 	*/
 	shower._applyTransform = function(transform) {
-		[
-			'WebkitTransform',
-			'MozTransform',
-			'msTransform',
-			'OTransform',
-			'transform'
-		].forEach(function(prop) {
-				document.body.style[prop] = transform;
-		});
+		if ( ! (shower.isNonResizable)) {
+			[
+				'WebkitTransform',
+				'MozTransform',
+				'msTransform',
+				'OTransform',
+				'transform'
+			].forEach(function(prop) {
+					document.body.style[prop] = transform;
+			});
+		}
 
 		return true;
 	};
@@ -990,6 +997,13 @@ window.shower = (function(window, document, undefined) {
 				if (e.altKey || e.ctrlKey || e.metaKey) { return; }
 				e.preventDefault();
 				shower[e.shiftKey ? '_turnPreviousSlide' : '_turnNextSlide']();
+			break;
+
+			case 70: // F
+				shower.isNonResizable = ! (shower.isNonResizable);
+				if (shower.isSlideMode() && ! (shower.isNonResizable)) {
+					shower._applyTransform(shower._getTransform());
+				}
 			break;
 
 			default:
