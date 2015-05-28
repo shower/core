@@ -20,6 +20,11 @@ window.shower = (function(window, document, undefined) {
 	shower.debugMode = false;
 
 	/**
+	* Automatic resizing disabled.
+	*/
+	shower.isNonResizable = false;
+
+	/**
 	 * Slide constructor
 	 *
 	 * @param {Object} opts
@@ -897,7 +902,7 @@ window.shower = (function(window, document, undefined) {
 	}, false);
 
 	window.addEventListener('resize', function() {
-		if (shower.isSlideMode()) {
+		if (shower.isSlideMode() && ! (shower.isNonResizable)) {
 			shower._applyTransform(shower._getTransform());
 		}
 	}, false);
@@ -990,6 +995,10 @@ window.shower = (function(window, document, undefined) {
 				if (e.altKey || e.ctrlKey || e.metaKey) { return; }
 				e.preventDefault();
 				shower[e.shiftKey ? '_turnPreviousSlide' : '_turnNextSlide']();
+			break;
+
+			case 70: // F
+				shower.isNonResizable = ! (shower.isNonResizable);
 			break;
 
 			default:
