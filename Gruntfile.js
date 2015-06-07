@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 mangle: true,
-                banner: '/**\n * <%= pkg.description %>\n * <%= pkg.name %> v<%= pkg.version %>, <%= pkg.homepage %>\n * @copyright 2010–<%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, <%= pkg.author.url %>\n * @license <%= pkg.licenses[0].type %>, <%= pkg.licenses[0].url %>\n */\n'
+                banner: '/**\n * <%= pkg.description %>\n * <%= pkg.name %> v<%= pkg.version %>, <%= pkg.homepage %>\n * @copyright 2010–<%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, <%= pkg.author.url %>\n * @license <%= pkg.license %>\n */\n'
             },
             build: {
                 src: 'shower.js',
