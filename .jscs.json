@@ -1,35 +1,10 @@
 {
-    "requireCurlyBraces": ["if", "else", "for", "while", "do", "try", "catch"],
-    "requireSpaceAfterKeywords": ["if", "for", "while", "switch", "try", "catch", "do", "else"],
-    "requireSpaceBeforeBlockStatements": true,
-    "requireParenthesesAroundIIFE": true,
-    "requireSpacesInConditionalExpression": {
-        "afterTest": true,
-        "beforeConsequent": true,
-        "afterConsequent": true,
-        "beforeAlternate": true
-    },
-    "requireSpacesInFunctionExpression": {
-        "beforeOpeningCurlyBrace": true,
-        "beforeOpeningRoundBrace": true
-    },
-    "requireBlocksOnNewline": 1,
-    "disallowEmptyBlocks": true,
-    "disallowSpacesInsideArrayBrackets": true,
-    "requireSpacesInsideObjectBrackets": "allButNested",
-    "requireCommaBeforeLineBreak": true,
-    "requireOperatorBeforeLineBreak": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
-    "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
-    "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
-    "requireSpaceBeforeBinaryOperators": ["+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
-    "requireSpaceAfterBinaryOperators": ["+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
-    "requireCamelCaseOrUpperCaseIdentifiers": true,
-    "disallowKeywords": ["with"],
-    "disallowMultipleLineStrings": true,
-    "disallowMultipleLineBreaks": true,
-    "validateLineBreaks": "LF",
-    "disallowMixedSpacesAndTabs": true,
-    "disallowTrailingWhitespace": true,
-    "disallowTrailingComma": true,
-    "requireCapitalizedConstructors": true
+    "preset": "yandex",
+    "excludeFiles": [
+        "node_modules/**",
+        ".git/**",
+        "tests/**/*",
+        "*.min.js",
+        "Gruntfile.js"
+    ]
 }
