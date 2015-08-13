@@ -47,7 +47,7 @@ casper.test.begin(
 
     }).then(function() {
 
-        test.assertExists('.shower.shower--list', 'Shower in List mode');
+        test.assertExists('.shower.list', 'Shower in List mode');
 
     }).run(function() { test.done() }).clear();
 });

@@ -298,7 +298,7 @@ casper.test.begin(
     }).then(function() {
 
         test.assertExists('[id="1"].active', 'First slide #1 is active');
-        test.assertExists('.shower.shower--full', 'Shower in Full mode');
+        test.assertExists('.shower.full', 'Shower in Full mode');
 
     }).run(function() { test.done() }).clear();
 });
@@ -315,7 +315,7 @@ casper.test.begin(
     }).then(function() {
 
         test.assertExists('[id="2"].active', 'Current #2 slide is active');
-        test.assertExists('.shower.shower--full', 'Shower in Full mode');
+        test.assertExists('.shower.full', 'Shower in Full mode');
 
     }).run(function() { test.done() }).clear();
 });
@@ -331,7 +331,7 @@ casper.test.begin(
 
     }).then(function() {
 
-        test.assertExists('.shower.shower--list', 'Shower in List mode');
+        test.assertExists('.shower.list', 'Shower in List mode');
 
     }).run(function() { test.done() }).clear();
 });
@@ -347,7 +347,7 @@ casper.test.begin(
 
     }).then(function() {
 
-        test.assertExists('.shower.shower--list', 'Shower in List mode');
+        test.assertExists('.shower.list', 'Shower in List mode');
 
     }).run(function() { test.done() }).clear();
 });

@@ -7,7 +7,7 @@ modules.define('test.shower.Container', [
 
     describe('shower.Container', function () {
         var containerElement,
-            container; 
+            container;
 
         before(function () {
             containerElement = document.createElement('div');
@@ -32,23 +32,23 @@ modules.define('test.shower.Container', [
         it('Should turn to the slide mode', function () {
             container.enterSlideMode();
             document.body
-                .classList.contains('shower--full')
+                .classList.contains('full')
                 .should.eq(true);
         });
 
         it('Should turn to the list mode', function () {
             var bodyClassList = document.body.classList;
-            
+
             container
                 .enterSlideMode()
                 .exitSlideMode();
 
-            bodyClassList.contains('shower--full')
+            bodyClassList.contains('full')
                 .should.eq(false);
 
-            bodyClassList.contains('shower--list')
+            bodyClassList.contains('list')
                 .should.eq(true);
-        });    
+        });
 
         it('Should return the container element', function () {
             container.getElement().should.eq(containerElement);
