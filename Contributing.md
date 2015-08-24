@@ -24,8 +24,6 @@ To contribute to Shower fork needed repository and start making changes. Don’t
 
 Please keep existing code style while contributing to Shower and be ready for code review by Shower maintainers. It’s strongly recommended to install [EditorConfig](http://editorconfig.org) extension to your editor and validate your JavaScript changes using [JSHint](http://jshint.com/).
 
-By historical reasons, Shower project is using tabs instead of spaces for code indentation. It’s not a big deal to keep this rule while contributing using you code editor options, even if your code style is 13.4 spaces.
-
 ## Language
 
 English is the main language for Shower project. All discussions and commit messages should be in English, no matter if it’s good or bad. The second language of Shower is Russian. Offical Shower themes are always compatible with Cyrillic and Russian typography. All documentation to Shower is always localized to Russian.
