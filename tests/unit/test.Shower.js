@@ -1,13 +1,15 @@
 modules.define('test.Shower', [
     'shower',
     'Slide'
-], function (provide, shower, Slide) {
+], function (provide, showerGlobal, Slide) {
 
     var should = chai.should();
+    var shower;
 
     describe('Shower', function () {
         it('Should be ready', function () {
-            shower.ready().should.eq(true);
+            showerGlobal.ready().should.eq(true);
+            shower = showerGlobal.getInited()[0];
         });
 
         it('Should add slide to the Shower', function () {

@@ -22,9 +22,30 @@
     </div>
 
     <script src="../../node_modules/mocha/mocha.js"></script>
-    <script src="../../shower.min.js"></script>
+    <script src="../../shower.js"></script>
     <script src="../../node_modules/chai/chai.js"></script>
     <script src="tests.js"></script>
+
+    <script>
+        // Function.bind polyfill
+        (function () {
+            if (typeof (function () {}).bind === 'undefined') {
+                Function.prototype.bind = function (fn, ctx) {
+                    if (arguments.length > 2) {
+                        var prependArgs = Array.prototype.slice.call(arguments, 2);
+                        var args = Array.prototype.slice.call(arguments);
+                        return function () {
+                            return fn.apply(ctx, [].concat(prependArgs, args));
+                        };
+                    } else {
+                        return function () {
+                            return fn.apply(ctx, arguments);
+                        };
+                    }
+                };
+            }
+        })();
+    </script>
 
     <script>
         mocha.setup('bdd');

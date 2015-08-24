@@ -1,7 +1,6 @@
 modules.define('test.Slide', [
-    'shower',
     'Slide'
-], function (provide, shower, Slide) {
+], function (provide, Slide) {
 
     var should = chai.should();
 

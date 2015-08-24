@@ -4,6 +4,7 @@ modules.define('test.shower.Player', [
 ], function (provide, shower, Slide) {
 
     var should = chai.should();
+    var shower = shower.getInited()[0];
 
     describe('shower.Player', function () {
         var player = shower.player;

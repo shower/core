@@ -4,6 +4,7 @@ modules.define('test.shower.Container', [
 ], function (provide, shower, Container) {
 
     var should = chai.should();
+    var shower = shower.getInited()[0];
 
     describe('shower.Container', function () {
         var containerElement,

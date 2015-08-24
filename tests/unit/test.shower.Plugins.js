@@ -1,6 +1,6 @@
 modules.define('test.shower.Plugins', [
     'shower',
-    'shower.Plugins'
+    'Plugins'
 ], function (provide, shower, Plugins) {
 
     var should = chai.should();
@@ -20,11 +20,12 @@ modules.define('test.shower.Plugins', [
         it('Should add and init new plugin', function (done) {
             var eventCounter = 0;
 
-            plugins.events.once('pluginadd', function () {
+            plugins.events.once('add', function () {
                 eventCounter++;
             });
 
             shower.events.once('testplugininit', function () {
+                console.log(eventCounter);
                 eventCounter++;
                 eventCounter.should.eq(2);
                 done();
@@ -34,13 +35,13 @@ modules.define('test.shower.Plugins', [
         });
 
         it('Should remove the plugin', function (done) {
-            plugins.events.once('pluginadd', function (e) {
+            plugins.events.once('add', function (e) {
                 setTimeout(function () {
                     plugins.remove(pluginName);
                 }, 15);
             });
 
-            plugins.events.once('pluginremove', function () {
+            plugins.events.once('remove', function () {
                 console.log(plugins.get(pluginName));
                 done();
             });
@@ -49,7 +50,7 @@ modules.define('test.shower.Plugins', [
         });
 
         it('Should get the plugin', function (done) {
-            plugins.events.once('pluginadd', function (e) {
+            plugins.events.once('add', function (e) {
                 var name = e.get('name');
                 name.should.eq(pluginName);
 
@@ -66,7 +67,7 @@ modules.define('test.shower.Plugins', [
             var testPluginOptions = 'test-test';
             shower.options.plugins[pluginName] = testPluginOptions;
 
-            plugins.events.once('pluginadd', function (e) {
+            plugins.events.once('add', function (e) {
                 var plugin = plugins.get(pluginName);
                 plugin.testOptions().should.eq(testPluginOptions);
 
@@ -79,7 +80,7 @@ modules.define('test.shower.Plugins', [
         it('Should instance the plugin with options from method', function (done) {
             var testPluginOptions = 'test-test';
 
-            plugins.events.once('pluginadd', function (e) {
+            plugins.events.once('add', function (e) {
                 var plugin = plugins.get(pluginName);
                 plugin.testOptions().should.eq(testPluginOptions);
                 done();
@@ -101,14 +102,12 @@ modules.define('shower-test-plugin', [
         this._shower = shower;
         this._options = options;
         this.events = new EventEmitter();
+
+        this._shower.events.emit('testplugininit');
+        this.events.emit('init');
     }
 
     TestPlugin.prototype = {
-        init: function () {
-            this._shower.events.emit('testplugininit');
-            this.events.emit('init');
-        },
-
         destroy: function () {
             this.events.emit('destroy');
         },
