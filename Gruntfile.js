@@ -20,6 +20,7 @@ module.exports = function(grunt) {
                     'node_modules/shower-*/shower-*.js',
 
                     // Core.
+                    'lib/shower.js',
                     'lib/init.js',
                     'lib/*/*.js'
                 ],
