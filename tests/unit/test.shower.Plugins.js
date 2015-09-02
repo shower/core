@@ -56,7 +56,7 @@ modules.define('test.shower.Plugins', [
         it('Should instance the plugin with options from the Shower', function (done) {
             var testPluginOptions = {t:'test-test'};
             var sh = shower.getInited()[0];
-            sh.options.set('plugin:' + pluginName, testPluginOptions);
+            sh.options.set('plugin_' + pluginName, testPluginOptions);
 
             plugins.events.once('add', function (e) {
                 var plugin = plugins.get(pluginName, sh);
