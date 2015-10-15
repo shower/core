@@ -34,32 +34,32 @@ window.shower = (function(window, document, undefined) {
 	}
 
 	State.prototype = {
-		set : function (key, value) {
+		set : function(key, value) {
 			this._store[key] = value;
 			this._saveToLocalStorage();
 			return this;
 		},
 
-		unset : function (key) {
+		unset : function(key) {
 			delete this._store[key];
 			this._saveToLocalStorage();
 			return this;
-		}
+		},
 
-		get : function (key, defaultValue) {
+		get : function(key, defaultValue) {
 			var value = this._store[key];
 			return typeof value !== 'undefined' ?
 				value : defaultValue;
 		},
 
-		_saveToLocalStorage : function () {
+		_saveToLocalStorage : function() {
 			window.localStorage.setItem(
 				this._localStorageKey,
 				JSON.stringify(this._store)
 			);
 		},
 
-		_loadFromLocalStorage : function () {
+		_loadFromLocalStorage : function() {
 			var store = window.localStorage.getItem(this._localStorageKey);
 			return store && JSON.parse(store);
 		}
@@ -67,7 +67,7 @@ window.shower = (function(window, document, undefined) {
 
 	// Shower state.
 	shower.state = new State({
-		mode: Modes.LIST
+		mode : Modes.LIST
 	});
 
 	/**
@@ -908,7 +908,6 @@ window.shower = (function(window, document, undefined) {
 	for (var overridingProp in window.shower) {
 		shower[overridingProp] = window.shower[overridingProp];
 	}
-
 
 	// Event handlers
 	window.addEventListener('popstate', function() {
