@@ -14,7 +14,7 @@ window.shower = (function(window, document, undefined) {
 		slides = [],
 		progress = [],
 		timer,
-		MODES = {
+		Modes = {
 			FULL : 'full',
 			LIST : 'list'
 		};
@@ -28,6 +28,7 @@ window.shower = (function(window, document, undefined) {
 	 * @param {Object} [initialState]
 	 */
 	function State(initialState) {
+		initialState = initialState || {};
 		this._localStorageKey = 'shower';
 		this._store = this._loadFromLocalStorage() || initialState;
 	}
@@ -38,6 +39,12 @@ window.shower = (function(window, document, undefined) {
 			this._saveToLocalStorage();
 			return this;
 		},
+
+		unset : function (key) {
+			delete this._store[key];
+			this._saveToLocalStorage();
+			return this;
+		}
 
 		get : function (key, defaultValue) {
 			var value = this._store[key];
@@ -58,9 +65,9 @@ window.shower = (function(window, document, undefined) {
 		}
 	};
 
-	// Shower config.
+	// Shower state.
 	shower.state = new State({
-		mode: MODES.LIST
+		mode: Modes.LIST
 	});
 
 	/**
@@ -478,8 +485,6 @@ window.shower = (function(window, document, undefined) {
 			}
 		}
 
-		shower._setTitle();
-
 		if (typeof(callback) === 'function') {
 			callback();
 		}
@@ -615,7 +620,7 @@ window.shower = (function(window, document, undefined) {
 	shower.enterSlideMode = function(callback) {
 		var currentSlideNumber = shower.getCurrentSlideNumber();
 
-		shower.state.set('mode', MODES.FULL);
+		shower.state.set('mode', Modes.FULL);
 
 		// Anyway: change body class (@TODO: refactoring)
 		document.body.classList.remove('list');
@@ -638,7 +643,7 @@ window.shower = (function(window, document, undefined) {
 	shower.enterListMode = function(callback) {
 		var currentSlideNumber;
 
-		shower.state.set('mode', MODES.LIST);
+		shower.state.set('mode', Modes.LIST);
 
 		// Anyway: change body class (@TODO: refactoring)
 		document.body.classList.remove('full');
@@ -744,7 +749,7 @@ window.shower = (function(window, document, undefined) {
 	* @returns {Boolean}
 	*/
 	shower.isListMode = function() {
-		return shower.state.get('mode', MODES.LIST) === MODES.LIST;
+		return shower.state.get('mode') === Modes.LIST;
 	};
 
 	/**
@@ -752,7 +757,7 @@ window.shower = (function(window, document, undefined) {
 	* @returns {Boolean}
 	*/
 	shower.isSlideMode = function() {
-		return shower.state.get('mode', MODES.LIST) === MODES.FULL;
+		return shower.state.get('mode') === Modes.FULL;
 	};
 
 	/**
@@ -905,11 +910,11 @@ window.shower = (function(window, document, undefined) {
 	}
 
 
+	// Event handlers
 	window.addEventListener('popstate', function() {
 		shower._setTitle();
 	}, false);
 
-	// Event handlers
 	window.addEventListener('DOMContentLoaded', function() {
 		shower.
 			init().
