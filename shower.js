@@ -643,8 +643,6 @@ window.shower = (function(window, document, undefined) {
 	shower.enterListMode = function(callback) {
 		var currentSlideNumber;
 
-		shower.state.set('mode', Modes.LIST);
-
 		// Anyway: change body class (@TODO: refactoring)
 		document.body.classList.remove('full');
 		document.body.classList.add('list');
@@ -658,6 +656,7 @@ window.shower = (function(window, document, undefined) {
 
 		currentSlideNumber = shower.getCurrentSlideNumber();
 
+		shower.state.set('mode', Modes.LIST);
 		shower.slideList[currentSlideNumber].stopTimer();
 		shower.scrollToSlide(currentSlideNumber);
 
@@ -911,7 +910,17 @@ window.shower = (function(window, document, undefined) {
 
 	// Event handlers
 	window.addEventListener('popstate', function() {
+		var currentSlideNumber = shower.getCurrentSlideNumber();
+
 		shower._setTitle();
+
+		// Go to first slide, if hash id is invalid or isn't set.
+		// Same check is located in DOMContentLoaded event,
+		// but it not fires on hash change
+		// In List mode, go to first slide only if hash id is invalid.
+		if (currentSlideNumber === -1 && (shower.isSlideMode() || url.hash !== '')) {
+			shower.go(0);
+		}
 	}, false);
 
 	window.addEventListener('DOMContentLoaded', function() {
