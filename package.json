@@ -33,10 +33,10 @@
     "core"
   ],
   "dependencies": {
-    "shower-next": "0.0.3",
-    "shower-progress": "0.0.7",
-    "shower-timer": "0.0.7",
-    "shower-touch": "0.0.5",
+    "shower-next": "0.0.4",
+    "shower-progress": "0.0.8",
+    "shower-timer": "0.0.8",
+    "shower-touch": "0.0.6",
     "ym": "^0.1.1"
   },
   "devDependencies": {
