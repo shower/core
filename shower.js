@@ -29,20 +29,20 @@ window.shower = (function(window, document, undefined) {
 	 */
 	function State(initialState) {
 		initialState = initialState || {};
-		this._localStorageKey = 'shower';
-		this._store = this._loadFromLocalStorage() || initialState;
+		this._storageKey = 'shower';
+		this._store = this._loadFromStorage() || initialState;
 	}
 
 	State.prototype = {
 		set : function(key, value) {
 			this._store[key] = value;
-			this._saveToLocalStorage();
+			this._saveToStorage();
 			return this;
 		},
 
 		unset : function(key) {
 			delete this._store[key];
-			this._saveToLocalStorage();
+			this._saveToStorage();
 			return this;
 		},
 
@@ -52,15 +52,15 @@ window.shower = (function(window, document, undefined) {
 				value : defaultValue;
 		},
 
-		_saveToLocalStorage : function() {
-			window.localStorage.setItem(
-				this._localStorageKey,
+		_saveToStorage : function() {
+			window.sessionStorage.setItem(
+				this._storageKey,
 				JSON.stringify(this._store)
 			);
 		},
 
-		_loadFromLocalStorage : function() {
-			var store = window.localStorage.getItem(this._localStorageKey);
+		_loadFromStorage : function() {
+			var store = window.sessionStorage.getItem(this._storageKey);
 			return store && JSON.parse(store);
 		}
 	};
