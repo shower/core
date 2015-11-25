@@ -828,7 +828,7 @@ window.shower = (function(window, document, undefined) {
 	* Clear presenter notes in console (only for Slide Mode).
 	*/
 	shower.clearPresenterNotes = function() {
-		if (shower.isSlideMode() && console && console.clear && ! shower.debugMode) {
+		if (shower.isSlideMode() && console && console.clear && shower.debugMode) {
 			console.clear();
 		}
 	};
@@ -840,7 +840,7 @@ window.shower = (function(window, document, undefined) {
 	shower.showPresenterNotes = function(slideNumber) {
 		shower.clearPresenterNotes();
 
-		if (console) {
+		if (console && shower.debugMode) {
 			slideNumber = shower._normalizeSlideNumber(slideNumber);
 
 			var slideId = shower.slideList[slideNumber].id,
