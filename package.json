@@ -33,9 +33,9 @@
     "core"
   ],
   "dependencies": {
-    "shower-next": "0.0.5",
+    "shower-next": "0.0.6",
     "shower-progress": "0.0.9",
-    "shower-timer": "0.0.10",
+    "shower-timer": "0.0.11",
     "shower-touch": "0.0.7",
     "ym": "^0.1.2"
   },
