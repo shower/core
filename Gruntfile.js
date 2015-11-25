@@ -16,13 +16,13 @@ module.exports = function(grunt) {
                     // Module system.
                     'node_modules/ym/modules.js',
 
-                    // Plugins.
-                    'node_modules/shower-*/shower-*.js',
-
                     // Core.
-                    'lib/shower.js',
                     'lib/init.js',
-                    'lib/*/*.js'
+                    'lib/shower.js',
+                    'lib/*/*.js',
+
+                    // Plugins.
+                    'node_modules/shower-*/shower-*.js'
                 ],
                 dest: 'shower.js'
             },
