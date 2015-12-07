@@ -1,4 +1,4 @@
-modules.define('test.Emitter', [
+shower.modules.define('test.Emitter', [
     'Emitter'
 ], function (provide, EventEmitter) {
 

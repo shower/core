@@ -1,4 +1,4 @@
-modules.define('test.shower.Player', [
+shower.modules.define('test.shower.Player', [
     'shower',
     'Slide'
 ], function (provide, shower, Slide) {

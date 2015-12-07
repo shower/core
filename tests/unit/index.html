@@ -33,12 +33,13 @@
         mocha.checkLeaks();
 
         mocha.globals([
-            'modules'
+            'modules',
+            'shower'
         ]);
 
-        modules.require(['shower'], function (shower) {
-            shower.ready(function () {
-                modules.require(['tests'], function () {
+        shower.modules.require(['shower'], function (sh) {
+            sh.ready(function () {
+                shower.modules.require(['tests'], function () {
                     if (window.mochaPhantomJS) {
                         mochaPhantomJS.run();
                     } else {
@@ -46,7 +47,7 @@
                     }
                 });
                 // If tests not found.
-                modules.define('tests', [], function (provide) {
+                shower.modules.define('tests', [], function (provide) {
                     provide();
                 });
             });

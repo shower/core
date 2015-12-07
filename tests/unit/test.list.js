@@ -1,5 +1,5 @@
 // Tests list.
-modules.define('tests', [
+shower.modules.define('tests', [
     'test.Shower',
     'test.shower.Player',
     'test.shower.Container',

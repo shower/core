@@ -1,9 +1,10 @@
-modules.define('test.shower.Plugins', [
+shower.modules.define('test.shower.Plugins', [
     'shower',
     'Plugins'
 ], function (provide, shower, Plugins) {
 
     var should = chai.should();
+    var sh = shower.getInited[0];
 
     describe('shower.Plugins', function () {
         var plugins,
@@ -85,7 +86,7 @@ modules.define('test.shower.Plugins', [
 });
 
 // Тестовый плагин.
-modules.define('shower-test-plugin', [
+shower.modules.define('shower-test-plugin', [
     'Emitter'
 ], function (provide, EventEmitter) {
 

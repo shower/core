@@ -1,4 +1,4 @@
-modules.define('test.Slide', [
+shower.modules.define('test.Slide', [
     'Slide'
 ], function (provide, Slide) {
 
@@ -16,11 +16,11 @@ modules.define('test.Slide', [
             slide = null;
         });
 
-        it('Should create new slide with content', function () {
+        it('should create new slide with content', function () {
             new Slide('test test');
         });
 
-        it('Should create new slide from element', function () {
+        it('should create new slide from element', function () {
             var slideElement = document.createElement('div');
             document.body.appendChild(slideElement);
 
@@ -29,45 +29,43 @@ modules.define('test.Slide', [
             slideElement.parentNode.removeChild(slideElement);
         });
 
-        it('Should fire event and change visited state after activate', function (done) {
+        it('should fire event and change visited state after activate', function (done) {
             slide.events.once('activate', function () {
-                slide.state.visited.should.eq(1);
+                slide.state.get('visited').should.eq(1);
                 done();
             });
 
             slide.activate();
         });
 
-        it('Should fire event after deactivate', function (done) {
+        it('should fire event after deactivate', function (done) {
             slide.activate();
-
             slide.events.once('deactivate', function () {
                 done();
             });
-
             slide.deactivate();
         });
 
-        it('Should not be active after create', function () {
+        it('should not be active after create', function () {
             slide.isActive().should.eq(false);
         });
 
-        it('Should be active after activate', function () {
+        it('should be active after activate', function () {
             slide.activate();
             slide.isActive().should.eq(true);
         });
 
-        it('Should not be visited after create', function () {
+        it('should not be visited after create', function () {
             slide.isVisited().should.eq(false);
         });
 
-        it('Should not be visited after activate', function () {
+        it('should not be visited after activate', function () {
             slide.activate();
             slide.isVisited().should.eq(true);
         });
 
-        it('Should auto init layout after create', function () {
-            var layout = slide.getLayout();
+        it('should auto init layout after create', function () {
+            var layout = slide.layout;
             (typeof layout).should.not.eq('undefined');
         });
     });

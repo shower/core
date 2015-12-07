@@ -1,4 +1,4 @@
-modules.define('test.Shower', [
+shower.modules.define('test.Shower', [
     'shower',
     'Slide'
 ], function (provide, showerGlobal, Slide) {
