@@ -1,5 +1,4 @@
 .DS_Store
 /node_modules
 /shower.js
-/shower.min.js
 /tests/unit/tests.js
