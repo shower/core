@@ -1,4 +1,5 @@
 .DS_Store
+.idea
 /node_modules
 /shower.js
 /shower.min.js
