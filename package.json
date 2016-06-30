@@ -71,10 +71,10 @@
   },
   "scripts": {
     "prebuild": "selenium-standalone install",
-    "build": "node -e \"require('grunt').tasks(['default'])\"",
+    "build": "grunt default",
     "prepublish": "npm run build",
     "validate": "jshint . && jscs .",
-    "test": "node -e \"require('grunt').tasks(['test'])\"",
+    "test": "grunt test",
     "report": "allure report generate -o allure-report allure-results && allure report open -o allure-report"
   }
 }
