@@ -10,7 +10,7 @@ exports.config = {
     ],
 
     capabilities: [{
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
 
     // Level of logging verbosity: silent | verbose | command | data | result | error
