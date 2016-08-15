@@ -55,7 +55,7 @@
     "jscs": "^3.0.7",
     "jscs-preset-loris": "^1.1.2",
     "jshint": "^2.9.2",
-    "load-grunt-tasks": "^3.5.0",
+    "load-grunt-tasks": "^3.5.2",
     "mocha": "^3.0.2",
     "pinkie-promise": "^2.0.1",
     "selenium-standalone": "^5.5.0",
