@@ -42,7 +42,7 @@
   ],
   "devDependencies": {
     "chai": "^3.5.0",
-    "git-hooks": "^1.1.0",
+    "git-hooks": "^1.1.1",
     "grunt": "^1.0.1",
     "grunt-bump": "^0.8.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -58,15 +58,15 @@
     "load-grunt-tasks": "^3.5.2",
     "mocha": "^3.0.2",
     "pinkie-promise": "^2.0.1",
-    "selenium-standalone": "^5.5.0",
+    "selenium-standalone": "^5.6.3",
     "shower-next": "0.0.6",
     "shower-progress": "0.0.9",
     "shower-timer": "0.0.12",
     "shower-touch": "0.0.11",
     "wdio-allure-reporter": "0.1.1",
     "wdio-dot-reporter": "0.0.6",
-    "wdio-mocha-framework": "^0.4.0",
-    "webdriverio": "^4.2.8",
+    "wdio-mocha-framework": "^0.4.1",
+    "webdriverio": "^4.2.11",
     "ym": "^0.1.2"
   },
   "scripts": {
