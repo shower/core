@@ -10,5 +10,4 @@ insert_final_newline = true
 charset = utf-8
 
 [{bower.json,package.json,.travis.yml}]
-indent_style = space
 indent_size = 2
