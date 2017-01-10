@@ -73,7 +73,7 @@
     "prebuild": "selenium-standalone install",
     "prepublish": "npm run build",
     "build": "gulp build",
-    "lint": "jshint . && gulp lint",
+    "validate": "jshint . && gulp lint",
     "test": "gulp test",
     "report": "allure report generate -o allure-report allure-results && allure report open -o allure-report"
   }
