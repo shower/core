@@ -63,7 +63,7 @@ gulp.task('bump', () => {
         .pipe(bump())
         .pipe(gulp.dest('.'))
         .pipe(git.add())
-        .pipe(git.commit('Bump version number'));
+        .pipe(git.commit('Bump version number'))
         .on('end', () => {
             git.push('origin', 'master', error => {
                 if (error) throw error;
