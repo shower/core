@@ -1,9 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const bump = require('gulp-bump');
 const concat = require('gulp-concat');
-const git = require('gulp-git');
 const insert = require('gulp-insert');
 const jscs = require('gulp-jscs');
 const mocha = require('gulp-mocha-phantomjs');
@@ -56,19 +54,6 @@ gulp.task('minify', [ 'concat:lib' ], () => {
         .pipe(rename({ suffix: '.min' }))
         .pipe(insert.prepend(banner))
         .pipe(gulp.dest('.'));
-});
-
-gulp.task('bump', () => {
-    return gulp.src('package.json')
-        .pipe(bump())
-        .pipe(gulp.dest('.'))
-        .pipe(git.add())
-        .pipe(git.commit('Bump version number'))
-        .on('end', () => {
-            git.push('origin', 'master', error => {
-                if (error) throw error;
-            });
-        });
 });
 
 gulp.task('webdriver', () => {
