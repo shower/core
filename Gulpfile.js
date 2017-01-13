@@ -2,8 +2,8 @@
 
 const gulp = require('gulp');
 const concat = require('gulp-concat');
+const eslint = require('gulp-eslint');
 const insert = require('gulp-insert');
-const jscs = require('gulp-jscs');
 const mocha = require('gulp-mocha-phantomjs');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
@@ -20,9 +20,10 @@ const banner = `/**
 `;
 
 gulp.task('lint', () => {
-    return gulp.src('lib/*.js')
-        .pipe(jscs())
-        .pipe(jscs.reporter());
+    return gulp.src('lib/**/*.js')
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 gulp.task('concat:lib', () => {
