@@ -34,6 +34,7 @@ gulp.task('lint:ec', () => {
         editorconfig: '.editorconfig',
         ignores: [
             'js-comments',
+            'html-comments',
         ],
     };
 
