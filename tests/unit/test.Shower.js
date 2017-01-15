@@ -7,7 +7,7 @@ shower.modules.define('test.Shower', [
 
     describe('Shower', function () {
         it('Should be ready', function () {
-            showerGlobal.ready().should.eq(true);
+            showerGlobal.ready().should.be.true;
             shower = showerGlobal.getInited()[0];
         });
 
