@@ -3,7 +3,6 @@ shower.modules.define('test.Shower', [
     'Slide'
 ], function (provide, showerGlobal, Slide) {
 
-    var should = chai.should();
     var shower;
 
     describe('Shower', function () {

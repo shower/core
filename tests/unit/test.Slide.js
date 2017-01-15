@@ -2,8 +2,6 @@ shower.modules.define('test.Slide', [
     'Slide'
 ], function (provide, Slide) {
 
-    var should = chai.should();
-
     describe('Slide', function () {
         var slide;
 
