@@ -58,7 +58,7 @@ gulp.task('concat:lib', () => {
         // Core.
         'lib/init.js',
         'lib/shower.js',
-        'lib/*/*.js',
+        'lib/**/*.js',
 
         // Plugins.
         'node_modules/shower-*/shower-*.js',
