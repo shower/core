@@ -7,7 +7,6 @@ const jscs = require('gulp-jscs');
 const mocha = require('gulp-mocha-phantomjs');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
-const webdriver = require('gulp-webdriver');
 
 const pkg = require('./package.json');
 const now = new Date().getFullYear();
@@ -54,11 +53,6 @@ gulp.task('minify', [ 'concat:lib' ], () => {
         .pipe(rename({ suffix: '.min' }))
         .pipe(insert.prepend(banner))
         .pipe(gulp.dest('.'));
-});
-
-gulp.task('webdriver', () => {
-    return gulp.src('wdio.conf.js')
-        .pipe(webdriver());
 });
 
 gulp.task('mocha', () => {
