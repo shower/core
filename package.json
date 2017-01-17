@@ -55,6 +55,7 @@
     "jscs-preset-loris": "^1.2.0",
     "jshint": "^2.9.3",
     "mocha": "^3.0.2",
+    "nightwatch": "^0.9.12",
     "selenium-standalone": "^5.6.3",
     "shower-next": "0.0.6",
     "shower-progress": "0.0.9",
@@ -71,7 +72,7 @@
     "prepublish": "npm run build",
     "build": "gulp build",
     "validate": "jshint . && gulp lint",
-    "test": "gulp test",
+    "test": "gulp unit && nightwatch",
     "report": "allure report generate -o allure-report allure-results && allure report open -o allure-report"
   }
 }

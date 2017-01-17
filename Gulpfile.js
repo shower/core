@@ -71,17 +71,8 @@ gulp.task('build', [
     'minify',
 ]);
 
-gulp.task('test', [
+gulp.task('unit', [
     'lint',
-    'test:unit',
-    'test:func',
-]);
-
-gulp.task('test:func', [
-    'webdriver',
-]);
-
-gulp.task('test:unit', [
     'concat:test',
     'mocha',
 ]);
