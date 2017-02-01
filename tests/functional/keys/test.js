@@ -148,14 +148,6 @@ module.exports = {
 
     // Start End
 
-    'starts presenation from the first slide when F5 key is pressed': browser => {
-        browser.url(`file:///${__dirname}/list.html#2`);
-        browser.keys(browser.Keys.F5);
-        browser.assert.cssClassPresent('[id="1"]', 'active');
-        browser.assert.elementPresent('.shower.full');
-        browser.end();
-    },
-
     'starts presenation from the current slide when Shift F5 keys are pressed': browser => {
         browser.url(`file:///${__dirname}/list.html#2`);
         browser.keys([browser.Keys.SHIFT, browser.Keys.F5]);
@@ -177,13 +169,6 @@ module.exports = {
         browser.keys([browser.Keys.META, browser.Keys.ENTER]);
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.assert.elementPresent('.shower.full');
-        browser.end();
-    },
-
-    'stops presenation when F5 key is pressed': browser => {
-        browser.url(`file:///${__dirname}/full.html#1`);
-        browser.keys(browser.Keys.F5);
-        browser.assert.elementPresent('.shower.list');
         browser.end();
     },
 
