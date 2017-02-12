@@ -26,7 +26,6 @@ gulp.task('lint:ec', () => {
         '*.{json,yml,md}',
         'lib/**',
         'tests/**',
-        'wdio.conf.js',
     ];
 
     const options = {
