@@ -23,7 +23,7 @@ gulp.task('lint:ec', () => {
     const sources = [
         '.editorconfig',
         '.gitignore',
-        '*.{json,yml,md}',
+        '{.,}*.{json,yml,md}',
         'lib/**',
         'tests/**',
     ];
@@ -36,7 +36,7 @@ gulp.task('lint:ec', () => {
         ],
     };
 
-    return gulp.src(sources, { dot: true })
+    return gulp.src(sources)
         .pipe(lintspaces(options))
         .pipe(lintspaces.reporter());
 });
