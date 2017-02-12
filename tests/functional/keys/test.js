@@ -46,6 +46,13 @@ module.exports = {
         browser.end();
     },
 
+    'moves forward when N key is pressed': browser => {
+        browser.url(`file:///${__dirname}/list.html#1`);
+        browser.keys('N');
+        browser.assert.cssClassPresent('[id="2"]', 'active');
+        browser.end();
+    },
+
     'moves forward when Enter key is pressed': browser => {
         browser.url(`file:///${__dirname}/list.html#1`);
         browser.keys(browser.Keys.ENTER);
@@ -100,6 +107,13 @@ module.exports = {
     'moves backward when H key is pressed': browser => {
         browser.url(`file:///${__dirname}/list.html#2`);
         browser.keys('H');
+        browser.assert.cssClassPresent('[id="1"]', 'active');
+        browser.end();
+    },
+
+    'moves backward when P key is pressed': browser => {
+        browser.url(`file:///${__dirname}/list.html#2`);
+        browser.keys('P');
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
