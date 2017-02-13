@@ -68,7 +68,6 @@
     "prepublish": "gulp build",
     "build": "gulp build",
     "lint": "gulp lint",
-    "test": "gulp unit && nightwatch",
-    "report": "allure report generate -o allure-report allure-results && allure report open -o allure-report"
+    "test": "gulp unit && nightwatch"
   }
 }
