@@ -65,7 +65,6 @@
     "ym": "^0.1.2"
   },
   "scripts": {
-    "prebuild": "selenium-standalone install",
     "prepublish": "gulp build",
     "build": "gulp build",
     "lint": "gulp lint",
