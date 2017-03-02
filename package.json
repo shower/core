@@ -60,6 +60,7 @@
     "mocha": "^3.0.2",
     "nightwatch": "^0.9.12",
     "pre-commit": "^1.2.2",
+    "serve": "^4.0.1",
     "shower-next": "0.0.6",
     "shower-progress": "0.0.9",
     "shower-timer": "0.0.12",

@@ -8,8 +8,9 @@
 
   "test_settings": {
     "default": {
-      "selenium_port": 9515,
+      "launch_url": "http://localhost:8080/tests",
       "selenium_host": "localhost",
+      "selenium_port": 9515,
       "default_path_prefix": "",
 
       "desiredCapabilities": {
