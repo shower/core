@@ -1,6 +1,7 @@
 {
   "src_folders" : ["tests/functional"],
-  "globals_path": "tests/chromedriver.js",
+  "globals_path": "tests/func_globals.js",
+
   "selenium": {
     "start_process": false
   },
