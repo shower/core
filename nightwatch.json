@@ -1,5 +1,5 @@
 {
-  "src_folders" : ["tests/functional"],
+  "src_folders": "tests/func",
   "globals_path": "tests/func_globals.js",
 
   "selenium": {
