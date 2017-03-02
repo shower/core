@@ -14,11 +14,7 @@
       "default_path_prefix": "",
 
       "desiredCapabilities": {
-        "browserName": "chrome",
-        "chromeOptions": {
-          "args": ["--no-sandbox"]
-        },
-        "acceptSslCerts": true
+        "browserName": "chrome"
       }
     }
   }
