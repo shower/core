@@ -75,7 +75,10 @@
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
-    "lib/**/*.js": ["eslint --fix", "git add"],
+    "lib/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
     "*": "lintspaces -e .editorconfig -i js-comments"
   }
 }
