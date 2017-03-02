@@ -89,8 +89,7 @@ module.exports = {
 
     'changes slides states when moving forward': browser => {
         browser.url(`${browser.launchUrl}/id.html#1`);
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
+        browser.sendKeys('body', [browser.Keys.ARROW_RIGHT, browser.Keys.ARROW_RIGHT]);
 
         browser.assert.cssClassNotPresent('[id="1"]', 'active');
         browser.assert.cssClassPresent('[id="1"]', 'visited');
@@ -103,8 +102,7 @@ module.exports = {
 
     'changes slides states when moving backward': browser => {
         browser.url(`${browser.launchUrl}/id.html#3`);
-        browser.sendKeys('body', browser.Keys.ARROW_LEFT);
-        browser.sendKeys('body', browser.Keys.ARROW_LEFT);
+        browser.sendKeys('body', [browser.Keys.ARROW_LEFT, browser.Keys.ARROW_LEFT]);
 
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.assert.cssClassNotPresent('[id="1"]', 'visited');
@@ -117,10 +115,12 @@ module.exports = {
 
     'changes slides states when moving forward and backward': browser => {
         browser.url(`${browser.launchUrl}/id.html#1`);
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
-        browser.sendKeys('body', browser.Keys.ARROW_LEFT);
-        browser.sendKeys('body', browser.Keys.ARROW_LEFT);
+        browser.sendKeys('body', [
+            browser.Keys.ARROW_RIGHT,
+            browser.Keys.ARROW_RIGHT,
+            browser.Keys.ARROW_LEFT,
+            browser.Keys.ARROW_LEFT,
+        ]);
 
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.assert.cssClassPresent('[id="1"]', 'visited');
@@ -135,8 +135,7 @@ module.exports = {
 
     'goes to previous and next slides when moving back and forward in history': browser => {
         browser.url(`${browser.launchUrl}/id.html#1`);
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
+        browser.sendKeys('body', [browser.Keys.ARROW_RIGHT, browser.Keys.ARROW_RIGHT]);
         browser.back();
         browser.back();
         browser.forward();
