@@ -80,7 +80,7 @@ gulp.task('minify', [ 'concat:lib' ], () => {
 });
 
 gulp.task('mocha', () => {
-    return gulp.src('tests/unit/index.html')
+    return gulp.src('tests/unit/unit.html')
         .pipe(mocha());
 });
 
