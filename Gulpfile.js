@@ -62,21 +62,21 @@ gulp.task('concat:lib', () => {
         'node_modules/shower-*/shower-*.js',
     ])
     .pipe(concat('shower.js'))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('concat:test', () => {
-    return gulp.src('tests/unit/test.*.js')
-        .pipe(concat('tests.js'))
-        .pipe(gulp.dest('tests/unit'));
+    return gulp.src('tests/unit/**/*.js')
+        .pipe(concat('shower.test.js'))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('minify', [ 'concat:lib' ], () => {
-    return gulp.src('shower.js')
+    return gulp.src('dist/shower.js')
         .pipe(uglify({ mangle: false }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(insert.prepend(banner))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('mocha', () => {
