@@ -72,7 +72,9 @@
     "prepublish": "gulp build",
     "build": "gulp build",
     "lint": "gulp lint",
-    "test": "gulp unit && nightwatch"
+    "test": "gulp unit && nightwatch -e local",
+    "test:unit": "gulp unit",
+    "test:sauce": "nightwatch -e chrome && nightwatch -e firefox"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
