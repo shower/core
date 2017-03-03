@@ -78,7 +78,7 @@ gulp.task('minify', [ 'concat:lib' ], () => {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('mocha', () => {
+gulp.task('mocha', [ 'concat:test' ], () => {
     return gulp.src('tests/unit/unit.html')
         .pipe(mocha());
 });
@@ -95,13 +95,11 @@ gulp.task('dev', [
 
 gulp.task('build', [
     'lint',
-    'concat:lib',
     'minify',
 ]);
 
 gulp.task('unit', [
     'lint',
-    'concat:test',
     'mocha',
 ]);
 
