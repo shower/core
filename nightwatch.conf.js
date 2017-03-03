@@ -33,7 +33,7 @@ module.exports = {
         firefox: {
             desiredCapabilities: {
                 browserName: 'firefox',
-                platform: 'macOS 10.12',
+                platform: 'linux',
             },
         },
 
