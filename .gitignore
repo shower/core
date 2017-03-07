@@ -2,6 +2,5 @@
 /node_modules
 /npm-debug.log*
 /shower.js
-/shower.min.js
 /tests/unit/tests.js
 /tests_output
