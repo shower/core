@@ -74,7 +74,7 @@
     "lint": "gulp lint",
     "test": "gulp unit && nightwatch -e local",
     "test:unit": "gulp unit",
-    "test:sauce": "nightwatch -e chrome && nightwatch -e firefox"
+    "test:sauce": "nightwatch -e chrome && nightwatch -e firefox && nightwatch -e edge"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
