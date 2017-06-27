@@ -11,6 +11,7 @@
     "indent": ["error", 4, {
       "SwitchCase": 1
     }],
+    "comma-dangle": ["error", "only-multiline"],
     "semi": ["error", "always"],
     "space-before-function-paren": ["error", {
       "anonymous": "always",
