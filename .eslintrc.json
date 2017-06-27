@@ -1,5 +1,8 @@
 {
   "extends": "standard",
+  "env": {
+    "browser": true
+  },
   "globals": {
     "modules": false,
     "shower": false
