@@ -4,8 +4,7 @@
     "browser": true
   },
   "globals": {
-    "modules": false,
-    "shower": false
+    "showerOptions": false
   },
   "rules": {
     "indent": ["error", 4, {
