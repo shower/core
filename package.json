@@ -21,13 +21,8 @@
     }
   ],
   "homepage": "https://github.com/shower/core",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/shower/core.git"
-  },
-  "bugs": {
-    "url": "http://github.com/shower/shower/issues"
-  },
+  "repository": "shower/core",
+  "bugs": "http://github.com/shower/shower/issues",
   "license": "MIT",
   "keywords": [
     "shower",
