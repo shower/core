@@ -2,5 +2,4 @@
 /node_modules
 /npm-debug.log*
 /dist/*.js
-/tests/unit/tests.js
-/tests_output
+/test_output
