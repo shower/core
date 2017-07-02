@@ -2,8 +2,8 @@
 const job = process.env.TRAVIS_JOB_NUMBER;
 
 module.exports = {
-    src_folders: 'tests/func',
-    globals_path: 'tests/func_globals.js',
+    src_folders: 'test/func',
+    globals_path: 'test/func-globals.js',
 
     selenium: {
         start_process: false,

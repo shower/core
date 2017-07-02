@@ -5,7 +5,7 @@ let server;
 
 module.exports = {
     before: done => {
-        server = serve({ port: 8080 }, 'dist');
+        server = serve({port: 8080}, 'dist');
         chromedriver.start();
         done();
     },
