@@ -73,5 +73,7 @@
       "git add"
     ],
     "*": "lintspaces -e .editorconfig -i js-comments"
+  "babel": {
+    "plugins": ["transform-es2015-modules-commonjs"]
   }
 }
