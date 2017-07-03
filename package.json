@@ -39,9 +39,6 @@
     "chai": "^3.5.0",
     "chai-dom": "^1.4.3",
     "chromedriver": "^2.27.2",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^3.0.1",
@@ -56,6 +53,9 @@
     "nightwatch": "^0.9.12",
     "pre-commit": "^1.2.2",
     "serve": "^4.0.1"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
   },
   "scripts": {
     "lint-staged": "lint-staged",

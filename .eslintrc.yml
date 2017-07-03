@@ -1,0 +1,27 @@
+extends: airbnb-base
+env:
+  browser: true
+globals:
+  showerOptions: true
+rules:
+  indent:
+    - error
+    - 4
+    - SwitchCase: 1
+  no-underscore-dangle: off
+  arrow-parens:
+    - error
+    - as-needed
+  no-prototype-builtins: off
+  comma-dangle:
+    - error
+    - arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
+      functions: ignore
+  no-param-reassign: off
+  no-restricted-syntax: off
+  arrow-body-style: off
+  no-plusplus: off
+  default-case: off
