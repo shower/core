@@ -2,4 +2,4 @@
 /node_modules
 /npm-debug.log*
 /dist/shower.js
-/test_output
+/tests_output
