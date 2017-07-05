@@ -1,4 +1,4 @@
-import {EventEmitter} from '../../lib/emitter';
+import { EventEmitter } from '../../lib/emitter';
 
 describe('Emitter', () => {
     let events;
@@ -40,7 +40,7 @@ describe('Emitter', () => {
         counter.should.eq(1);
     });
 
-    it('should listen events and call handler', function () {
+    it('should listen events and call handler', () => {
         let counter = 0;
         const handler = () => {
             counter++;
@@ -55,7 +55,7 @@ describe('Emitter', () => {
         counter.should.eq(3);
     });
 
-    it('should correctly remove events handler', function () {
+    it('should correctly remove events handler', () => {
         let counter = 0;
         const handler = () => {
             counter++;
@@ -77,9 +77,9 @@ describe('Emitter', () => {
     });
 
     it('should listen event and call handler with context', done => {
-        const context = {a: '44'};
+        const context = { a: '44' };
 
-        events.once('test', function() {
+        events.once('test', function () {
             this.a.should.eq('44');
             done();
         }, context);
@@ -93,7 +93,7 @@ describe('Emitter', () => {
             done();
         });
 
-        events.emit('test', {test: 44});
+        events.emit('test', { test: 44 });
     });
 
     it('should prevent event', () => {

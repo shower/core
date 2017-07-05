@@ -13,7 +13,7 @@ describe('Slide', () => {
     });
 
     it('should create new slide from element', () => {
-        let slideEl = document.createElement('div');
+        const slideEl = document.createElement('div');
         document.body.appendChild(slideEl);
 
         new Slide(slideEl);

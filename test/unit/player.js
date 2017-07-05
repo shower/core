@@ -1,8 +1,8 @@
-import {shower} from '../../lib';
-import Slide from '../../lib/Slide';
+import { shower } from '../../lib';
+import Slide from '../../lib/slide';
 
 describe('Player', () => {
-    const {player} = shower;
+    const { player } = shower;
 
     beforeEach(() => {
         player.go(0);

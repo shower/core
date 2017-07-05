@@ -1,5 +1,5 @@
-import {Container} from '../../lib/shower';
-import {shower} from '../../lib';
+import { Container } from '../../lib/shower';
+import { shower } from '../../lib';
 
 describe('Container', () => {
     let containerEl;

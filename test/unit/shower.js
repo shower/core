@@ -1,4 +1,4 @@
-import {shower} from '../../lib';
+import { shower } from '../../lib';
 import Slide from '../../lib/slide';
 
 describe('Shower', () => {
