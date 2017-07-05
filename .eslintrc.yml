@@ -2,17 +2,12 @@ extends: airbnb-base
 env:
   browser: true
 globals:
-  showerOptions: true
+  showerOptions: false
 rules:
   indent:
     - error
     - 4
     - SwitchCase: 1
-  no-underscore-dangle: off
-  arrow-parens:
-    - error
-    - as-needed
-  no-prototype-builtins: off
   comma-dangle:
     - error
     - arrays: always-multiline
@@ -20,8 +15,15 @@ rules:
       imports: always-multiline
       exports: always-multiline
       functions: ignore
+  no-underscore-dangle: off
+  arrow-body-style: off
+  arrow-parens:
+    - error
+    - as-needed
+
+  no-plusplus: off
+  no-prototype-builtins: off
   no-param-reassign: off
   no-restricted-syntax: off
-  arrow-body-style: off
-  no-plusplus: off
+  no-mixed-operators: off
   default-case: off
