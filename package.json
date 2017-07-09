@@ -54,7 +54,7 @@
     "serve": "^4.0.1"
   },
   "config": {
-    "dotfiles": ".editorconfig .eslintrc.yml .gitignore .travis.yml"
+    "dotfiles": ".editorconfig **/.eslintrc.yml .gitignore .travis.yml"
   },
   "scripts": {
     "build": "rollup -c",
