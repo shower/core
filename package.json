@@ -66,8 +66,8 @@
     "lint:js": "eslint {lib,test}/**/*.js",
     "lint": "npm run lint:ec && npm run lint:js",
     "test:unit": "mocha test/unit/**/*.js -r test/unit-harness",
-    "test:local": "nightwatch -e local",
-    "test:sauce": "nightwatch -e chrome && nightwatch -e firefox && nightwatch -e edge",
+    "test:local": "npm run build && nightwatch -e local",
+    "test:sauce": "npm run build && nightwatch -e chrome && nightwatch -e firefox && nightwatch -e edge",
     "test": "npm run lint && npm run test:unit && npm run test:local"
   },
   "lint-staged": {
