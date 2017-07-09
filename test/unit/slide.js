@@ -16,7 +16,7 @@ describe('Slide', () => {
         const slideEl = document.createElement('div');
         document.body.appendChild(slideEl);
 
-        new Slide(slideEl);
+        (() => new Slide(slideEl)).should.not.throw();
 
         slideEl.parentNode.removeChild(slideEl);
     });
