@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+
 const html = fs.readFileSync('test/unit.html', 'utf-8');
 
 require('jsdom-global')(html);

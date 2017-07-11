@@ -1,3 +1,5 @@
+parserOptions:
+  sourceType: module
 env:
   mocha: true
 rules:
