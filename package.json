@@ -54,16 +54,17 @@
     "serve": "^4.0.1"
   },
   "config": {
-    "dotfiles": ".editorconfig **/.eslintrc.yml .gitignore .travis.yml"
+    "dotfiles": ".editorconfig **/.eslintrc.yml .gitignore .travis.yml",
+    "js": "lib test *.js"
   },
   "scripts": {
     "build": "rollup -c",
     "precommit": "lint-staged",
     "fix:ec": "eclint fix && eclint fix $npm_package_config_dotfiles",
-    "fix:js": "eslint lib test --fix",
+    "fix:js": "eslint $npm_package_config_js --fix",
     "fix": "npm run fix:ec && npm run fix:js",
     "lint:ec": "eclint check && eclint check $npm_package_config_dotfiles",
-    "lint:js": "eslint lib test",
+    "lint:js": "eslint $npm_package_config_js",
     "lint": "npm run lint:ec && npm run lint:js",
     "test:local": "npm run build && nightwatch -e local",
     "test:unit": "mocha test/unit -r test/unit-harness",

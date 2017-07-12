@@ -1,7 +1,9 @@
 'use strict';
+
 const resolve = require('rollup-plugin-node-resolve');
 
 const pkg = require('./package.json');
+
 const now = new Date().getFullYear();
 const banner = `
 /**

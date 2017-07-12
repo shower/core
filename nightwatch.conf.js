@@ -1,4 +1,5 @@
 'use strict';
+
 const job = process.env.TRAVIS_JOB_NUMBER;
 
 module.exports = {

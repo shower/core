@@ -3,6 +3,8 @@ env:
   browser: true
 globals:
   showerOptions: false
+parserOptions:
+  sourceType: script
 rules:
   indent:
     - error
