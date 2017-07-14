@@ -20,10 +20,6 @@ describe('Container', () => {
         container = new Container(shower, containerEl);
     });
 
-    afterEach(() => {
-        container.destroy();
-    });
-
     it('Should turn to the slide mode', () => {
         container.enterSlideMode();
 

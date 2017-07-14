@@ -8,11 +8,6 @@ describe('Shower', () => {
         slide = new Slide('test slide');
     });
 
-    afterEach(() => {
-        slide.destroy();
-        slide = null;
-    });
-
     it('should add slide to the Shower', () => {
         shower.add(slide);
         shower.getSlideIndex(slide).should.not.eq(-1);

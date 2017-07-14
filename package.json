@@ -66,7 +66,7 @@
     "lint:ec": "eclint check && eclint check $npm_package_config_dotfiles",
     "lint:js": "eslint $npm_package_config_js",
     "lint": "npm run lint:ec && npm run lint:js",
-    "test:unit": "mocha test/unit/event-emitter.js -r test/unit-harness",
+    "test:unit": "mocha test/unit -r test/unit-harness",
     "test:local": "npm run build && nightwatch -e local",
     "test:sauce": "npm run build && nightwatch -e chrome && nightwatch -e firefox && nightwatch -e edge",
     "test": "npm run lint && npm run test:unit && npm run test:local"

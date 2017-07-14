@@ -7,11 +7,6 @@ describe('Slide', () => {
         slide = new Slide('test test');
     });
 
-    afterEach(() => {
-        slide.destroy();
-        slide = null;
-    });
-
     it('should create new slide from element', () => {
         const slideEl = document.createElement('div');
         document.body.appendChild(slideEl);
