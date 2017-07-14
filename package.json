@@ -59,6 +59,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "prepublish": "npm run build",
     "precommit": "lint-staged",
     "fix:ec": "eclint fix && eclint fix $npm_package_config_dotfiles",
     "fix:js": "eslint $npm_package_config_js --fix",
