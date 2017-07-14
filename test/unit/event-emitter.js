@@ -1,6 +1,6 @@
-import { EventEmitter } from '../../lib/emitter';
+import EventEmitter from '../../lib/emitter';
 
-describe('Emitter', () => {
+describe('EventEmitter', () => {
     let events;
 
     beforeEach(() => {

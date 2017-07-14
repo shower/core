@@ -8,10 +8,6 @@ describe('Player', () => {
         player.go(0);
     });
 
-    afterEach(() => {
-        player.go(0);
-    });
-
     it('Should turn to the custom slide', () => {
         player.go(2);
         player.getCurrentSlideIndex().should.eq(2);
