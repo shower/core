@@ -73,11 +73,11 @@ module.exports = {
     '[nested steps] activates on page load': browser => {
         browser.url(`${browser.launchUrl}/full-timer-next.html#2`);
         browser.pause(TIMING);
-        browser.assert.cssClassPresent('.next.a', 'active');
+        browser.assert.cssClassPresent('.a.next', 'active');
         browser.pause(TIMING);
-        browser.assert.cssClassPresent('.next.b', 'active');
+        browser.assert.cssClassPresent('.b.next', 'active');
         browser.pause(TIMING);
-        browser.assert.cssClassPresent('.next.c', 'active');
+        browser.assert.cssClassPresent('.c.next', 'active');
         browser.pause(TIMING);
         browser.assert.cssClassPresent('[id="3"]', 'active');
         browser.end();
@@ -86,10 +86,10 @@ module.exports = {
     '[nested steps] gets canceled by key press': browser => {
         browser.url(`${browser.launchUrl}/full-timer-next.html#2`);
         browser.pause(TIMING);
-        browser.assert.cssClassPresent('.next.a', 'active');
+        browser.assert.cssClassPresent('.a.next', 'active');
         browser.sendKeys('body', 'Q');
         browser.pause(TIMING);
-        browser.assert.cssClassPresent('.next.a', 'active');
+        browser.assert.cssClassPresent('.a.next', 'active');
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.end();
     },
