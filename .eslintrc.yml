@@ -29,3 +29,6 @@ rules:
   no-restricted-syntax: off
   no-mixed-operators: off
   default-case: off
+  prefer-const:
+    - error
+    - destructuring: all
