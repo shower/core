@@ -172,7 +172,7 @@ module.exports = {
     },
 
     'starts presenation from the first slide when Cmd Shift Enter keys are pressed': browser => {
-        if (browser.options.desiredCapabilities.browserName === 'microsoftedge') return;
+        if (browser.options.desiredCapabilities.platform.includes('windows')) return;
 
         browser.url(`${browser.launchUrl}/list.html#2`);
         browser.sendKeys('.send-keys', [browser.Keys.META, browser.Keys.SHIFT, browser.Keys.ENTER]);
@@ -182,7 +182,7 @@ module.exports = {
     },
 
     'starts presenation from the current slide when Cmd Enter keys are pressed': browser => {
-        if (browser.options.desiredCapabilities.browserName === 'microsoftedge') return;
+        if (browser.options.desiredCapabilities.platform.includes('windows')) return;
 
         browser.url(`${browser.launchUrl}/list.html#2`);
         browser.sendKeys('.send-keys', [browser.Keys.META, browser.Keys.ENTER]);

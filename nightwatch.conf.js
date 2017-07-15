@@ -22,6 +22,7 @@ module.exports = {
                 build: `build-${job}`,
                 'tunnel-identifier': job,
             },
+            skip_testcases_on_fail: false,
         },
 
         chrome: {
@@ -34,7 +35,7 @@ module.exports = {
         firefox: {
             desiredCapabilities: {
                 browserName: 'firefox',
-                platform: 'linux',
+                platform: 'macOS 10.12',
             },
         },
 
