@@ -8,25 +8,25 @@ module.exports = {
     },
 
     'stays unchanged in `list` mode': browser => {
-        browser.assert.title('Title');
+        browser.assert.title('title');
         browser.end();
     },
 
     'gets prepended with current slide title in `full` mode': browser => {
         browser.click('[id="1"]');
-        browser.assert.title('1 — Title');
+        browser.assert.title('1 — title');
         browser.end();
     },
 
     'gets stripped from HTML tags while prepending': browser => {
         browser.click('[id="3"]');
-        browser.assert.title('3 — Title');
+        browser.assert.title('3 — title');
         browser.end();
     },
 
     'doesn’t change if slide title is missing': browser => {
         browser.click('[id="2"]');
-        browser.assert.title('Title');
+        browser.assert.title('title');
         browser.end();
     },
 };
