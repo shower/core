@@ -26,9 +26,9 @@ module.exports = {
     'updates progress when moving forward': browser => {
         browser.url(`${browser.launchUrl}/full.html`);
         browser.assert.attributeEquals('.progress', VALUE_ATTR, '0');
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
         browser.assert.attributeEquals('.progress', VALUE_ATTR, '50');
-        browser.sendKeys('body', browser.Keys.ARROW_RIGHT);
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
         browser.assert.attributeEquals('.progress', VALUE_ATTR, '100');
         browser.end();
     },
@@ -36,9 +36,9 @@ module.exports = {
     'updates progress when moving backwards': browser => {
         browser.url(`${browser.launchUrl}/full.html#3`);
         browser.assert.attributeEquals('.progress', VALUE_ATTR, '100');
-        browser.sendKeys('body', browser.Keys.ARROW_LEFT);
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
         browser.assert.attributeEquals('.progress', VALUE_ATTR, '50');
-        browser.sendKeys('body', browser.Keys.ARROW_LEFT);
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
         browser.assert.attributeEquals('.progress', VALUE_ATTR, '0');
         browser.end();
     },
