@@ -1,10 +1,10 @@
-# 3.0.0
+# 3.0.0 (Unreleased)
 
 * Fix `data-timing` interop with inner navigation
 * Add new duration format for `data-timing`
 * Fix triggering inner navigation on `prev` when in list mode
 
-# 2.1.0
+# 2.1.0 (Feb 1, 2017)
 
 * Allow asynchronous loading of Shower (#118)
 * Add `N` and `P` hotkeys for next/prev slides (6f911ededc2b6d7de4bcf6b95808ff8f067d54c1)
