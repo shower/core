@@ -97,8 +97,8 @@ module.exports = {
         browser.assert.cssClassPresent('[id="1"]', 'visited');
         browser.assert.cssClassNotPresent('#id', 'active');
         browser.assert.cssClassPresent('#id', 'visited');
-        browser.assert.cssClassPresent('[id="3"]', 'active');
         browser.assert.cssClassNotPresent('[id="3"]', 'visited');
+        browser.assert.cssClassPresent('[id="3"]', 'active');
         browser.end();
     },
 
@@ -107,8 +107,8 @@ module.exports = {
         browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
         browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
 
-        browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.assert.cssClassNotPresent('[id="1"]', 'visited');
+        browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.assert.cssClassNotPresent('#id', 'active');
         browser.assert.cssClassPresent('#id', 'visited');
         browser.assert.cssClassNotPresent('[id="3"]', 'active');
