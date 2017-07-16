@@ -63,14 +63,14 @@ module.exports = {
 
     'moves forward when Space key is pressed in `full` mode': browser => {
         browser.url(`${browser.launchUrl}/full.html#1`);
-        browser.sendKeys('.send-keys', browser.Keys.SPACE);
+        browser.sendKeys('.send-keys', ' ');
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.end();
     },
 
     'doesn’t move forward when Space key is pressed in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list.html#1`);
-        browser.sendKeys('.send-keys', browser.Keys.SPACE);
+        browser.sendKeys('.send-keys', ' ');
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
@@ -135,14 +135,14 @@ module.exports = {
 
     'doesn’t move backward when Shift Space keys are pressed in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, browser.Keys.SPACE]);
+        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, ' ']);
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.end();
     },
 
     'moves backward when Shift Space keys are pressed in `full` mode': browser => {
         browser.url(`${browser.launchUrl}/full.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, browser.Keys.SPACE]);
+        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, ' ']);
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
