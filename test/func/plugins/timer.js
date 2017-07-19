@@ -62,7 +62,7 @@ module.exports = {
         browser.end();
     },
 
-    'gets canceled by key press': browser => {
+    'gets cancelled by key press': browser => {
         browser.url(`${browser.launchUrl}/full-timer.html#2`);
         browser.sendKeys('.send-keys', 'Q');
         browser.pause(TIMING);
@@ -83,14 +83,11 @@ module.exports = {
         browser.end();
     },
 
-    '[nested steps] gets canceled by key press': browser => {
+    '[nested steps] gets cancelled by key press': browser => {
         browser.url(`${browser.launchUrl}/full-timer-next.html#2`);
-        browser.pause(TIMING);
-        browser.assert.cssClassPresent('.a.next', 'active');
         browser.sendKeys('.send-keys', 'Q');
         browser.pause(TIMING);
-        browser.assert.cssClassPresent('.a.next', 'active');
-        browser.assert.cssClassPresent('[id="2"]', 'active');
+        browser.assert.cssClassNotPresent('.a.next', 'active');
         browser.end();
     },
 };
