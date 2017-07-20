@@ -3,8 +3,6 @@
 module.exports = {
     '@tags': ['core'],
 
-    // Init
-
     'uses `list` mode in lack of any': browser => {
         browser.url(`${browser.launchUrl}/none.html`);
         browser.assert.elementPresent('.shower.list');
@@ -54,26 +52,6 @@ module.exports = {
         browser.assert.cssClassNotPresent('#id', 'visited');
         browser.assert.cssClassNotPresent('[id="3"]', 'active');
         browser.assert.cssClassNotPresent('[id="3"]', 'visited');
-        browser.end();
-    },
-
-    // URL
-
-    'activates a slide if its ID is present in URL': browser => {
-        browser.url(`${browser.launchUrl}/id.html#id`);
-        browser.assert.cssClassPresent('#id', 'active');
-        browser.end();
-    },
-
-    'changes non-existing ID to ID of the first slide in URL': browser => {
-        browser.url(`${browser.launchUrl}/list.html#404`);
-        browser.assert.urlContains('#1'); // 'URL in Full mode'
-        browser.end();
-    },
-
-    'activates the first slide if ID in URL doesn’t exist': browser => {
-        browser.url(`${browser.launchUrl}/list.html#404`);
-        browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
 
@@ -132,23 +110,4 @@ module.exports = {
         browser.end();
     },
 
-    // History
-
-    'goes to previous and next slides when moving back and forward in history': browser => {
-        browser.url(`${browser.launchUrl}/id.html#1`);
-        browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
-        browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
-
-        browser.back();
-        browser.back();
-        browser.forward();
-
-        browser.assert.cssClassNotPresent('[id="1"]', 'active');
-        browser.assert.cssClassPresent('[id="1"]', 'visited');
-        browser.assert.cssClassPresent('#id', 'active');
-        browser.assert.cssClassPresent('#id', 'visited');
-        browser.assert.cssClassNotPresent('[id="3"]', 'active');
-        browser.assert.cssClassPresent('[id="3"]', 'visited');
-        browser.end();
-    },
 };
