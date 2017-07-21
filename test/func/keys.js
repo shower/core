@@ -13,9 +13,20 @@ module.exports = {
     },
 
     'moves forward when Right Arrow key is pressed': browser => {
-        browser.url(`${browser.launchUrl}/list.html#1`);
+        browser.url(`${browser.launchUrl}/list-id.html#1`);
+
         browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
-        browser.assert.cssClassPresent('[id="2"]', 'active');
+        browser.assert.cssClassPresent('[id="1"]', 'visited');
+        browser.assert.cssClassNotPresent('[id="1"]', 'active');
+        browser.assert.cssClassPresent('#id', 'active');
+        browser.assert.cssClassNotPresent('#id', 'visited');
+
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
+        browser.assert.cssClassPresent('#id', 'visited');
+        browser.assert.cssClassNotPresent('#id', 'active');
+        browser.assert.cssClassPresent('[id="3"]', 'active');
+        browser.assert.cssClassNotPresent('[id="3"]', 'visited');
+
         browser.end();
     },
 
@@ -78,9 +89,20 @@ module.exports = {
     // Backward
 
     'moves backward when Left Arrow key is pressed': browser => {
-        browser.url(`${browser.launchUrl}/list.html#2`);
+        browser.url(`${browser.launchUrl}/list-id.html#3`);
+
         browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
+        browser.assert.cssClassPresent('[id="3"]', 'visited');
+        browser.assert.cssClassNotPresent('[id="3"]', 'active');
+        browser.assert.cssClassPresent('#id', 'active');
+        browser.assert.cssClassNotPresent('#id', 'visited');
+
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
+        browser.assert.cssClassPresent('#id', 'visited');
+        browser.assert.cssClassNotPresent('#id', 'active');
         browser.assert.cssClassPresent('[id="1"]', 'active');
+        browser.assert.cssClassNotPresent('[id="1"]', 'visited');
+
         browser.end();
     },
 
@@ -158,6 +180,24 @@ module.exports = {
         browser.url(`${browser.launchUrl}/list.html#1`);
         browser.sendKeys('.send-keys', browser.Keys.END);
         browser.assert.cssClassPresent('[id="3"]', 'active');
+        browser.end();
+    },
+
+    'changes slides states when moving forward and backward': browser => {
+        browser.url(`${browser.launchUrl}/list-id.html#1`);
+
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
+        browser.assert.cssClassPresent('[id="1"]', 'visited');
+        browser.assert.cssClassNotPresent('[id="1"]', 'active');
+        browser.assert.cssClassPresent('#id', 'active');
+        browser.assert.cssClassNotPresent('#id', 'visited');
+
+        browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
+        browser.assert.cssClassPresent('#id', 'visited');
+        browser.assert.cssClassNotPresent('#id', 'active');
+        browser.assert.cssClassPresent('[id="1"]', 'active');
+        browser.assert.cssClassNotPresent('[id="1"]', 'visited');
+
         browser.end();
     },
 
