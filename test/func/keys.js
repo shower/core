@@ -196,7 +196,7 @@ module.exports = {
         browser.assert.cssClassPresent('#id', 'visited');
         browser.assert.cssClassNotPresent('#id', 'active');
         browser.assert.cssClassPresent('[id="1"]', 'active');
-        browser.assert.cssClassNotPresent('[id="1"]', 'visited');
+        browser.assert.cssClassPresent('[id="1"]', 'visited');
 
         browser.end();
     },
