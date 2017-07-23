@@ -1,10 +1,13 @@
 'use strict';
 
-const job = process.env.TRAVIS_JOB_NUMBER;
+const {
+    TRAVIS_JOB_NUMBER: job,
+    npm_package_config_port: port,
+} = process.env;
 
 module.exports = {
     src_folders: 'test/func',
-    globals_path: 'test/func-globals.js',
+    globals_path: 'test/chromedriver.js',
 
     selenium: {
         start_process: false,
@@ -12,7 +15,7 @@ module.exports = {
 
     test_settings: {
         default: {
-            launch_url: 'http://localhost:8080/tests',
+            launch_url: `http://localhost:${port}/tests`,
             selenium_host: 'ondemand.saucelabs.com',
             selenium_port: 80,
             username: process.env.SAUCE_USERNAME,
@@ -35,7 +38,7 @@ module.exports = {
         firefox: {
             desiredCapabilities: {
                 browserName: 'firefox',
-                platform: 'macOS 10.12',
+                platform: 'windows 10',
             },
         },
 

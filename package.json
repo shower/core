@@ -54,14 +54,15 @@
     "nightwatch": "^0.9.16",
     "rollup": "^0.45.0",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "serve": "^4.0.1"
+    "serve": "^6.0.2"
   },
   "config": {
     "dotfiles": ".editorconfig **/.eslintrc.yml .gitignore .travis.yml",
-    "js": "*.js lib test"
+    "js": "*.js lib test",
+    "port": "8080"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup --config",
     "prepublish": "npm run build",
     "precommit": "lint-staged",
     "fix:ec": "eclint fix && eclint fix $npm_package_config_dotfiles",
@@ -70,10 +71,11 @@
     "lint:ec": "eclint check && eclint check $npm_package_config_dotfiles",
     "lint:js": "eslint $npm_package_config_js",
     "lint": "npm run lint:ec && npm run lint:js",
-    "test:unit": "mocha test/unit -r test/unit-harness",
-    "test:local": "npm run build && nightwatch -e local",
-    "test:sauce": "npm run build && nightwatch -e chrome && nightwatch -e firefox && nightwatch -e edge",
-    "test": "npm run lint && npm run test:unit && npm run test:local"
+    "serve": "serve dist --port $npm_package_config_port --cache 0",
+    "test:unit": "mocha test/unit --require test/unit-harness",
+    "test:local": "npm run build && nightwatch --env local",
+    "test:sauce": "npm run build && nightwatch --env chrome,firefox,safari,edge",
+    "test": "npm run lint && npm run test:unit && npm run test:sauce"
   },
   "lint-staged": {
     "*.js": [
