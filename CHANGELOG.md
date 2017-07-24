@@ -3,6 +3,8 @@
 * Fix `data-timing` interop with inner navigation
 * Add new duration format for `data-timing`
 * Fix triggering inner navigation on `prev` when in list mode
+* Prevent `#` from being appended to URL in `list` mode in Firefox
+* `next` plugin now uses `slide_active_classname` option for classes of active items
 
 # 2.1.0 (Feb 1, 2017)
 
