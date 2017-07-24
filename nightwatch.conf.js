@@ -8,6 +8,7 @@ const {
 module.exports = {
     src_folders: 'test/func',
     globals_path: 'test/chromedriver.js',
+    live_output: true,
 
     selenium: {
         start_process: false,
