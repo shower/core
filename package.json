@@ -52,7 +52,7 @@
     "lint-staged": "^3.6.1",
     "mocha": "^3.4.2",
     "nightwatch": "^0.9.16",
-    "rollup": "^0.45.0",
+    "rollup": "^0.52.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "serve": "^6.0.2"
   },
