@@ -12,7 +12,7 @@ function keydown() {
 }
 
 module.exports = {
-    '@tags': ['plugin', 'timer'],
+    '@tags': [ 'plugin', 'timer' ],
 
     'does not activate on page load in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list-timer.html#2`);

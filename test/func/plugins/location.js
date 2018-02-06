@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    '@tags': ['plugin', 'location'],
+    '@tags': [ 'plugin', 'location' ],
 
     'activates slide on page load by number in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list-id.html#3`);

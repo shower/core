@@ -22,6 +22,11 @@ rules:
   arrow-parens:
     - error
     - as-needed
+  array-bracket-spacing:
+    - error
+    - always
+    - objectsInArrays: false
+      arraysInArrays: false
 
   no-plusplus: off
   no-prototype-builtins: off

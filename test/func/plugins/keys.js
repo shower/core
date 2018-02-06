@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    '@tags': ['plugin', 'keys'],
+    '@tags': [ 'plugin', 'keys' ],
 
     // Forward
 
@@ -143,28 +143,28 @@ module.exports = {
 
     'moves backward when Shift Enter keys are pressed in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, browser.Keys.ENTER]);
+        browser.sendKeys('.send-keys', [ browser.Keys.SHIFT, browser.Keys.ENTER ]);
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
 
     'moves backward when Shift Enter keys are pressed in `full` mode': browser => {
         browser.url(`${browser.launchUrl}/full.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, browser.Keys.ENTER]);
+        browser.sendKeys('.send-keys', [ browser.Keys.SHIFT, browser.Keys.ENTER ]);
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
 
     'doesn’t move backward when Shift Space keys are pressed in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, ' ']);
+        browser.sendKeys('.send-keys', [ browser.Keys.SHIFT, ' ' ]);
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.end();
     },
 
     'moves backward when Shift Space keys are pressed in `full` mode': browser => {
         browser.url(`${browser.launchUrl}/full.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, ' ']);
+        browser.sendKeys('.send-keys', [ browser.Keys.SHIFT, ' ' ]);
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.end();
     },
@@ -205,7 +205,7 @@ module.exports = {
 
     'starts presenation from the current slide when Shift F5 keys are pressed': browser => {
         browser.url(`${browser.launchUrl}/list.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.SHIFT, browser.Keys.F5]);
+        browser.sendKeys('.send-keys', [ browser.Keys.SHIFT, browser.Keys.F5 ]);
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.assert.elementPresent('.shower.full');
         browser.end();
@@ -215,7 +215,7 @@ module.exports = {
         if (browser.options.desiredCapabilities.platform.includes('windows')) return;
 
         browser.url(`${browser.launchUrl}/list.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.META, browser.Keys.SHIFT, browser.Keys.ENTER]);
+        browser.sendKeys('.send-keys', [ browser.Keys.META, browser.Keys.SHIFT, browser.Keys.ENTER ]);
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.assert.elementPresent('.shower.full');
         browser.end();
@@ -225,7 +225,7 @@ module.exports = {
         if (browser.options.desiredCapabilities.platform.includes('windows')) return;
 
         browser.url(`${browser.launchUrl}/list.html#2`);
-        browser.sendKeys('.send-keys', [browser.Keys.META, browser.Keys.ENTER]);
+        browser.sendKeys('.send-keys', [ browser.Keys.META, browser.Keys.ENTER ]);
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.assert.elementPresent('.shower.full');
         browser.end();
