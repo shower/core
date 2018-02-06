@@ -1,37 +1,39 @@
+import { Container } from '../../lib/shower';
 import { shower } from '../../lib';
-import Slide from '../../lib/slide';
 
-describe('Shower', () => {
-    let slide;
+describe('Container', () => {
+    let containerEl;
+    let container;
+
+    before(() => {
+        containerEl = document.createElement('div');
+        containerEl.id = 'shower-test-container';
+
+        document.body.appendChild(containerEl);
+    });
+
+    after(() => {
+        containerEl.parentNode.removeChild(containerEl);
+    });
 
     beforeEach(() => {
-        slide = new Slide('test slide');
+        container = new Container(shower, containerEl);
     });
 
-    it('should add slide to the Shower', () => {
-        shower.add(slide);
-        shower.getSlideIndex(slide).should.not.eq(-1);
+    it('Should turn to the slide mode', () => {
+        container.enterSlideMode();
+
+        document.body.should.have.class('full');
     });
 
-    it('should remove slide from the Shower', () => {
-        shower.add(slide);
-        shower.getSlideIndex(slide).should.not.eq(-1);
+    it('Should turn to the list mode', () => {
+        container.enterSlideMode().exitSlideMode();
 
-        shower.remove(slide);
-        shower.getSlideIndex(slide).should.eq(-1);
+        document.body.should.not.have.class('full');
+        document.body.should.have.class('list');
     });
 
-    it('should get slide by the index', () => {
-        const count = shower.getSlidesCount();
-
-        shower.add(slide);
-        shower.get(count).should.eq(slide);
-    });
-
-    it('should change count of slides after add', () => {
-        const oldCount = shower.getSlidesCount();
-
-        shower.add(slide);
-        shower.getSlidesCount().should.eq(oldCount + 1);
+    it('Should return the container element', () => {
+        container.getElement().should.eq(containerEl);
     });
 });
