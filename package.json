@@ -34,6 +34,7 @@
     "dist/shower.js"
   ],
   "dependencies": {
+    "resize-observer-polyfill": "^1.5.0",
     "shim-keyboard-event-key": "^1.0.0"
   },
   "devDependencies": {
