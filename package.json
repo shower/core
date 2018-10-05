@@ -33,9 +33,6 @@
   "files": [
     "dist/shower.js"
   ],
-  "dependencies": {
-    "resize-observer-polyfill": "^1.5.0",
-  },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-register": "^6.24.1",
