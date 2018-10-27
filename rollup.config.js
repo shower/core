@@ -1,7 +1,8 @@
 'use strict';
-const pkg = require('./package.json');
+
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const pkg = require('./package.json');
 
 const ndash = '\u2013';
 const now = new Date().getFullYear();
