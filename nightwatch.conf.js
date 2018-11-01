@@ -63,6 +63,9 @@ module.exports = {
             default_path_prefix: '',
             desiredCapabilities: {
                 browserName: 'chrome',
+                chromeOptions: {
+                    args: [ 'headless' ],
+                },
             },
         },
     },
