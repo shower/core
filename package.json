@@ -65,7 +65,7 @@
     "lint:ec": "eclint check && eclint check $npm_package_config_dotfiles",
     "lint:js": "eslint $npm_package_config_js",
     "lint": "npm run lint:ec && npm run lint:js",
-    "serve": "serve dist --port $npm_package_config_port --cache 0",
+    "serve": "serve dist -l $npm_package_config_port",
     "test:unit": "mocha test/unit --require test/unit-harness",
     "test:local": "npm run build && nightwatch --env local",
     "test:sauce": "npm run build && nightwatch --env chrome,firefox,safari,edge",
