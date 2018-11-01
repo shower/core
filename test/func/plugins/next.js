@@ -56,8 +56,8 @@ module.exports = {
             browser.Keys.ARROW_RIGHT,
         ]);
 
-        browser.url(`${browser.launchUrl}/full-next.html#1`);
-        browser.url(`${browser.launchUrl}/full-next.html#2`);
+        browser.url('#1');
+        browser.url('#2');
         browser.assert.cssClassPresent('.a.next', 'active');
         browser.assert.cssClassPresent('.b.next', 'active');
         browser.end();
