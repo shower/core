@@ -40,3 +40,4 @@ rules:
     - destructuring: all
   import/prefer-default-export: off
   no-use-before-define: off
+  max-len: off
