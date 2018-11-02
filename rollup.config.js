@@ -6,12 +6,14 @@ const pkg = require('./package.json');
 
 const ndash = '\u2013';
 const now = new Date().getFullYear();
-const banner = `/**
+const banner = `
+/**
  * ${pkg.description}
  * ${pkg.name} v${pkg.version}, ${pkg.homepage}
  * @copyright 2010${ndash}${now} ${pkg.author.name}, ${pkg.author.url}
  * @license ${pkg.license}
- */`;
+ */
+`.trim();
 
 module.exports = {
     input: 'lib/index.js',
