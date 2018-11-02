@@ -1,5 +1,5 @@
 {
-  "name": "shower-core",
+  "name": "@shower/core",
   "description": "Core for Shower HTML presentation engine",
   "version": "2.1.0",
   "author": {
