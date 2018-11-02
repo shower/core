@@ -8,12 +8,12 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 charset = utf-8
 
+[*.js]
+max_line_length = 102
+
 block_comment_start = /**
 block_comment = *
 block_comment_end = */
-
-[*.js]
-max_line_length = 102
 
 [*.{json,yml}]
 indent_size = 2
