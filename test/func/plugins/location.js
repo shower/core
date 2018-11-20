@@ -153,4 +153,44 @@ module.exports = {
         browser.assert.cssClassNotPresent('#id', 'visited');
         browser.end();
     },
+
+    'sets `full` query on page load (no hash)': browser => {
+        browser.url(`${browser.launchUrl}/full.html`);
+        browser.assert.urlContains('?full');
+        browser.end();
+    },
+
+    'sets `full` query on page load (valid hash)': browser => {
+        browser.url(`${browser.launchUrl}/full-id.html#id`);
+        browser.assert.urlContains('?full');
+        browser.end();
+    },
+
+    'sets `full` query on page load (invalid hash)': browser => {
+        browser.url(`${browser.launchUrl}/full-id.html#invalid`);
+        browser.assert.urlContains('?full');
+        browser.end();
+    },
+
+    'persists `full` query after refresh': browser => {
+        browser.url(`${browser.launchUrl}/list.html`);
+        browser.click('[id="3"]');
+        browser.refresh();
+        browser.assert.elementPresent('.shower.full');
+        browser.end();
+    },
+
+    'persists hash after refresh in `list` mode': browser => {
+        browser.url(`${browser.launchUrl}/list.html#3`);
+        browser.refresh();
+        browser.assert.urlContains('#3');
+        browser.end();
+    },
+
+    'persists hash after refresh in `full` mode': browser => {
+        browser.url(`${browser.launchUrl}/full.html#3`);
+        browser.refresh();
+        browser.assert.urlContains('#3');
+        browser.end();
+    },
 };
