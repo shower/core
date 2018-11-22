@@ -32,7 +32,7 @@ module.exports = {
         chrome: {
             desiredCapabilities: {
                 browserName: 'chrome',
-                platform: 'macOS 10.12',
+                platform: 'macOS 10.13',
             },
         },
 
@@ -46,7 +46,7 @@ module.exports = {
         safari: {
             desiredCapabilities: {
                 browserName: 'safari',
-                platform: 'macOS 10.12',
+                platform: 'macOS 10.13',
             },
         },
 
