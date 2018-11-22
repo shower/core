@@ -10,7 +10,7 @@ Get the [Shower template](https://github.com/shower/shower/) where core is alrea
 
 You can also install core as a separate package:
 
-    npm install shower-core
+    npm install @shower/core
 
 
 ## Development
