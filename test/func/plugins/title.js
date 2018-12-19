@@ -3,7 +3,7 @@
 const mdash = '\u2014';
 
 module.exports = {
-    '@tags': [ 'plugin', 'title' ],
+    '@tags': ['plugin', 'title'],
 
     'stays unchanged in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list-title.html`);

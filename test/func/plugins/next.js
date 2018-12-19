@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    '@tags': [ 'plugin', 'next' ],
+    '@tags': ['plugin', 'next'],
 
     'does not work in list mode (forwards)': browser => {
         browser.url(`${browser.launchUrl}/list-next.html#2`);
@@ -51,10 +51,7 @@ module.exports = {
 
     'remembers progress when switching slides': browser => {
         browser.url(`${browser.launchUrl}/full-next.html#2`);
-        browser.sendKeys('.send-keys', [
-            browser.Keys.ARROW_RIGHT,
-            browser.Keys.ARROW_RIGHT,
-        ]);
+        browser.sendKeys('.send-keys', [browser.Keys.ARROW_RIGHT, browser.Keys.ARROW_RIGHT]);
 
         browser.url('#1');
         browser.url('#2');

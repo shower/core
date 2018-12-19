@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    '@tags': [ 'core' ],
+    '@tags': ['core'],
 
     'uses `list` mode in lack of any': browser => {
         browser.url(`${browser.launchUrl}/none.html`);

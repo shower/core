@@ -23,8 +23,5 @@ module.exports = {
         name: 'shower',
         banner,
     },
-    plugins: [
-        resolve(),
-        commonjs(),
-    ],
+    plugins: [resolve(), commonjs()],
 };

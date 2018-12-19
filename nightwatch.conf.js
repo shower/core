@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    TRAVIS_JOB_NUMBER: job,
-    npm_package_config_port: port,
-} = process.env;
+const { TRAVIS_JOB_NUMBER: job, npm_package_config_port: port } = process.env;
 
 module.exports = {
     src_folders: 'test/func',
@@ -64,7 +61,7 @@ module.exports = {
             desiredCapabilities: {
                 browserName: 'chrome',
                 chromeOptions: {
-                    args: [ 'headless' ],
+                    args: ['headless'],
                 },
             },
         },

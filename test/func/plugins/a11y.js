@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    '@tags': [ 'plugin', 'a11y' ],
+    '@tags': ['plugin', 'a11y'],
 
     'initially doesn’t add `application` role in list mode': browser => {
         browser.url(`${browser.launchUrl}/list.html`);
