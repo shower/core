@@ -1,35 +1,14 @@
-extends: airbnb-base
+extends:
+  - airbnb-base
+  - plugin:prettier/recommended
 env:
   browser: true
-globals:
-  showerOptions: false
 parserOptions:
   sourceType: script
 rules:
-  indent:
-    - error
-    - 4
-    - SwitchCase: 1
-  comma-dangle:
-    - error
-    - arrays: always-multiline
-      objects: always-multiline
-      imports: always-multiline
-      exports: always-multiline
-      functions: ignore
   no-underscore-dangle: off
   arrow-body-style: off
-  arrow-parens:
-    - error
-    - as-needed
-  array-bracket-spacing:
-    - error
-    - always
-    - objectsInArrays: false
-      arraysInArrays: false
-
   no-plusplus: off
-  no-prototype-builtins: off
   no-param-reassign: off
   no-restricted-syntax: off
   no-restricted-globals: off
@@ -40,4 +19,3 @@ rules:
     - destructuring: all
   import/prefer-default-export: off
   no-use-before-define: off
-  max-len: off
