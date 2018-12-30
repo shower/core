@@ -62,7 +62,6 @@
   },
   "scripts": {
     "build": "rollup --config",
-    "precommit": "lint-staged",
     "fix:ec": "eclint fix && eclint fix $npm_package_config_dotfiles",
     "fix:js": "eslint $npm_package_config_js --fix",
     "fix": "npm run fix:ec && npm run fix:js",
@@ -74,15 +73,5 @@
     "test:local": "npm run build && nightwatch --env local",
     "test:sauce": "npm run build && nightwatch --env chrome,firefox,safari,edge",
     "test": "npm run lint && npm run test:unit && npm run test:sauce"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*": [
-      "eclint fix",
-      "git add"
-    ]
   }
 }
