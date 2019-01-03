@@ -62,7 +62,7 @@
     "fix": "eslint --fix '**/*.js'",
     "lint": "eslint '**/*.js'",
     "prettier:js": "prettier --write '**/*.js'",
-    "prettier:etc": "prettier --write '**/*.{html,json,md,yml}'",
+    "prettier:etc": "prettier --write '**/*.{json,md,yml}'",
     "prettier": "npm run prettier:js && npm run prettier:etc",
     "serve": "serve dist --listen $npm_package_config_port",
     "test:unit": "mocha test/unit --require esm --require chai/register-should",

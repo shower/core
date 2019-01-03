@@ -2,6 +2,6 @@
   - prettier --write
   - eslint --fix
   - git add
-'*.{html,json,md,yml}':
+'*.{json,md,yml}':
   - prettier --write
   - git add
