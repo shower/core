@@ -1,7 +1,7 @@
 {
-  "name": "shower-core",
+  "name": "@shower/core",
   "description": "Core for Shower HTML presentation engine",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": {
     "name": "Vadim Makeev",
     "url": "http://pepelsbey.net/"
