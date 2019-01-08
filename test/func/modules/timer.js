@@ -1,14 +1,15 @@
 'use strict';
 
 const TIMING = 1100;
-const dispatchKeydown = () => {
+
+function keydown() {
     const event = new KeyboardEvent('keydown', {
         key: 'a',
         bubbles: true,
     });
 
     document.body.dispatchEvent(event);
-};
+}
 
 module.exports = {
     '@tags': ['timer'],
@@ -72,7 +73,7 @@ module.exports = {
 
     'gets cancelled by key press': browser => {
         browser.url(`${browser.launchUrl}/full-timer.html#2`);
-        browser.execute(dispatchKeydown);
+        browser.execute(keydown);
         browser.pause(TIMING);
         browser.assert.cssClassPresent('[id="2"]', 'active');
         browser.end();
@@ -93,7 +94,7 @@ module.exports = {
 
     '[nested steps] gets cancelled by key press': browser => {
         browser.url(`${browser.launchUrl}/full-timer-next.html#2`);
-        browser.execute(dispatchKeydown);
+        browser.execute(keydown);
         browser.pause(TIMING);
         browser.assert.cssClassNotPresent('.a.next', 'active');
         browser.end();

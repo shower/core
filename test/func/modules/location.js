@@ -76,14 +76,14 @@ module.exports = {
         browser.url(`${browser.launchUrl}/list-id.html#1`);
         browser.assert.cssClassPresent('[id="1"]', 'active');
 
-        browser.execute(() => {
+        browser.execute(function() {
             location.hash = '3';
         });
 
         browser.assert.cssClassPresent('[id="1"]', 'visited');
         browser.assert.cssClassPresent('[id="3"]', 'active');
 
-        browser.execute(() => {
+        browser.execute(function() {
             location.hash = 'id';
         });
 
@@ -97,7 +97,7 @@ module.exports = {
         browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
         browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
 
-        browser.execute(() => {
+        browser.execute(function() {
             history.back();
         });
 
@@ -105,7 +105,7 @@ module.exports = {
         browser.assert.cssClassPresent('#id', 'active');
         browser.assert.cssClassNotPresent('[id="3"]', 'active');
 
-        browser.execute(() => {
+        browser.execute(function() {
             history.back();
         });
 
@@ -113,7 +113,7 @@ module.exports = {
         browser.assert.cssClassPresent('[id="1"]', 'active');
         browser.assert.cssClassNotPresent('#id', 'active');
 
-        browser.execute(() => {
+        browser.execute(function() {
             history.forward();
         });
 
@@ -121,7 +121,7 @@ module.exports = {
         browser.assert.cssClassPresent('#id', 'active');
         browser.assert.cssClassNotPresent('[id="1"]', 'active');
 
-        browser.execute(() => {
+        browser.execute(function() {
             history.forward();
         });
 
@@ -145,7 +145,7 @@ module.exports = {
 
     'does not change slide if hash is invalid in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list-id.html#id`);
-        browser.execute(() => {
+        browser.execute(function() {
             location.hash = 'invalid';
         });
 
@@ -156,7 +156,7 @@ module.exports = {
 
     'does not change slide if hash is invalid in `full` mode': browser => {
         browser.url(`${browser.launchUrl}/full-id.html#id`);
-        browser.execute(() => {
+        browser.execute(function() {
             location.hash = 'invalid';
         });
 
