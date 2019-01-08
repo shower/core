@@ -53,10 +53,10 @@ module.exports = {
         browser.url(`${browser.launchUrl}/full-next.html#2`);
         browser.sendKeys('.send-keys', [browser.Keys.ARROW_RIGHT, browser.Keys.ARROW_RIGHT]);
 
-        browser.execute(function() {
+        browser.execute(() => {
             location.hash = '1';
         });
-        browser.execute(function() {
+        browser.execute(() => {
             location.hash = '2';
         });
         browser.assert.cssClassPresent('.a.next', 'active');
