@@ -132,6 +132,17 @@ module.exports = {
         browser.end();
     },
 
+    'updates `full` query when navigating through history': browser => {
+        browser.url(`${browser.launchUrl}/list-id.html`);
+        browser.click('[id="1"]');
+        browser.assert.cssClassPresent('.shower', 'full');
+
+        browser.execute(() => {
+            history.back();
+        });
+        browser.assert.cssClassPresent('.shower', 'list');
+    },
+
     'does not change slide if hash is invalid in `list` mode': browser => {
         browser.url(`${browser.launchUrl}/list-id.html#id`);
         browser.execute(() => {
