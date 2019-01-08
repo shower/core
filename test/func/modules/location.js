@@ -176,7 +176,7 @@ module.exports = {
         browser.url(`${browser.launchUrl}/list.html`);
         browser.click('[id="3"]');
         browser.refresh();
-        browser.assert.elementPresent('.shower.full');
+        browser.assert.cssClassPresent('.shower', 'full');
         browser.end();
     },
 
