@@ -48,7 +48,7 @@ module.exports = {
 
     after(done) {
         server.close(() => {
-            if (this.isSauce) {
+            if (sauceProcess) {
                 sauceProcess.close(done);
             } else {
                 done();
