@@ -30,7 +30,7 @@ module.exports = {
         childProcess.execSync('npm run build');
 
         server.listen(port, () => {
-            if (this.isSauce) {
+            if (this.isSauce && !process.env.TRAVIS) {
                 console.log('Starting Sauce Connect proxy...');
                 sauceConnect((err, res) => {
                     if (err) {
