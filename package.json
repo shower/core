@@ -58,5 +58,8 @@
     "test:local": "nightwatch --env chrome-local",
     "test:sauce": "nightwatch --env chrome,firefox,safari,edge",
     "test": "npm run lint && npm run test:unit && npm run test:sauce"
+  },
+  "dependencies": {
+    "document-promises": "^4.0.0"
   }
 }
