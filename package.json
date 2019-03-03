@@ -44,7 +44,8 @@
     "rollup-plugin-node-resolve": "^4.0.1",
     "sauce-connect-launcher": "^1.2.4",
     "serve": "^10.1.2",
-    "serve-handler": "^5.0.8"
+    "serve-handler": "^5.0.8",
+    "yn": "^3.0.0"
   },
   "scripts": {
     "build": "rollup --config",
