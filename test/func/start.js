@@ -1,20 +1,17 @@
 'use strict';
 
+const { URL } = require('url');
 const { port } = require('../func-constants');
 
-const MIME_JS = 'application/javascript';
-const MIME_HTML = 'text/html';
-
-const toBase64 = string => Buffer.from(string).toString('base64');
-const toDataURL = (mime, data) => `data:${mime};base64,${toBase64(data)}`;
-const composeURL = (opts = {}) => {
-    return toDataURL(
-        MIME_HTML,
+const composeURL = opts => {
+    const url = new URL(`http://localhost:${port}`);
+    url.searchParams.set(
+        'echo',
         `
             <!DOCTYPE html>
             <head>
                 <meta charset="utf-8">
-                <title>Shower plugins test</title>
+                <title>Shower start test</title>
                 ${opts.head || ''}
             </head>
             <body class="${opts.containerClass || 'shower'} full">
@@ -31,18 +28,11 @@ const composeURL = (opts = {}) => {
             </body>
         `,
     );
+
+    return `${url}`;
 };
 
 const containerClass = 'custom';
-const showerURL = `http://localhost:${port}/shower.js`;
-const pluginURL = toDataURL(
-    MIME_JS,
-    `
-        shower.addEventListener('start', () => {
-            shower.last();
-        });
-    `,
-);
 
 module.exports = {
     '@tags': ['start'],
@@ -51,7 +41,7 @@ module.exports = {
         browser.url(
             composeURL({
                 head: `
-                    <script src="${showerURL}"></script>
+                    <script src="shower.js"></script>
                 `,
             }),
         );
@@ -65,8 +55,8 @@ module.exports = {
             composeURL({
                 containerClass,
                 head: `
-                    <script src="${showerURL}" data-container-selector=".${containerClass}"></script>
-                    <script src="${pluginURL}"></script>
+                    <script src="shower.js" data-container-selector=".${containerClass}"></script>
+                    <script src="plugin.js"></script>
                 `,
             }),
         );
@@ -80,13 +70,13 @@ module.exports = {
             composeURL({
                 containerClass,
                 head: `
-                    <script src="${showerURL}"></script>
+                    <script src="shower.js"></script>
                     <script>
                         shower.configure({
                             containerSelector: '.${containerClass}',
                         });
                     </script>
-                    <script src="${pluginURL}"></script>
+                    <script src="plugin.js"></script>
                 `,
             }),
         );
@@ -99,7 +89,7 @@ module.exports = {
         browser.url(
             composeURL({
                 body: `
-                    <script src="${showerURL}"></script>
+                    <script src="shower.js"></script>
                 `,
             }),
         );
@@ -112,8 +102,8 @@ module.exports = {
         browser.url(
             composeURL({
                 body: `
-                    <script src="${showerURL}"></script>
-                    <script src="${pluginURL}"></script>
+                    <script src="shower.js"></script>
+                    <script src="plugin.js"></script>
                 `,
             }),
         );
@@ -127,13 +117,13 @@ module.exports = {
             composeURL({
                 containerClass,
                 body: `
-                    <script src="${showerURL}"></script>
+                    <script src="shower.js"></script>
                     <script>
                         shower.configure({
                             containerSelector: '.${containerClass}',
                         });
                     </script>
-                    <script src="${pluginURL}"></script>
+                    <script src="plugin.js"></script>
                 `,
             }),
         );
@@ -146,7 +136,7 @@ module.exports = {
         browser.url(
             composeURL({
                 head: `
-                    <script src="${showerURL}" defer></script>
+                    <script src="shower.js" defer></script>
                 `,
             }),
         );
@@ -159,8 +149,8 @@ module.exports = {
         browser.url(
             composeURL({
                 head: `
-                    <script src="${showerURL}" defer></script>
-                    <script src="${pluginURL}" defer></script>
+                    <script src="shower.js" defer></script>
+                    <script src="plugin.js" defer></script>
                 `,
             }),
         );
@@ -174,8 +164,8 @@ module.exports = {
             composeURL({
                 containerClass,
                 head: `
-                    <script src="${showerURL}" defer data-container-selector=".${containerClass}"></script>
-                    <script src="${pluginURL}" defer></script>
+                    <script src="shower.js" defer data-container-selector=".${containerClass}"></script>
+                    <script src="plugin.js" defer></script>
                 `,
             }),
         );
@@ -188,7 +178,7 @@ module.exports = {
         browser.url(
             composeURL({
                 head: `
-                    <script src="${showerURL}" async></script>
+                    <script src="shower.js" async></script>
                 `,
             }),
         );
@@ -202,7 +192,7 @@ module.exports = {
             composeURL({
                 containerClass,
                 head: `
-                    <script src="${showerURL}" async data-container-selector=".${containerClass}"></script>
+                    <script src="shower.js" async data-container-selector=".${containerClass}"></script>
                 `,
             }),
         );
