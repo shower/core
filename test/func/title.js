@@ -5,31 +5,31 @@ const mdash = '\u2014';
 module.exports = {
     '@tags': ['title'],
 
-    'stays unchanged in `list` mode': browser => {
+    'stays unchanged in `list` mode': (browser) => {
         browser.url(`${browser.launchUrl}/list-title`);
         browser.assert.title('title');
         browser.end();
     },
 
-    'stays unchanged in `full` mode if slide title is missing': browser => {
+    'stays unchanged in `full` mode if slide title is missing': (browser) => {
         browser.url(`${browser.launchUrl}/list-title#2`);
         browser.assert.title('title');
         browser.end();
     },
 
-    'gets prepended with current slide title in `full` mode': browser => {
+    'gets prepended with current slide title in `full` mode': (browser) => {
         browser.url(`${browser.launchUrl}/full-title`);
         browser.assert.title(`1 ${mdash} title`);
         browser.end();
     },
 
-    'gets stripped from HTML tags while prepending': browser => {
+    'gets stripped from HTML tags while prepending': (browser) => {
         browser.url(`${browser.launchUrl}/full-title#3`);
         browser.assert.title(`3 ${mdash} title`);
         browser.end();
     },
 
-    'does not update when moving forwards in `list` mode': browser => {
+    'does not update when moving forwards in `list` mode': (browser) => {
         browser.url(`${browser.launchUrl}/list-title#2`);
         browser.assert.title('title');
         browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
@@ -37,7 +37,7 @@ module.exports = {
         browser.end();
     },
 
-    'does not update when moving backwards in `list` mode': browser => {
+    'does not update when moving backwards in `list` mode': (browser) => {
         browser.url(`${browser.launchUrl}/list-title#2`);
         browser.assert.title('title');
         browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
@@ -45,7 +45,7 @@ module.exports = {
         browser.end();
     },
 
-    'updates when moving forwards in `full` mode': browser => {
+    'updates when moving forwards in `full` mode': (browser) => {
         browser.url(`${browser.launchUrl}/full-title`);
         browser.assert.title(`1 ${mdash} title`);
         browser.sendKeys('.send-keys', browser.Keys.ARROW_RIGHT);
@@ -55,7 +55,7 @@ module.exports = {
         browser.end();
     },
 
-    'updates when moving backwards in `full` mode': browser => {
+    'updates when moving backwards in `full` mode': (browser) => {
         browser.url(`${browser.launchUrl}/full-title#3`);
         browser.assert.title(`3 ${mdash} title`);
         browser.sendKeys('.send-keys', browser.Keys.ARROW_LEFT);
@@ -65,7 +65,7 @@ module.exports = {
         browser.end();
     },
 
-    'updates when changing `list` to `full` mode': browser => {
+    'updates when changing `list` to `full` mode': (browser) => {
         browser.url(`${browser.launchUrl}/list-title`);
         browser.assert.title('title');
         browser.click('[id="1"]');
@@ -73,7 +73,7 @@ module.exports = {
         browser.end();
     },
 
-    'updates when changing `full` to `list` mode': browser => {
+    'updates when changing `full` to `list` mode': (browser) => {
         browser.url(`${browser.launchUrl}/full-title`);
         browser.assert.title(`1 ${mdash} title`);
         browser.sendKeys('.send-keys', browser.Keys.ESCAPE);
