@@ -27,7 +27,7 @@ overrides:
   - files:
       - dist/plugin.js
       - nightwatch.conf.js
+      - test/func-*.js
       - test/func/**/*.js
-      - test/func-harness.js
     parserOptions:
       sourceType: script
